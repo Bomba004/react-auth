@@ -24,11 +24,7 @@ const schema = z.object({
   confirmPassword: z.string()
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Passwords don't match",
-<<<<<<< HEAD
-  path: ["confirmPassword"]
-=======
   path: ["confirmPassword"],
->>>>>>> master
 });
 
 type RegisterForm = z.infer<typeof schema>;
@@ -39,11 +35,7 @@ const containerVariants = {
     opacity: 1,
     y: 0,
     transition: {
-<<<<<<< HEAD
-      duration: 0.5,
-=======
       duration: 0.4,
->>>>>>> master
       staggerChildren: 0.1
     }
   }
@@ -60,10 +52,6 @@ export const Register: React.FC = () => {
   const navigate = useNavigate();
   
   const {
-<<<<<<< HEAD
-    register,
-=======
->>>>>>> master
     handleSubmit,
     formState: { errors, isSubmitting }
   } = useForm<RegisterForm>({
@@ -72,9 +60,6 @@ export const Register: React.FC = () => {
 
   const onSubmit = async (data: RegisterForm) => {
     try {
-<<<<<<< HEAD
-      await dispatch(registerUser(data)).unwrap();
-=======
       // Here we're transforming the form data into the expected format
       await dispatch(registerUser({
         user: {
@@ -84,7 +69,6 @@ export const Register: React.FC = () => {
         token: 'dummy-token' // This should come from your API response
       }));
       
->>>>>>> master
       navigate('/dashboard');
     } catch (error) {
       console.error('Registration failed:', error);
@@ -116,11 +100,7 @@ export const Register: React.FC = () => {
               <Input
                 label={t('auth.username')}
                 name="username"
-<<<<<<< HEAD
-                register={register}
-=======
                 // register={register}
->>>>>>> master
                 error={errors.username?.message}
                 className="pl-10"
               />
@@ -134,11 +114,7 @@ export const Register: React.FC = () => {
                 label={t('auth.email')}
                 name="email"
                 type="email"
-<<<<<<< HEAD
-                register={register}
-=======
                 // register={register}
->>>>>>> master
                 error={errors.email?.message}
                 className="pl-10"
               />
@@ -152,11 +128,7 @@ export const Register: React.FC = () => {
                 label={t('auth.password')}
                 name="password"
                 type="password"
-<<<<<<< HEAD
-                register={register}
-=======
                 // register={register}
->>>>>>> master
                 error={errors.password?.message}
                 className="pl-10"
               />
@@ -170,11 +142,7 @@ export const Register: React.FC = () => {
                 label={t('auth.confirmPassword')}
                 name="confirmPassword"
                 type="password"
-<<<<<<< HEAD
-                register={register}
-=======
                 // register={register}
->>>>>>> master
                 error={errors.confirmPassword?.message}
                 className="pl-10"
               />
