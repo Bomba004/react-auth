@@ -44,7 +44,8 @@ git push -u origin main
 شرح كل أمر لرفع المشروع على GitHub Pages Production:
 
   1. هذا الأمر يستخدم لتثبيت حزمة gh-pages وإضافتها إلى مشروعك. gh-pages هي أداة تسهل نشر المشاريع على GitHub Pages.
-npm install --save gh-pages
+npm uninstall gh-pages
+npm install gh-pages --save-dev
   : يقوم بتثبيت الحزمة.
 npm install
   --save: يضيف الحزمة إلى قائمة التبعيات في ملف
@@ -59,7 +60,8 @@ package.json.
   "deploy": "gh-pages -d build"
 
 4. هذا الأمر يستخدم لتنفيذ عملية النشر على GitHub Pages.
-npm run predeploy
+rm -rf dist  # في Windows استخدم `rmdir /s /q dist`
+npm run build
 npm run deploy
 
 
