@@ -14,7 +14,7 @@ git remote add origin git@github.com:Bomba004/react-auth.git
   // Check remote repositories | عرض المواقع البعيدة
 git remote -v
   // Push to remote repository | إرسال إلى المواقع البعيدة
-git push -u origin main
+git push -u origin master
 
 
 **
