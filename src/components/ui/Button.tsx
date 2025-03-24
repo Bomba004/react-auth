@@ -2,7 +2,11 @@ import React from 'react';
 import clsx from 'clsx';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+<<<<<<< HEAD
   variant?: 'primary' | 'secondary' | 'outline';
+=======
+  variant?: 'primary' | 'secondary' | 'outline' | 'danger';
+>>>>>>> master
   size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
   isLoading?: boolean;
@@ -44,6 +48,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             'btn-primary': variant === 'primary',
             'btn-secondary': variant === 'secondary',
             'btn-outline': variant === 'outline',
+<<<<<<< HEAD
+=======
+            'btn-danger': variant === 'danger',
+>>>>>>> master
             'w-full': fullWidth,
             'px-4 py-2 text-sm': size === 'sm',
             'px-6 py-3 text-base': size === 'md',
