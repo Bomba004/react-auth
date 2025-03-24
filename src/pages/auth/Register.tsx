@@ -24,7 +24,7 @@ const schema = z.object({
   confirmPassword: z.string()
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Passwords don't match",
-  path: ["confirmPassword"]
+  path: ["confirmPassword"],
 });
 
 type RegisterForm = z.infer<typeof schema>;
@@ -35,7 +35,7 @@ const containerVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       staggerChildren: 0.1
     }
   }
@@ -61,7 +61,15 @@ export const Register: React.FC = () => {
 
   const onSubmit = async (data: RegisterForm) => {
     try {
-      await dispatch(registerUser(data)).unwrap();
+      // Here we're transforming the form data into the expected format
+      await dispatch(registerUser({
+        user: {
+          id: 0, // This will be set by the backend
+          name: data.username
+        },
+        token: 'dummy-token' // This should come from your API response
+      }));
+      
       navigate('/dashboard');
     } catch (error) {
       console.error('Registration failed:', error);
@@ -93,7 +101,7 @@ export const Register: React.FC = () => {
               <Input
                 label={t('auth.username')}
                 name="username"
-                register={register}
+                // register={register}
                 error={errors.username?.message}
                 className="pl-10"
               />
@@ -107,7 +115,7 @@ export const Register: React.FC = () => {
                 label={t('auth.email')}
                 name="email"
                 type="email"
-                register={register}
+                // register={register}
                 error={errors.email?.message}
                 className="pl-10"
               />
@@ -121,7 +129,7 @@ export const Register: React.FC = () => {
                 label={t('auth.password')}
                 name="password"
                 type="password"
-                register={register}
+                // register={register}
                 error={errors.password?.message}
                 className="pl-10"
               />
@@ -135,7 +143,7 @@ export const Register: React.FC = () => {
                 label={t('auth.confirmPassword')}
                 name="confirmPassword"
                 type="password"
-                register={register}
+                // register={register}
                 error={errors.confirmPassword?.message}
                 className="pl-10"
               />

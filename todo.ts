@@ -45,8 +45,8 @@ package.json.
     : ينشر الملفات في مجلد build إلى فرع gh-pages على GitHub.
   "deploy": "gh-pages -d build"
 
-4. أمر npm run deploy
-هذا الأمر يستخدم لتنفيذ عملية النشر على GitHub Pages.
+4. هذا الأمر يستخدم لتنفيذ عملية النشر على GitHub Pages.
+npm run deploy
 
 
 */
