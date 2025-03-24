@@ -1,0 +1,116 @@
+/* استيراد الأنماط الأساسية لمكتبة React-Toastify */
+@import "react-toastify/dist/ReactToastify.css";
+
+/* تخصيص عام للتوست */
+.Toastify__toast {
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  border-radius: 0.5em;
+  box-shadow: var(--shadow);
+  color: hsl(var(--color-black)) !important;
+  fill: hsl(var(--color-black)) !important;
+  text-align: left;
+  direction: ltr;
+}
+
+/* تخصيص شريط التقدم */
+.Toastify__progress-bar {
+  height: 0.3em;
+  border-radius: 0.5em;
+}
+
+/* تخصيص رسائل النجاح */
+.Toastify__toast--success {
+  --shadow: 0 0.125em 0.5em var(--success-shd);
+  background-color: var(--success-bg);
+  color: inherit;
+  fill: var(--color-black) !important;
+}
+.Toastify__progress-bar--success {
+  background-color: var(--success-bar);
+}
+
+/* تخصيص رسائل الخطأ */
+.Toastify__toast--error {
+  --shadow: 0 0.125em 0.5em var(--error-shd);
+  background-color: var(--error-bg);
+  color: inherit;
+}
+.Toastify__progress-bar--error {
+  background-color: var(--error-bar);
+}
+
+/* تخصيص رسائل المعلومات */
+.Toastify__toast--info {
+  --shadow: 0 0.125em 0.5em var(--info-shd);
+  background-color: var(--info-bg);
+  color: inherit;
+}
+.Toastify__progress-bar--info {
+  background-color: var(--info-bar);
+}
+
+/* تخصيص رسائل التحذير */
+.Toastify__toast--warning {
+  --shadow: 0 0.125em 0.5em var(--warning-shd);
+  background-color: var(--warning-bg);
+  color: inherit;
+}
+.Toastify__progress-bar--warning {
+  background-color: var(--warning-bar);
+}
+
+/* تخصيص زر الإغلاق */
+
+.Toastify__close-button {
+    color: inherit !important;
+    position: absolute;
+    top: 6px;
+    right: auto !important;
+    left: auto !important;
+    inset-inline-end: 6px !important;
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s ease;
+    z-index: 1;
+}
+.Toastify__close-button > svg { fill: var(--color-black) !important; }
+
+.Toastify__close-button:hover {
+  opacity: 1;
+}
+
+.toast-close-animation {
+    animation: slideOutRight 0.5s ease-in-out forwards;
+}
+
+
+/* دعم التوست باللغة العربية (RTL) */
+/* [dir="rtl"] .Toastify__toast {
+  text-align: right;
+  direction: rtl;
+}
+[dir="rtl"] .Toastify__toast-container--top-left {
+    top: var(--toastify-toast-top);
+    right: var(--toastify-toast-right);
+    left: auto !important;
+    align-items: end;
+}
+[dir="rtl"] .Toastify__toast-container--top-right {
+    top: var(--toastify-toast-top);
+    left: var(--toastify-toast-left);
+    right:auto !important;
+    align-items: start;
+}
+[dir="rtl"] .toast-close-animation {
+  animation: slideOutLeft 0.5s ease-in-out forwards;
+} */
+
+
+
+
+  

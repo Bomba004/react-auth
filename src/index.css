@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors - Light Theme (Default) */
+  --color-primary: 260, 80%, 60%;
+  --color-primary-light: 260, 80%, 60%;
+  --color-primary-dark: 260, 20%, 40%;
+  
+  --color-secondary: 260, 80%, 60%;
+  --color-secondary-light: 260, 80%, 70%;
+  --color-secondary-dark: 260, 20%, 30%;
+  
+  
+  --color-white: 260, 95%, 95%;
+  --color-white-light: 260, 95%, 95%;
+  --color-white-dark: 260, 5%, 5%;
+
+  --color-black: 260, 4%, 10%;
+  --color-black-light: 260, 96%, 90%;
+  --color-black-dark: 260, 4%, 10%;
+  
+
+  --color-background: 260, 95%, 95%;
+  --color-muted: 260, 5%, 50%;
+
+  
+  --success-color: 150, 80%, 40%;
+  --warning-color: 40, 90%, 50%;
+  --danger-color: 0, 90%, 50%;
+  
+
+  /* تعريف متغيرات الألوان */
+  --success-bg: hsla(var(--success-color), 0.6);
+  --success-bar: hsla(var(--success-color), 0.8);
+  --success-shd: hsla(var(--success-color), 0.9);
+  --error-bg: hsla(var(--danger-color), 0.4);
+  --error-bar: hsla(var(--danger-color), 0.8);
+  --error-shd: hsla(var(--danger-color), 0.9);
+  --info-bg: hsla(var(--info-color), 0.4);
+  --info-bar: hsla(var(--info-color), 0.8);
+  --info-shd: hsla(var(--info-color), 0.9);
+  --warning-bg: hsla(var(--warning-color), 0.4);
+  --warning-bar: hsla(var(--warning-color), 0.8);
+  --warning-shd: hsla(var(--warning-color), 0.9);
+  --text-color: hsl(var(--color-black));
+  --shadow: 0 0.125em 0.5em hsla(var(--color-primary), 0.3);
+
+  /* Font */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Light Theme */
+:root[class='light'] {
+  --color-background: 260, 95%, 95%;       /* RGB(255, 255, 255) -> HSL(0, 0%, 100%) */
+  --color-black: 260, 4%, 10%;      /* RGB(24, 24, 27) -> HSL(260, 4%, 10%) */
+  
+  --color-muted: 260, 5%, 50%;           /* RGB(113, 113, 122) -> HSL(260, 5%, 50%) */
+}
+
+/* Dark Theme */
+:root[class='dark'] {
+  --color-background: 260, 5%, 5%;    /* RGB(24, 24, 27) -> HSL(260, 4%, 10%) */
+  --color-black: 260, 96%, 90%;     /* RGB(255, 255, 255) -> HSL(0, 0%, 100%) */
+ 
+  --color-muted: 260, 95%, 45%;         /* RGB(161, 161, 170) -> HSL(260, 5%, 65%) */
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: 240, 4%, 10%;
+    --color-black: 240, 96%, 90%;
+    --color-muted: 240, 5%, 65%;
+  }
+}
+ */
+
+/*#region -------------------- { BASE } ----------------------*/
+
+*:not(input[text], input[number], input[email], input[password]){user-select: none;}
+*::selection { background: hsl(var(--color-primary)); text-shadow: none; }
+/* *::-moz-selection { color: var(--info-color); background: var(--warning-color); text-shadow: none; } */
+
+@layer base {
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    font-family: var(--font-family);
+
+    color: hsl(var(--color-black));
+    fill: hsl(var(--color-black));
+    -webkit-text-fill-color: hsl(var(--color-black)) !important; /* تغيير لون النص إلى أحمر */
+
+    background: linear-gradient(
+      to bottom right,
+      hsla(var(--color-primary), 0.1),
+      hsla(var(--color-secondary), 0.1)
+    );
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    background-color: hsl(var(--color-primary));
+    color: hsl(var(--color-black));
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background-color: hsl(var(--color-primary-dark));
+  }
+
+  .btn-secondary {
+    background-color: hsl(var(--color-secondary));
+    color: hsl(var(--color-black));
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    background-color: hsl(var(--color-secondary-dark));
+  }
+
+  .input {
+    @apply w-full px-4 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6;
+  }
+}
+
+.text-primary {
+  color: hsl(var(--color-primary));
+}
+
+.text-primary-light {
+  color: hsl(var(--color-primary-light));
+}
+
+.text-muted { color: hsl(var(--color-black)); }
+.text-muted-05 { color: hsla(var(--color-black), 0.5); }
+.text-muted-06 { color: hsla(var(--color-black), 0.6); }
+
+.bg-glass {
+  background-color: hsla(var(--color-black), 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid hsla(var(--color-black), 0.1);
+}
+
+/* RTL Support */
+[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Error styles */
+.error { color: hsl(var(--danger-color)) !important; border-color: hsl(var(--danger-color)) !important; }
+.error input::placeholder { color: hsl(var(--danger-color)) !important; }
+.error .icon { border-color: hsl(var(--danger-color)) !important; }
+
+/* SweetAlert2 */
+div:where(.swal2-container) div:where(.swal2-timer-progress-bar) {
+  background-color: hsl(var(--color-black)) !important;
+}
+
+/* Toastify */
+/* .Toastify {
+  --toastify-color-primary: hsl(var(--color-primary));
+  --toastify-color-primary-dark: hsl(var(--color-primary-dark));
+  --toastify-color-primary-light: hsl(var(--color-primary-light));
+  --toastify-color-secondary: hsl(var(--color-secondary));
+  --toastify-color-secondary-dark: hsl(var(--color-secondary-dark));
+  --toastify-color-secondary-light: hsl(var(--color-secondary-light));
+  --toastify-color-black: hsl(var(--color-black));
+  --toastify-color-background: hsl(var(--color-background));
+  --toastify-color-muted: hsl(var(--color-muted));
+  --toastify-color-success: hsl(var(--success-color));
+  --toastify-color-warning: hsl(var(--warning-color));
+  --toastify-color-danger: hsl(var(--danger-color));
+
+  --toastify-color-light: hsla(var(--color-black), 0.05);
+  --toastify-text-color-light: hsl(var(--color-black));
+}
+
+[dir="rtl"] .Toastify {
+  --toastify-toast-right: max(var(--toastify-toast-offset), env(safe-area-inset-left));
+  --toastify-toast-left: max(var(--toastify-toast-offset), env(safe-area-inset-right));
+}
+.Toastify__toast-container{
+  color: hsl(var(--color-black));
+} */
+
+/* .Toastify__toast-theme--light {
+  background: var(--toastify-color-light);
+  color: var(--toastify-text-color-light);
+} */
+
+
+
+/* منع المتصفح من تغيير خلفية الحقل عند الإكمال التلقائي */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: inherit !important; /* تغيير لون النص إلى أحمر */
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; /* إزالة الخلفية */
+    transition: background-color 5000s ease-in-out 0s !important; /* منع التغيير التلقائي للخلفية */
+}
