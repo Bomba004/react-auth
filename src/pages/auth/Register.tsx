@@ -52,7 +52,6 @@ export const Register: React.FC = () => {
   const navigate = useNavigate();
   
   const {
-    register,
     handleSubmit,
     formState: { errors, isSubmitting }
   } = useForm<RegisterForm>({
