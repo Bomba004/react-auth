@@ -14,13 +14,26 @@ git remote add origin git@github.com:Bomba004/react-auth.git
   // Check remote repositories | عرض المواقع البعيدة
 git remote -v
   // Push to remote repository | إرسال إلى المواقع البعيدة
-git push -u origin master
+git push -u origin main
 
 
 **
 
   // Set remote repository | لربط المشروع بـ GitHub
 git remote set-url origin git@github.com:Bomba004/react-auth.git
+
+  // Check branches | عرض الفروع
+git branch
+  // Create main branch | إنشاء فرع main
+git branch main
+  // Switch to main branch | التحويل إلى فرع main
+git checkout main | git switch main
+  // Merge master branch | دمج فرع master إلى main | إلي الفرع الحالي
+git merge master
+  // Delete master branch | حذف فرع master
+git branch -D master
+  // Push changes to remote repository | إرسال التغييرات إلى المواقع البعيدة
+git push -u origin main
 
 
 
