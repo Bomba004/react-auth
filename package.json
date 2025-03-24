@@ -9,8 +9,12 @@
     "preview": "vite preview",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "json-server --watch db.json --port 3001",
-    "client": "vite"
+    "client": "vite",
+    
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "https://bomba004.github.io/bssm-auth",
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
@@ -21,6 +25,7 @@
     "@tippyjs/react": "^4.2.6",
     "axios": "^1.6.2",
     "framer-motion": "^10.16.5",
+    "gh-pages": "^6.3.0",
     "i18next": "^24.2.3",
     "json-server": "^0.17.4",
     "lottie-react": "^2.4.1",
