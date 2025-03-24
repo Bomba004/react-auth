@@ -9,14 +9,18 @@ git init
 git add .
   // Commit | تسجيل
 git commit -m "commit-001"
-// Add remote repository | لربط المشروع بـ GitHub
+  // Add remote repository | لربط المشروع بـ GitHub
 git remote add origin git@github.com:Bomba004/react-auth.git
-// Check remote repositories | عرض المواقع البعيدة
+  // Check remote repositories | عرض المواقع البعيدة
 git remote -v
   // Push to remote repository | إرسال إلى المواقع البعيدة
 git push -u origin main
 
 
+**
+
+  // Set remote repository | لربط المشروع بـ GitHub
+git remote set-url origin git@github.com:Bomba004/react-auth.git
 
 
 */
