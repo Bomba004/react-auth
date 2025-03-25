@@ -13,20 +13,15 @@ import clsx from 'clsx';
 import { ToastLayout } from './components/ui/toast/Toast';
 
 
-import { toast } from "react-toastify";
-import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
-
-const routerApi = '/react-auth';
 
 const App: React.FC = () => {
 
-  const { i18n } = useTranslation();
-  useEffect(() => {
-    console.log(i18n.language);
-    // تحديث جميع التوست عند تغيير اللغة
-    toast.update;
-  }, [i18n.language]);
+  // const { i18n } = useTranslation();
+  // useEffect(() => {
+  //   console.log(i18n.language);
+  //   // تحديث جميع التوست عند تغيير اللغة
+  //   toast.update;
+  // }, [i18n.language]);
 
   const user = useSelector((state: RootState) => state.auth.user);
 
@@ -43,20 +38,11 @@ const App: React.FC = () => {
         {user && <Navbar />}
         <main className={user ? 'container mx-auto px-4 py-8 mt-6' : ''}>
           <Routes>
-            <Route path={routerApi + "/login"} element={
-              user ? <Navigate to={routerApi + "/dashboard"} /> : <Login />
-            } />
-            <Route
-              path={routerApi + "/dashboard"}
-              element={
-                <PrivateRoute>
-                  <Dashboard />
-                </PrivateRoute>
-              }
-            />
-            <Route path={routerApi + "/error"} element={<ErrorPage />} />
-            <Route path={routerApi + ""} element={<Navigate to={routerApi + "/dashboard"} />} />
-            <Route path="*" element={<ErrorPage title="Error 404" message="Page not found" />} />
+            <Route path={`/login`} element={ user ? <Navigate to={`/dashboard`} /> : <Login /> } />
+            <Route path={`/dashboard`} element={ <PrivateRoute> <Dashboard /> </PrivateRoute> } />
+            <Route path={`/error`} element={ <ErrorPage /> } />
+            <Route path={``} element={ <Navigate to={`/dashboard`} /> } />
+            <Route path="*" element={ <ErrorPage title="Error 404" message="Page not found" /> } />
           </Routes>
         </main>
         {/* Toast Layout القالب الذي يعمل بداخله Toastify */}

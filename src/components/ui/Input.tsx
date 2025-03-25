@@ -66,16 +66,17 @@ export const Password = (
   return (
     <Ty {...TyP} show={InputP.error !== undefined} >
       <Input {...InputP}
-  firstChild={
-  <KeyIcon className="icon w-6.5 h-5 pe-2 border-inline-end border-black dark:border-white border-solid border-e-[0.1em]" />}
-  lastChild={
-    <button
-      type="button"
-      onClick={() => setShowPassword(!showPassword)}
-    >
-      { showPassword ? ( <EyeSlashIcon className="w-5 h-5" /> ) : ( <EyeIcon className="w-5 h-5" /> ) }
-    </button>
-  }
+        type={showPassword ? 'text' : 'password'}
+        firstChild={
+          <KeyIcon className="icon w-6.5 h-5 pe-2 border-inline-end border-black dark:border-white border-solid border-e-[0.1em]" />}
+        lastChild={
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            { showPassword ? ( <EyeSlashIcon className="w-5 h-5" /> ) : ( <EyeIcon className="w-5 h-5" /> ) }
+          </button>
+        }
 />
 </Ty>
 

@@ -11,7 +11,7 @@
     "server": "json-server --watch db.json --port 3001",
     "client": "vite",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "homepage": "https://bomba004.github.io/react-auth",
   "dependencies": {
