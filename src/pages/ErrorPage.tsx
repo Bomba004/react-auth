@@ -1,5 +1,5 @@
 import { clsx, ExclamationTriangleIcon, Footer, HomeIcon, motion, useNavigate, useTranslation } from "@/utils/alias";
-import Lottie from "lottie-react";
+// import Lottie from "lottie-react";
 // import { LottieHandler } from "@/components/LottieHandler";
 
 interface ErrorPageProps {
