@@ -1,0 +1,1 @@
+import{u as a,j as s,b as o,r}from"./index-gbR1Eooi.js";const l=()=>(a(e=>e.auth.user),u(),s.jsx("h1",{children:"welcome BomBa"})),u=()=>{const{i18n:e}=o();r.useEffect(()=>{const t=e.language==="ar"?"rtl":"ltr",n=e.language;document.documentElement.dir=t,document.documentElement.lang=n},[e.language])};export{l as default};

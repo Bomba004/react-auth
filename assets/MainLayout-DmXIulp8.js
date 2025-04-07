@@ -1,0 +1,1 @@
+import{j as e,O as o}from"./index-gbR1Eooi.js";const t=({setting:r={header:!1,footer:!1}})=>e.jsxs(e.Fragment,{children:[r.header&&e.jsx("header",{children:"header"}),e.jsx(o,{}),r.footer&&e.jsx("footer",{children:"footer"})]});export{t as default};
