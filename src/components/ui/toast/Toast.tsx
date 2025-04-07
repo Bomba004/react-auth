@@ -15,7 +15,7 @@ const Toast = Swal.mixin({
 });
 
 export const SwalToast = () => {
-  const isDarkMode = useSelector((state: RootState) => state.theme.isDark);
+  const isDarkMode = useSelector((state: RootState) => state.theme.theme === 'dark');
 
   const showSuccess = (message: string) => {
     Toast.fire({

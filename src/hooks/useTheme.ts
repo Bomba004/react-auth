@@ -4,7 +4,7 @@ import { toggleTheme } from '../store/slices/themeSlice';
 
 export const useTheme = () => {
   const dispatch = useDispatch();
-  const isDark = useSelector((state: RootState) => state.theme.isDark);
+  const isDark = useSelector((state: RootState) => state.theme.theme === 'dark');
 
   const handleToggleTheme = () => {
     dispatch(toggleTheme());
