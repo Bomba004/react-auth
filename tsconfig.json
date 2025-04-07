@@ -29,6 +29,6 @@
     /* Paths */
 
   },
-  "include": ["src"],
+  "include": ["src", "data/Input.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

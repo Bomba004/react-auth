@@ -1,3 +1,4 @@
+import { TLoading } from '@/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface User {
@@ -7,11 +8,20 @@ export interface User {
 }
 
 interface AuthState {
+  loading: TLoading;
+  error: null | string;
+
   user: User | null;
   token: string | null;
 }
 
+// ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
+
+// State:
 const initialState: AuthState = {
+  loading: "idle",
+  error: null,
+
   user: null,
   token: null,
 };

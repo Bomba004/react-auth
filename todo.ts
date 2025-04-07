@@ -65,6 +65,16 @@ npm run build
 npm run deploy
 
 
+** Extensions:
+1) تسجيل الملفات في Redux DevTools
+  npm install --save-dev redux-devtools-extension     ||    yarn add -D redux-devtools-extension
+  
+
+- مكتبة lottiefiles : مكتبة مختلطة متخصصة لعرض الرسوم المتحركة في المواقع, UIL(https://lottiefiles.com/).
+  npm install lottie-react
+
+
+
 */
 
 

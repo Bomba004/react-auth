@@ -24,15 +24,15 @@ interface LoginForm {
 // محاكاة API للتسجيل
 const mockLoginApi = async (credentials: { userName: string; password: string }): Promise<{ success: boolean; user: User }> => {
   // تأخير لمحاكاة طلب الشبكة
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  await new Promise(resolve => setTimeout(resolve, 5000));
   
   // التحقق من صحة بيانات الاعتماد
-  if (credentials.userName === 'admin' && credentials.password === 'password') {
+  if (credentials.userName === 'admin' && credentials.password === 'admin') {
     return { 
       success: true, 
       user: { 
         id: 1, 
-        name: 'Admin User'
+        name: 'Admin User',
       } 
     };
   }
@@ -154,3 +154,6 @@ export const Login: React.FC = () => {
     </div>
   );
 };
+
+
+export default Login;

@@ -4,9 +4,10 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: "/react-auth/", // تأكد أن هذا يطابق اسم المستودع على GitHub
+  // base: "/react-auth/", // تأكد أن هذا يطابق اسم المستودع على GitHub
   server: {
-    port: 5173,
+    // port: 5173,
+    port: 3000,
     host: true,
   },
   resolve: {

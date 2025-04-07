@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface ThemeState {
-  isDark: boolean;
+  // isDark: boolean;
+  // theme: string;
+  theme: 'normal' | 'light' | 'dark';
 }
 
 const initialState: ThemeState = {
-  isDark: document.documentElement.classList.contains('dark'),
+  theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
 };
 
 export const themeSlice = createSlice({
@@ -13,8 +15,8 @@ export const themeSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme: (state) => {
-      state.isDark = !state.isDark;
-      if (state.isDark) {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      if (state.theme === 'dark') {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');
