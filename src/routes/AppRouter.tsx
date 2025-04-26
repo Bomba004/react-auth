@@ -6,6 +6,7 @@ import {
 
 // layouts
 const MainLayout = lazy(() => import("@/layouts/MainLayout/MainLayout"));
+const AuthLayout = lazy(() => import("@/pages/auth/AuthLayout"));
 const PrivateRoute = lazy(() => import("@/components/auth/PrivateRoute"));
 
 // components
@@ -29,11 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <Suspense fallback={
-        // <div className="flex justify-center items-center"> <LottieHandler type="loading" message={t('global.loading')} /> </div> } >
-        <div className="flex justify-center items-center"> <LottieHandler type="loading" message='Loading please wait...' /> </div>} >
-        <MainLayout />
-      </Suspense>
+      <Suspense fallback={ <LottieHandler type="loading" message='Loading please wait...' /> /* loading: جزء تحميل الصفحة */} >
+      {/* MainLayout: Layout المركزي */}
+      <MainLayout setting={{ header: true, footer: true }}/>
+    </Suspense>
     ),
     errorElement: <Error />,
     children: [
@@ -43,7 +43,6 @@ const router = createBrowserRouter([
         element: (
           <PageSuspenseFallback>
             {/* <Home /> */}
-            <MainLayout setting={{ header: true, footer: true }} />
             <App />
           </PageSuspenseFallback>
         ),
@@ -54,30 +53,57 @@ const router = createBrowserRouter([
     path: "dashboard",
     element: (
       <PageSuspenseFallback>
-        <PrivateRoute> <Dashboard /> </PrivateRoute>
+        <PrivateRoute>
+        <MainLayout setting={{ header: true, footer: true }}/>
+          <Dashboard />
+        </PrivateRoute>
       </PageSuspenseFallback>
     ),
   },
+  // Auth ---
   {
     path: "login",
     element: (
-      <PageSuspenseFallback>
-        <Login />
-      </PageSuspenseFallback>
+      <Suspense fallback={ <LottieHandler type="loading" message='Loading please wait...' /> /* loading: جزء تحميل الصفحة */} >
+        {/* MainLayout: Layout المركزي */}
+        <MainLayout setting={{ header: true, footer: true }}/>
+        
+      </Suspense>
     ),
+    errorElement: <Error />,
+    children: [ {
+      index: true,
+      // element: <Login />,
+      element: <PageSuspenseFallback>
+        <AuthLayout children_Is='Login'> <Login /> </AuthLayout>
+        </PageSuspenseFallback> ,
+     }, ],
   },
   {
     path: "register",
     element: (
-      <PageSuspenseFallback>
-        <Register />
-      </PageSuspenseFallback>
+      <Suspense fallback={ <LottieHandler type="loading" message='Loading please wait...' /> /* loading: جزء تحميل الصفحة */} >
+        {/* MainLayout: Layout المركزي */}
+        <MainLayout setting={{ header: true, footer: true }}/>
+      </Suspense>
     ),
+    errorElement: <Error />,
+    children: [ {
+      index: true,
+      // element: <Register />,
+      element: <PageSuspenseFallback>
+        <AuthLayout children_Is='Register'> <Register /> </AuthLayout>
+      </PageSuspenseFallback> ,
+   }, ],
   },
+  // Auth ---
 ]);
 
 const AppRouter = () => {
-  return <RouterProvider router={router} />;
+  return <>
+    <RouterProvider router={router} />
+  </>;
 };
 
 export default AppRouter;
+

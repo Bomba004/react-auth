@@ -1,9 +1,10 @@
 import {
+  Link,  
   Router, Routes, Route, Navigate, useSelector,
   Navbar, Login, Dashboard, ErrorPage, PrivateRoute,
   useDirection, ToastLayout,
   clsx,
-  RootState, 
+  RootState,
 } from '@/utils/alias';
 
 
@@ -12,6 +13,10 @@ const App: React.FC = () => {
   const user = useSelector((state: RootState) => state.auth.user);
   useDirection();
 
+  return <>
+    <Link to="/about">اذهب إلى صفحة التعريف</Link>
+    <h1>welcome BomBa</h1>
+  </>;
   return (
     (true)? <h1>welcome BomBa</h1> :
     <Router>

@@ -1,3 +1,4 @@
+import { Footer, Header__test } from "@/utils/alias";
 import { Outlet } from "react-router-dom";
 // import { Header, Footer } from "@components/common";
 
@@ -8,12 +9,13 @@ type MainLayoutProps = {
   };
 };
 
-const MainLayout = ({ setting = { header: false, footer: false } }: MainLayoutProps) => {
+export const MainLayout = ({ setting = { header: false, footer: false } }: MainLayoutProps) => {
   return (
     <>
-      {setting.header && <header>header</header>}
+      {setting.header && <Header__test/>}
+      {/* <h1>BomBa ------------------------------------</h1> */}
       <Outlet />
-      {setting.footer && <footer>footer</footer>}
+      {setting.footer && <Footer/>}
     </>
   );
 };

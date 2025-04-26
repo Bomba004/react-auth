@@ -1,7 +1,9 @@
 // React|Core|Basic
 import React, {
     useState,
- } from "react";
+} from "react";
+import { Link, Outlet } from "react-router-dom";
+
 import { useForm } from 'react-hook-form';
 import clsx from 'clsx';
 
@@ -37,6 +39,7 @@ import { Button } from '@/components/ui/Button';
 import { showToast as msn } from '@/components/ui/toast/Toast';
 
 // Components|Layout
+import { Header__test } from '@/components/layout/Header__test';
 import { Footer } from '@/components/layout/Footer';
 
 
@@ -65,7 +68,7 @@ import {type RootState } from '@/store';
 
 export {// Global
     // React|Core|Basic
-    React, useState, useForm,
+    React,Link, Outlet, useState, useForm,
     clsx,
     
     // Routes
@@ -88,6 +91,7 @@ export {// Global
     // UI Components
     Password, SuperInput, Checkbox, Button,
     msn,
+    Header__test,
     Footer,
 };
 

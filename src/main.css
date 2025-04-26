@@ -74,7 +74,7 @@
     --color-muted: 240, 5%, 65%;
   }
 }
- */
+*/
 
 /*#region -------------------- { BASE } ----------------------*/
 
@@ -98,6 +98,11 @@
       hsla(var(--color-primary), 0.1),
       hsla(var(--color-secondary), 0.1)
     );
+  }
+  #root {
+    /* @apply w-full h-full; */
+    width: 100dvw;
+    height: 100dvh;
   }
 }
 
@@ -133,6 +138,20 @@
   .card {
     @apply bg-white rounded-lg shadow-md p-6;
   }
+}
+/*#endregion*/
+
+
+
+#root {
+  /* max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center; */
+
+  /* -------- */
+  /* height: 100dvh;
+  background: #000; */
 }
 
 .text-primary {
@@ -214,4 +233,11 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: inherit !important; /* تغيير لون النص إلى أحمر */
     -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; /* إزالة الخلفية */
     transition: background-color 5000s ease-in-out 0s !important; /* منع التغيير التلقائي للخلفية */
+}
+
+
+
+
+.bg1{
+  background: #f00;
 }
