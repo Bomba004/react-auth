@@ -12,7 +12,7 @@ import {
 
   Password, SuperInput, Checkbox, Button,
   msn,
-  Footer,
+  // Footer,
 } from '@/utils/alias';
 
 interface LoginForm {

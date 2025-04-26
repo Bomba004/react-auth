@@ -75,7 +75,6 @@
   
   import {
     motion,
-    Outlet,
     UserIcon,
     useTranslation,
   } from '@/utils/alias';
@@ -99,7 +98,7 @@
             <p className="text-muted-06">{t('auth.loginDescription')}</p>
           </div>
          
-          {/* {children_Is} */}
+          {children_Is?? <></>}
           
           {children}
           
