@@ -9,7 +9,8 @@ export const Footer: React.FC = () => {
   
   return (
     <footer className="fixed bottom-0 left-0 right-0 p-1 lg:p-4 text-muted-06">
-      <div className="container mx-auto max-w-7xl">
+      {/* <div className="container mx-auto max-w-7xl"> */}
+      <div className="container mx-auto">
         <div className={clsx(
           'flex items-center justify-center gap-1 md:gap-16',
           'bg-glass rounded-xl px-1 py-1 md:px-4 md:py-3',

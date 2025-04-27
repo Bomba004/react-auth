@@ -1,0 +1,32 @@
+// body, #root {
+//  background-color: #f00 !important; 
+// }
+
+// a {
+//   color: theme('colors.blue.500') !important;
+//   &:hover {
+//     color: theme('colors.blue.700') !important;
+//   }
+// }
+
+header {
+  
+  .Logo a{ color: hsl(var(--color-primary)); fill: hsl(var(--color-primary)); &:hover{ color: hsla(var(--color-primary), 0.8); fill: hsla(var(--color-primary), 0.8); } }
+  
+  nav ul li a{ color: hsl(var(--color-primary)); fill: hsl(var(--color-primary));
+    &:hover{ color: hsla(var(--color-primary), 0.8); fill: hsla(var(--color-primary), 0.8); }
+  }
+
+  .btn__login{
+    color: hsl(var(--color-white)); fill: hsl(var(--color-white));
+    background-color: hsl(var(--color-primary));
+    &:hover{ background-color: hsla(var(--color-primary), 0.8); }
+  }
+
+  .btn__register{
+    color: hsl(var(--color-black)); fill: hsl(var(--color-black));
+    background-color: hsl(var(--color-gray));
+    &:hover{ background-color: hsla(var(--color-gray), 0.8); }
+  }
+
+}

@@ -29,14 +29,16 @@ import { motion } from 'framer-motion';
 // Icons
 import {  
     ExclamationTriangleIcon, HomeIcon,
-    AtSymbolIcon, UserIcon,
+    AtSymbolIcon, UserIcon, UserGroupIcon
  } from '@heroicons/react/24/outline';
 
 // UI Components
 import { Password, SuperInput } from '@/components/ui/Input';
 import { Checkbox } from '@/components/ui/Checkbox';
 import { Button } from '@/components/ui/Button';
+import { Slider } from '@/components/ui/slider/Slider';
 import { showToast as msn } from '@/components/ui/toast/Toast';
+
 
 // Components|Layout
 import { Header__test } from '@/components/layout/Header__test';
@@ -86,10 +88,10 @@ export {// Global
 
     // Icons
     ExclamationTriangleIcon, HomeIcon,
-    AtSymbolIcon, UserIcon,
+    AtSymbolIcon, UserIcon, UserGroupIcon,
 
     // UI Components
-    Password, SuperInput, Checkbox, Button,
+    Password, SuperInput, Checkbox, Button, Slider,
     msn,
     Header__test,
     Footer,
