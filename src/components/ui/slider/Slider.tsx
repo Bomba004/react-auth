@@ -25,7 +25,7 @@ export const Slider = ({ className, items, timePlay = 5000, btnSlide = true, btn
   }, []);
 
   return (
-    <div className={`w-full h-full rounded-xl overflow-hidden ${className}`}>
+    <div className={`w-full h-full rounded-[0.5em] overflow-hidden ${className}`}>
       <div className="relative w-full h-full">
         <div className="relative h-56 overflow-hidden rounded-lg md:h-full">
           {items.map((item, index) => (
@@ -35,7 +35,8 @@ export const Slider = ({ className, items, timePlay = 5000, btnSlide = true, btn
             >
               <img
                 src={item.image}
-                className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                // className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                className="absolute block w-full h-full"
                 alt={`Slide ${item.id}`}
                 draggable={false} // <--- هنا الإضافة
               />

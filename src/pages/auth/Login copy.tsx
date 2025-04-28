@@ -88,7 +88,7 @@ export const Login: React.FC = () => {
         transition={{ duration: 0.3 }}
         className="w-full max-w-md"
       >
-        <div className="bg-glass rounded-xl p-8 shadow-2xl">
+        <div className="bg-glass rounded-[0.5em] p-8 shadow-2xl">
           <div className="text-center mb-8">
             <div className="inline-flex p-4 rounded-full bg-glass mb-4">
               <UserIcon className="w-12 h-12" />

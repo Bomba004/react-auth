@@ -22,7 +22,7 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, icon, color }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
-    className={`bg-glass rounded-xl p-6 flex items-center space-x-4 rtl:space-x-reverse ${color}`}
+    className={`bg-glass rounded-[0.5em] p-6 flex items-center space-x-4 rtl:space-x-reverse ${color}`}
   >
     <div className="p-3 rounded-lg bg-white/10">
       {icon}
@@ -105,7 +105,7 @@ export const Dashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-glass rounded-xl p-6"
+            className="bg-glass rounded-[0.5em] p-6"
           >
             <h2 className="text-xl font-bold mb-4">{t('dashboard.recentActivity')}</h2>
             <div className="space-y-4">
@@ -135,7 +135,7 @@ export const Dashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="bg-glass rounded-xl p-6"
+            className="bg-glass rounded-[0.5em] p-6"
           >
             <h2 className="text-xl font-bold mb-4">{t('dashboard.quickActions')}</h2>
             <div className="grid grid-cols-2 gap-4">

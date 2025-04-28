@@ -27,7 +27,7 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({
         className="w-full max-w-md text-center"
       >
         {/* <Lottie animationData={notFound} className="w-1/2 mx-auto mb-6" /> */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-xl p-8 shadow-2xl border border-white/20">
+        <div className="bg-white/10 backdrop-blur-xl rounded-[0.5em] p-8 shadow-2xl border border-white/20">
           <div className="flex justify-center mb-6">
             <ExclamationTriangleIcon className="w-16 h-16 text-warning-color" />
           </div>
@@ -36,7 +36,7 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({
           {showHomeButton && (
             <button
               onClick={() => navigate('/dashboard')}
-              className="inline-flex items-center px-6 py-3 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-colors"
+              className="inline-flex items-center px-6 py-3 rounded-[0.5em] bg-white/10 text-white hover:bg-white/20 transition-colors"
             >
               <HomeIcon className="w-5 h-5 mr-2" />
               {t('error.backToDashboard')}

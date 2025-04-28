@@ -16,7 +16,7 @@ interface ChartProps {
 
 export const Chart: React.FC<ChartProps> = ({ data, title }) => {
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm">
+    <div className="bg-white p-6 rounded-[0.5em] shadow-sm">
       <h3 className="text-lg font-medium text-gray-900 mb-4">{title}</h3>
       <div className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">

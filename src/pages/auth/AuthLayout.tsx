@@ -17,13 +17,13 @@ export const AuthLayout = ({ children_Is, children }: AuthLayoutProps) => {
   return (
     <div className="flex items-center justify-center h-[80%] p-4 gap-4">
       <Auth__Form children_Is={children_Is} children={children} />
-      <hr className="hidden md:block horizontal" />
+      <hr className="hidden lg:block horizontal" />
       
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="w-full h-full hidden md:block flex-1"
+        className="w-full h-full hidden lg:block flex-1"
       >
         <Slider items={items} timePlay={8000} />
       </motion.div>
@@ -52,8 +52,8 @@ export const Auth__Form = ({ children_Is, children }: AuthLayoutProps) => {
       transition={{ duration: 0.3 }}
       className="w-full h-full max-w-md"
     >
-      {/* <div className="bg-glass rounded-xl p-8 shadow-2xl"> */}
-      <div className=" h-full bg-glass rounded-xl p-8">
+      {/* <div className="bg-glass rounded-[0.5em] p-8 shadow-2xl"> */}
+      <div className=" h-full bg-glass rounded-[0.5em] p-8">
         <div className="text-center mb-8">
 
           {children_Is === 'Login' ?

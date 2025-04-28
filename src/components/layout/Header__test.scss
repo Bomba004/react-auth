@@ -1,32 +1,200 @@
-// body, #root {
-//  background-color: #f00 !important; 
-// }
 
-// a {
-//   color: theme('colors.blue.500') !important;
-//   &:hover {
-//     color: theme('colors.blue.700') !important;
-//   }
-// }
+
+//#region ( Global )
+
+@mixin btn($color, $color-hover , $bg, $bg-hover){
+  // $color: hsl(var(--color-black));
+  // $color-hover: hsl(var(--color-black));
+  // $bg: hsl(var(--color-gray));
+  // $bg-hover: hsla(var(--color-gray), 0.8);
+
+  color: $color; fill: $color; background-color: $bg;
+  text-transform: capitalize;
+  font-weight: 500;
+
+  transition: all 0.3s;
+
+  &:hover{ color: $color-hover; fill: $color-hover; background-color: $bg-hover; }
+  @content;
+}
+
+@mixin bg-glass(
+  $bg: hsla(var(--color-black), 0.05),
+  $border: 0.0625em solid hsla(var(--color-black), 0.1),
+  $shadow: 0 0.5em 2em 0 hsla(var(--color-black), 0.3),
+  $radius: 0.5em,
+  $blur: 0.5em
+){
+  position: relative;
+  &::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    
+    background-color: $bg;
+    box-shadow: $shadow;
+    border: $border;
+    border-radius: $radius;
+
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+  }
+  @content;
+}
+@mixin un-bg-glass{  @include bg-glass(
+  $bg: transparent,
+  $border: 0.0625em solid transparent,
+  $shadow: 0 0 0 0 transparent,
+  $radius: 0,
+  $blur: 0
+);}
+// -----------------------------------
+.bg-glass-menu {
+  @include bg-glass(
+    $bg: hsla(var(--color-black), 0.01),
+    $border: 0.0625em solid hsla(var(--color-black), 0.1),
+    $shadow: 0 0.5em 2em 0 hsla(var(--color-black), 0.3),
+    $radius: 0.5em,
+    $blur: 0.5em
+  );
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(0,0,0);  // اللون الرمادي مع الشفافية
+  z-index: 1;  // تأكد من ظهور المودال فوق العناصر الأخرى
+}
+
+//#endregion
+
 
 header {
+  $color: hsl(var(--color-black));
+  color: $color; fill: $color;
+  text-wrap: nowrap;
   
   .Logo a{ color: hsl(var(--color-primary)); fill: hsl(var(--color-primary)); &:hover{ color: hsla(var(--color-primary), 0.8); fill: hsla(var(--color-primary), 0.8); } }
   
-  nav ul li a{ color: hsl(var(--color-primary)); fill: hsl(var(--color-primary));
-    &:hover{ color: hsla(var(--color-primary), 0.8); fill: hsla(var(--color-primary), 0.8); }
+  nav{
+    &{
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline-end: 0.5em;
+
+      width: 14em;
+      text-align: center;
+      border-radius: 0.5em;
+      z-index: 2;
+      @extend .bg-glass-menu;
+    }
+
+    ul{
+      padding-block: 0.5em;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      gap: 0.5em;
+      
+      li{
+        padding-block: 0.125em;
+        width: 80%;
+        text-transform: capitalize;
+        font-weight: 400;
+        border: 0.0625em solid transparent;
+        border-radius: 0.25em;
+        cursor: pointer;
+        transition: all 0.1s;
+        
+        a{ 
+          display: block; width: 100%;
+          span{
+            position: relative;
+            padding-block-end: 0.15em;
+            &::after{ 
+              content: "";
+              position: absolute;
+              inset-inline-start: 0;
+              inset-block-end: 0;
+              width: 0; height: 0.0625em; background-color: $color;
+              transition: all 0.5s;
+            }
+          }
+        }
+        &.active{
+          color: hsl(var(--color-primary)); fill: hsl(var(--color-primary));
+          font-weight: 500;
+          a span::after{ width: 100%; background-color: hsl(var(--color-primary)); }
+        }
+
+        &:hover{ 
+          $c: var(--color-white);
+          $ac: var(--color-secondary);
+          @extend .bg-glass-menu;
+          &:not(.active){ color: hsla( $c, 0.8); fill: hsla( $c, 0.8); a span::after{ width: 100%; background-color: hsl( $c ); }}
+          &.active{ color: hsl( $ac ); fill: hsl( $ac ); a span::after{ width: 100%; background-color: hsl( $ac ); }}
+        }
+      }
+    }
   }
 
-  .btn__login{
-    color: hsl(var(--color-white)); fill: hsl(var(--color-white));
-    background-color: hsl(var(--color-primary));
-    &:hover{ background-color: hsla(var(--color-primary), 0.8); }
-  }
+  .btn__toggle_menu{ @include btn(hsl(var(--color-white)), hsla(var(--color-white), 0.4), hsl(var(--color-primary)), hsla(var(--color-primary), 0.8)); }
+  .btn__login, .btn__register{ @include btn(hsl(var(--color-black)), hsla(var(--color-black), 0.4), hsl(var(--color-gray)), hsla(var(--color-gray), 0.8)); }
 
-  .btn__register{
-    color: hsl(var(--color-black)); fill: hsl(var(--color-black));
-    background-color: hsl(var(--color-gray));
-    &:hover{ background-color: hsla(var(--color-gray), 0.8); }
-  }
+  
+  /// Media Queries Responsive
+    @media (width > 768px) {// width > sm
+      nav{
+        &{
+          position: initial;
+          width: auto;
+          @include un-bg-glass;
+        }
+    
+        ul{
+          padding-block: 0;
+          flex-direction: row;
+          gap: 0.8em;
 
+          li{
+            padding-block: 0;
+            border: 0 solid transparent;
+            @include un-bg-glass;
+
+            
+            a{ 
+              span{
+                &::after{ 
+                  content: "";
+                  position: absolute;
+                  inset-inline-start: 0;
+                  inset-block-end: 0;
+                  width: 0; height: 0.0625em; background-color: $color;
+                  transition: all 0.5s;
+                }
+              }
+            }
+            &.active{
+              color: hsl(var(--color-primary)); fill: hsl(var(--color-primary));
+              font-weight: 500;
+              a span::after{ width: 100%; background-color: hsl(var(--color-primary)); }
+            }
+    
+            &:hover{ 
+              $c: var(--color-black);
+              $ac: var(--color-secondary);
+              @include un-bg-glass;
+              &:not(.active){ color: hsla( $c, 0.8); fill: hsla( $c, 0.8); a span::after{ background-color: hsl( $c ); }}
+              &.active{ color: hsl( $ac ); fill: hsl( $ac ); a span::after{ background-color: hsl( $ac ); }}
+            }
+          }
+        }
+      }
+      
+    }
 }
+
