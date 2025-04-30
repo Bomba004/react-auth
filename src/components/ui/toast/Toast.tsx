@@ -49,7 +49,6 @@ export const SwalToast = () => {
   https://youtu.be/J1c3LalJ3eE
 */
 import i18n from 'i18next';
-import { htmlDir } from "@/components/ui/LanguageToggle";
 import { toast, Slide, ToastContainer } from "react-toastify";
 import "./Tosdt.css";
 
@@ -58,6 +57,7 @@ export type TPosition = "top-left" | "top-right" | "bottom-left" | "bottom-right
 // تعريف Toast Layout القالب الذي يعمل بداخله Toastify
 export const ToastLayout = () => <ToastContainer aria-label="Toast" />;
 
+const htmlDir = document.documentElement.dir || 'ltr';
 // تحدد موقع التوست بناءً على الاتجاه
 const positionIs = (pos = 'top-right', htmlDir = 'ltr') => {
   switch (htmlDir) {

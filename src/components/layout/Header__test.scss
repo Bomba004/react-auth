@@ -69,6 +69,15 @@
   z-index: 1;  // تأكد من ظهور المودال فوق العناصر الأخرى
 }
 
+
+.btn-bg-none{
+  @include btn(
+    $color: hsl(var(--color-black)),
+    $color-hover: hsl(var(--color-black)),
+    $bg: transparent,
+    $bg-hover: transparent
+  );
+}
 //#endregion
 
 

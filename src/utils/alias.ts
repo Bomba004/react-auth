@@ -17,6 +17,8 @@ import { store, persistor } from "@/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { useDispatch } from 'react-redux';
+import { toggleLanguage } from '@/store/slices/languageSlice';
+import { toggleTheme } from '@/store/slices/themeSlice';
 import type { User } from '@/store/slices/authSlice';
 import { login } from '@/store/slices/authSlice';
 
@@ -28,6 +30,7 @@ import { motion } from 'framer-motion';
 
 // Icons
 import {  
+    SunIcon, MoonIcon, LanguageIcon,
     ExclamationTriangleIcon, HomeIcon,
     AtSymbolIcon, UserIcon, UserGroupIcon
  } from '@heroicons/react/24/outline';
@@ -60,7 +63,8 @@ import { Login } from '@/pages/auth/Login';
 import { Dashboard } from '@/pages/Dashboard';
 import { ErrorPage } from '@/pages/ErrorPage';
 import { PrivateRoute } from '@/components/auth/PrivateRoute';
-import { useDirection } from '@/hooks/useDirection';
+import { useLanguage } from '@/hooks/useLanguage';
+import { useTheme } from '@/hooks/useTheme';
 import { ToastLayout } from '@/components/ui/toast/Toast';
 
 import {type RootState } from '@/store';
@@ -80,6 +84,7 @@ export {// Global
     // Redux|Store
     store, persistor, Provider, PersistGate,
     useDispatch,
+    toggleLanguage, toggleTheme,
     User, login,
 
     // i18n|Language
@@ -87,6 +92,7 @@ export {// Global
     motion,
 
     // Icons
+    SunIcon, MoonIcon, LanguageIcon,
     ExclamationTriangleIcon, HomeIcon,
     AtSymbolIcon, UserIcon, UserGroupIcon,
 
@@ -103,6 +109,6 @@ export {// main
 export {// app
     Router, Routes, Route, Navigate, useSelector,
     Navbar, Login, Dashboard, ErrorPage, PrivateRoute,
-    useDirection, ToastLayout,
+    useLanguage, useTheme, ToastLayout,
     RootState, 
 };

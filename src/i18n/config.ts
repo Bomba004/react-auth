@@ -16,8 +16,8 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: localStorage.getItem('preferredLanguage') || 'ar',
-  fallbackLng: 'ar',
+  lng: 'en',
+  fallbackLng: 'en',
   defaultNS: 'translation',
   interpolation: {
     escapeValue: false,
@@ -26,5 +26,6 @@ i18n.use(initReactI18next).init({
     useSuspense: false,
   },
 });
+
 
 export default i18n;

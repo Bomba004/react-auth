@@ -1,3 +1,13 @@
+import React from "react";
+
+export const lazyWithDelay = (importFunc: () => Promise<any>, delay = 1000) =>
+  React.lazy(() =>
+    Promise.all([
+      importFunc(),
+      new Promise(res => setTimeout(res, delay)),
+    ]).then(([module]) => module)
+  );
+// ========== ========== ========== ========== ========== ========== ========== ==========
 import { lazy, Suspense } from "react";
 
 import {
@@ -27,16 +37,18 @@ const Register = lazy(() => import("@/pages/auth/Register"));
 // import ProtectedRoute from "@components/Auth/ProtectedRoute";
 
 
-
 const AppRouter = () => {
 
-  const { t } = useTranslation();
+  const LottieWithTranslation = () => {
+    const { t } = useTranslation();
+    return <LottieHandler type="loading" message={t("global.loading")} />;
+  };
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
-        <Suspense fallback={ <LottieHandler type="loading" message={t('global.loading')} /> /* loading: جزء تحميل الصفحة */} >
+        <Suspense fallback={ <LottieWithTranslation/> /* loading: جزء تحميل الصفحة */} >
         {/* MainLayout: Layout المركزي */}
         <MainLayout setting={{ header: true, footer: true }}/>
       </Suspense>
@@ -70,7 +82,7 @@ const AppRouter = () => {
     {
       path: "login",
       element: (
-        <Suspense fallback={ <LottieHandler type="loading" message={t('global.loading')} /> /* loading: جزء تحميل الصفحة */} >
+        <Suspense fallback={<LottieWithTranslation/> /* loading: جزء تحميل الصفحة */} >
           {/* MainLayout: Layout المركزي */}
           <MainLayout setting={{ header: true, footer: true }}/>
           
@@ -88,7 +100,7 @@ const AppRouter = () => {
     {
       path: "register",
       element: (
-        <Suspense fallback={ <LottieHandler type="loading" message={t('global.loading')} /> /* loading: جزء تحميل الصفحة */} >
+        <Suspense fallback={ <LottieWithTranslation/> /* loading: جزء تحميل الصفحة */} >
           {/* MainLayout: Layout المركزي */}
           <MainLayout setting={{ header: true, footer: true }}/>
         </Suspense>

@@ -1,11 +1,19 @@
 import {
-  useDirection,
+  useLanguage,
   AppRouter,
+  useTheme,
 } from '@/utils/alias';
 
 
 const App: React.FC = () => {
-  useDirection();
+  useLanguage();
+  useTheme();
+
+  // useEffect( async () => {
+  //   await setTimeout(() => {
+  //   }, 100);
+  // }, []);
+
   return <AppRouter />;
 }
 export default App;

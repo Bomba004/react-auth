@@ -1,6 +1,4 @@
-import React from 'react';
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
-import { useTheme } from '@/hooks/useTheme';
+import { SunIcon, MoonIcon, useTheme } from '@/utils/alias';
 
 export const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -8,9 +6,10 @@ export const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="inline-flex items-center justify-center p-2 rounded-lg  hover:text-white
-                bg-white/5 hover:bg-white/10 backdrop-blur-lg
-                transition-all duration-200 hover:scale-105"
+      // className="inline-flex items-center justify-center p-2 rounded-lg  hover:text-white
+      //           bg-white/5 hover:bg-white/10 backdrop-blur-lg
+      //           transition-all duration-200 hover:scale-105"
+      className="btn-bg-none"
       title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
     >
       {theme === 'dark' ? (

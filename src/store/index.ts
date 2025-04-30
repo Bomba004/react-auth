@@ -13,7 +13,7 @@ import auth from './slices/authSlice';
 const themePersistConfig = {
   key: 'theme',
   storage,
-  whitelist: ['isDark'],
+  whitelist: ['theme'],
 };
 
 const languagePersistConfig = {
