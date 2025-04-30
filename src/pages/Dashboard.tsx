@@ -9,7 +9,7 @@ import {
   CogIcon,
 } from '@heroicons/react/24/outline';
 import { RootState } from '../store';
-import { Footer, Navbar } from '@/utils/alias';
+// import { Footer, Navbar } from '@/utils/alias';
 
 interface StatCardProps {
   title: string;
@@ -37,6 +37,7 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, icon, color }) => (
 export const Dashboard: React.FC = () => {
   const { t } = useTranslation();
   const user = useSelector((state: RootState) => state.auth.user);
+
 
   const stats = [
     {
@@ -67,8 +68,9 @@ export const Dashboard: React.FC = () => {
 
   return (
     <>
-      <Navbar/>
-      <div className="container mx-auto px-4 py-8">
+      {/* <Navbar/> */}
+      {/* <div className="container mx-auto px-4 py-8"> */}
+      <div className="container mx-auto max-w-md md:max-w-full md:px-4 py-4">
         <div className="mb-8">
           <motion.h1
             initial={{ opacity: 0, x: -20 }}
@@ -159,7 +161,6 @@ export const Dashboard: React.FC = () => {
           </motion.div>
         </div>
       </div>
-      <Footer/>
     </>
   );
 };

@@ -78,6 +78,9 @@
     $bg-hover: transparent
   );
 }
+.btn-1{ @include btn(hsl(var(--color-white)), hsla(var(--color-white), 0.4), hsl(var(--color-primary)), hsla(var(--color-primary), 0.8)); }
+.btn-2{ @include btn(hsl(var(--color-black)), hsla(var(--color-black), 0.4), hsl(var(--color-gray)), hsla(var(--color-gray), 0.8)); }
+
 //#endregion
 
 

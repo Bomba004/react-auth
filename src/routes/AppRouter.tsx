@@ -19,6 +19,7 @@ import {
 const MainLayout = lazy(() => import("@/layouts/MainLayout/MainLayout"));
 const AuthLayout = lazy(() => import("@/pages/auth/AuthLayout"));
 const PrivateRoute = lazy(() => import("@/components/auth/PrivateRoute"));
+const PrivateRouteUserOK = lazy(() => import("@/components/auth/PrivateRouteUserOK"));
 
 // components
 import { LottieHandler, PageSuspenseFallback } from "@/components/feedback";
@@ -45,13 +46,14 @@ const AppRouter = () => {
   };
 
   const router = createBrowserRouter([
+    // Index || Home ---
     {
       path: "/",
       element: (
-        <Suspense fallback={ <LottieWithTranslation/> /* loading: جزء تحميل الصفحة */} >
-        {/* MainLayout: Layout المركزي */}
-        <MainLayout setting={{ header: true, footer: true }}/>
-      </Suspense>
+        <Suspense fallback={<LottieWithTranslation /> /* loading: جزء تحميل الصفحة */} >
+          {/* MainLayout: Layout المركزي */}
+          <MainLayout setting={{ header: true, footer: true }} />
+        </Suspense>
       ),
       errorElement: <Error />,
       children: [
@@ -67,52 +69,61 @@ const AppRouter = () => {
         },
       ],
     },
+    // Dashboard ---
     {
       path: "dashboard",
       element: (
-        <PageSuspenseFallback>
-          <PrivateRoute>
-          <MainLayout setting={{ header: true, footer: true }}/>
-            <Dashboard />
-          </PrivateRoute>
-        </PageSuspenseFallback>
+        <Suspense fallback={<LottieWithTranslation /> /* loading: جزء تحميل الصفحة */} >
+          {/* MainLayout: Layout المركزي */}
+          <MainLayout setting={{ header: true, footer: true }} />
+        </Suspense>
       ),
+      errorElement: <Error />,
+      children: [{
+        index: true,
+        // element: <dashboard />,
+        element: <PageSuspenseFallback>
+                  <PrivateRoute>
+                    <Dashboard />
+                  </PrivateRoute>
+                </PageSuspenseFallback>,
+      },],
     },
     // Auth ---
     {
       path: "login",
       element: (
-        <Suspense fallback={<LottieWithTranslation/> /* loading: جزء تحميل الصفحة */} >
+        <Suspense fallback={<LottieWithTranslation /> /* loading: جزء تحميل الصفحة */} >
           {/* MainLayout: Layout المركزي */}
-          <MainLayout setting={{ header: true, footer: true }}/>
-          
+          <MainLayout setting={{ header: true, footer: true }} />
+
         </Suspense>
       ),
       errorElement: <Error />,
-      children: [ {
+      children: [{
         index: true,
         // element: <Login />,
         element: <PageSuspenseFallback>
-          <AuthLayout children_Is='Login'> <Login /> </AuthLayout>
-          </PageSuspenseFallback> ,
-      }, ],
+          <PrivateRouteUserOK><AuthLayout children_Is='Login'> <Login /> </AuthLayout></PrivateRouteUserOK>
+        </PageSuspenseFallback>,
+      },],
     },
     {
       path: "register",
       element: (
-        <Suspense fallback={ <LottieWithTranslation/> /* loading: جزء تحميل الصفحة */} >
+        <Suspense fallback={<LottieWithTranslation /> /* loading: جزء تحميل الصفحة */} >
           {/* MainLayout: Layout المركزي */}
-          <MainLayout setting={{ header: true, footer: true }}/>
+          <MainLayout setting={{ header: true, footer: true }} />
         </Suspense>
       ),
       errorElement: <Error />,
-      children: [ {
+      children: [{
         index: true,
         // element: <Register />,
         element: <PageSuspenseFallback>
-          <AuthLayout children_Is='Register'> <Register /> </AuthLayout>
-        </PageSuspenseFallback> ,
-    }, ],
+          <PrivateRouteUserOK><AuthLayout children_Is='Register'> <Register /> </AuthLayout></PrivateRouteUserOK>
+        </PageSuspenseFallback>,
+      },],
     },
     // Auth ---
   ]);

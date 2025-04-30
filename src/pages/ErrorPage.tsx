@@ -1,6 +1,5 @@
 import { clsx, ExclamationTriangleIcon, Footer, HomeIcon, motion, useNavigate, useTranslation } from "@/utils/alias";
-// import Lottie from "lottie-react";
-// import { LottieHandler } from "@/components/LottieHandler";
+import "./ErrorPage.scss"; // ← ربط ملف SCSS
 
 interface ErrorPageProps {
   title?: string;
@@ -17,29 +16,25 @@ export const ErrorPage: React.FC<ErrorPageProps> = ({
   const { t } = useTranslation();
 
   return (
-    <div className={clsx('min-h-screen p-4',
-      'flex items-center justify-center',
-      'bg-gradient-to-br from-white-900 via-primary-800 to-black-900',
-    )}>
+    <div className={clsx("error-page")}>
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-md text-center"
+        className="error-container"
       >
-        {/* <Lottie animationData={notFound} className="w-1/2 mx-auto mb-6" /> */}
-        <div className="bg-white/10 backdrop-blur-xl rounded-[0.5em] p-8 shadow-2xl border border-white/20">
-          <div className="flex justify-center mb-6">
-            <ExclamationTriangleIcon className="w-16 h-16 text-warning-color" />
+        <div className="error-card bg-glass">
+          <div className="icon-wrapper">
+            <ExclamationTriangleIcon className="warning-icon" />
           </div>
-          <h1 className="text-2xl font-bold text-white mb-4">{t(`error.${title === 'Error 404' ? 'Error_404' : 'Error_403'}`)}</h1>
-          <p className="text-white/70 mb-8">{t(`error.${message}`)}</p>
+          <h1 className="error-title">{t(`error.${title === 'Error 404' ? 'Error_404' : 'Error_403'}`)}</h1>
+          <p className="error-message">{t(`error.${message}`)}</p>
           {showHomeButton && (
             <button
-              onClick={() => navigate('/dashboard')}
-              className="inline-flex items-center px-6 py-3 rounded-[0.5em] bg-white/10 text-white hover:bg-white/20 transition-colors"
+              onClick={() => navigate("/dashboard")}
+              className="back-button"
             >
-              <HomeIcon className="w-5 h-5 mr-2" />
-              {t('error.backToDashboard')}
+              <HomeIcon className="back-icon" />
+              {t("error.backToDashboard")}
             </button>
           )}
         </div>

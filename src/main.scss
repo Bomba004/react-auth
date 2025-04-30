@@ -32,24 +32,25 @@
   --color-muted: 260, 5%, 50%;
 
   
-  --success-color: 150, 80%, 40%;
-  --warning-color: 40, 90%, 50%;
-  --danger-color: 0, 90%, 50%;
   
-
+  
   /* تعريف متغيرات الألوان */
-  --success-bg: hsla(var(--success-color), 0.6);
-  --success-bar: hsla(var(--success-color), 0.8);
-  --success-shd: hsla(var(--success-color), 0.9);
-  --error-bg: hsla(var(--danger-color), 0.4);
-  --error-bar: hsla(var(--danger-color), 0.8);
-  --error-shd: hsla(var(--danger-color), 0.9);
-  --info-bg: hsla(var(--info-color), 0.4);
-  --info-bar: hsla(var(--info-color), 0.8);
-  --info-shd: hsla(var(--info-color), 0.9);
-  --warning-bg: hsla(var(--warning-color), 0.4);
-  --warning-bar: hsla(var(--warning-color), 0.8);
-  --warning-shd: hsla(var(--warning-color), 0.9);
+  --success: 150, 80%, 40%;
+  --warning: 40, 90%, 50%;
+  --danger: 0, 90%, 50%;
+
+  --success-bg: hsla(var(--success), 0.6);
+  --success-bar: hsla(var(--success), 0.8);
+  --success-shd: hsla(var(--success), 0.9);
+  --error-bg: hsla(var(--danger), 0.4);
+  --error-bar: hsla(var(--danger), 0.8);
+  --error-shd: hsla(var(--danger), 0.9);
+  --info-bg: hsla(var(--info), 0.4);
+  --info-bar: hsla(var(--info), 0.8);
+  --info-shd: hsla(var(--info), 0.9);
+  --warning-bg: hsla(var(--warning), 0.4);
+  --warning-bar: hsla(var(--warning), 0.8);
+  --warning-shd: hsla(var(--warning), 0.9);
   --text-color: hsl(var(--color-black));
   --shadow: 0 0.125em 0.5em hsla(var(--color-primary), 0.3);
 
@@ -118,6 +119,9 @@
     color: hsl(var(--color-black));
     fill: hsl(var(--color-black));
     background: hsla(var(--color-background));
+
+    overflow: hidden;
+    overflow-y: auto;
   }
 }
 
@@ -279,6 +283,13 @@ input:-webkit-autofill:active {
     $blur: 0.5em
   );
 }
+.bg-glass-full{  @include bg-glass(
+  $bg: hsla(var(--color-black), 0.05),
+  $border: 0.0625em solid hsla(var(--color-black), 0.1),
+  $shadow: 0 0 0 0 transparent,
+  $radius: 50%,
+  $blur: 0.5em
+);}
 
 hr{
   width: 100%;

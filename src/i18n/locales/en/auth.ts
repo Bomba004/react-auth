@@ -25,9 +25,12 @@ export const auth = {
 
   loginSuccess: 'Logged in successfully',
   loginError: 'Login failed. Please check your credentials',
-
+  
+  not_Have_an_account: 'Do not have an account?',
+  
   errors: {
     required: 'This field is required',
+    requiredUsernameAndPassword: 'Please enter your username and password correctly!',
     email: 'Invalid email address',
     identifier: 'Please enter your username or email',
     password: 'Please enter your password',

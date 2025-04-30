@@ -1,11 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Header__test.scss';
-import { useState, useRef, useEffect, useTranslation } from "@/utils/alias";
+import { useState, useRef, useEffect, useTranslation,
+   useSelector, RootState, Button, useDispatch, 
+   ArrowRightOnRectangleIcon} from "@/utils/alias";
+// import {  ChartBarIcon  } from "@heroicons/react/24/outline";
+import { logout } from "@/store/slices/authSlice";
+import { AppDispatch } from "@/store";
 
 
 export const Header__test = () => {
 
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+  const { user } = useSelector((state: RootState) => state.auth);
 
   const N1_links = [
     { label: t('header.home'), href: '/' },
@@ -31,6 +39,15 @@ export const Header__test = () => {
   }, []);
 
 
+  async function handleLogout(){
+    try {
+      await dispatch(logout());
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
   //#region ( Menu )
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const refBtnToggleMenu = useRef<HTMLButtonElement>(null);
@@ -54,7 +71,7 @@ export const Header__test = () => {
       {/* <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"> */}
       <div className="container mx-auto max-w-md md:max-w-full">
         {/* <div className="flex h-16 items-center justify-between"> */}
-        <div className="relative flex items-center justify-between gap-1 md:gap-16 bg-glass px-2 py-1 md:px-4 md:py-3 flex-wrap">
+        <div className="relative flex items-center justify-between gap-1 md:gap-16 bg-glass px-2 py-2 md:px-4 md:py-3 flex-wrap">
 
           {/* Logo */}
           <div className="Logo md:flex md:items-center md:gap-12">
@@ -84,7 +101,25 @@ export const Header__test = () => {
 
           {/* Navbar__2 */}
           <div className="flex items-center gap-4">
-            <div className="flex gap-1 md:gap-4">
+          {user ? (
+              <div className="flex items-center space-x-4">
+                {/* <div>
+                  <Link to="/dashboard">
+                    <Button variant="secondary" size="sm" className="flex items-center">
+                      <ChartBarIcon className="w-5 h-5 mr-1.5" />
+                      {t('navigation.dashboard')}
+                    </Button>
+                  </Link>
+                </div> */}
+                <div>
+                  <Button variant="danger" size="sm" onClick={handleLogout} className="btn__login flex items-center">
+                    <ArrowRightOnRectangleIcon className="w-5 h-5 me-[0.2em] rtl:-rotate-180" />
+                    {t('auth.logout')}
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div className="flex gap-1 md:gap-4">
               <Link
                 className="btn__login rounded-md px-5 py-2.5 text-sm font-medium shadow-sm"
                 to="/login"
@@ -101,12 +136,14 @@ export const Header__test = () => {
                 Register
               </Link> */}
             </div>
+            )}
+
 
             {/* btn toggle menu */}
             <div className="block md:hidden">
               <button
                 ref={refBtnToggleMenu}
-                className="btn__toggle_menu rounded-md bg-gray-100 p-2 transition"
+                className="btn__toggle_menu rounded-md p-2 transition"
                 onClick={handleClickToggleMenu} // إضافة معالج الحدث
               >
                 <svg

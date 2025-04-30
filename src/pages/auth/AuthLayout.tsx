@@ -58,16 +58,16 @@ export const Auth__Form = ({ children_Is, children }: AuthLayoutProps) => {
 
           {children_Is === 'Login' ?
             <>
-              <div className="inline-flex p-4 rounded-full bg-glass mb-4">
-                <UserIcon className="w-12 h-12" />
+              <div className="inline-flex p-4 bg-glass-full mb-4  overflow-hidden">
+                <UserIcon className="w-12 h-12 " />
               </div>
               <h2 className="text-3xl font-bold mb-2">{t('auth.login.h2')}</h2>
               <p className="text-muted-06">{t('auth.login.p1')}</p>
             </>
             :
             <>
-              <div className="inline-flex p-4 rounded-full bg-glass mb-4">
-                <UserGroupIcon className="w-12 h-12" />
+              <div className="inline-flex p-4 bg-glass-full mb-4  overflow-hidden">
+                <UserGroupIcon className="w-12 h-12 " />
               </div>
               <h2 className="text-3xl font-bold mb-2">{t('auth.register.h2')}</h2>
               <p className="text-muted-06">{t('auth.register.p1')}</p>

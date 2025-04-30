@@ -32,13 +32,14 @@ import { motion } from 'framer-motion';
 import {  
     SunIcon, MoonIcon, LanguageIcon,
     ExclamationTriangleIcon, HomeIcon,
-    AtSymbolIcon, UserIcon, UserGroupIcon
+    AtSymbolIcon, UserIcon, UserGroupIcon, ArrowRightOnRectangleIcon,
  } from '@heroicons/react/24/outline';
 
 // UI Components
 import { Password, SuperInput } from '@/components/ui/Input';
 import { Checkbox } from '@/components/ui/Checkbox';
 import { Button } from '@/components/ui/Button';
+import { Spinner } from '@/components/ui/Spinner';
 import { Slider } from '@/components/ui/slider/Slider';
 import { showToast as msn } from '@/components/ui/toast/Toast';
 
@@ -56,7 +57,7 @@ import App from '@/App';
 
 //// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 //// app:-alias
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Navbar } from '@/components/layout/Navbar';
 import { Login } from '@/pages/auth/Login';
@@ -78,7 +79,7 @@ export {// Global
     clsx,
     
     // Routes
-    useNavigate, createBrowserRouter, RouterProvider,
+    useNavigate, useLocation, createBrowserRouter, RouterProvider,
     AppRouter,
 
     // Redux|Store
@@ -94,10 +95,10 @@ export {// Global
     // Icons
     SunIcon, MoonIcon, LanguageIcon,
     ExclamationTriangleIcon, HomeIcon,
-    AtSymbolIcon, UserIcon, UserGroupIcon,
+    AtSymbolIcon, UserIcon, UserGroupIcon, ArrowRightOnRectangleIcon,
 
     // UI Components
-    Password, SuperInput, Checkbox, Button, Slider,
+    Password, SuperInput, Checkbox, Button, Slider, Spinner,
     msn,
     Header__test,
     Footer,
