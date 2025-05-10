@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { RootState, AppDispatch } from '../../store';
 import { logout } from '../../store/slices/authSlice';
 import { setLanguage } from '../../store/slices/languageSlice';
-import { Button } from '../ui/Button';
+import { B_Button as Button } from '@/utils/alias';
 import {
   UserIcon,
   ArrowRightOnRectangleIcon,

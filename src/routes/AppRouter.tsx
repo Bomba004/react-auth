@@ -29,6 +29,7 @@ import { ErrorPage as Error } from "@/pages/ErrorPage";
 // const App = lazy(() => import("@/App"));
 const Home = lazy(() => import("@/pages/Home"));
 const Dashboard = lazy(() => import("@/pages/Dashboard"));
+const BomBa = lazy(() => import("@/pages/BomBa"));
 const Login = lazy(() => import("@/pages/auth/Login"));
 const Register = lazy(() => import("@/pages/auth/Register"));
 // const Home = lazy(() => import("@pages/Home"));
@@ -85,6 +86,26 @@ const AppRouter = () => {
         element: <PageSuspenseFallback>
                   <PrivateRoute>
                     <Dashboard />
+                  </PrivateRoute>
+                </PageSuspenseFallback>,
+      },],
+    },
+    // BomBa ---
+    {
+      path: "bomba",
+      element: (
+        <Suspense fallback={<LottieWithTranslation /> /* loading: جزء تحميل الصفحة */} >
+          {/* MainLayout: Layout المركزي */}
+          <MainLayout setting={{ header: true, footer: true }} />
+        </Suspense>
+      ),
+      errorElement: <Error />,
+      children: [{
+        index: true,
+        // element: <BomBa />,
+        element: <PageSuspenseFallback>
+                  <PrivateRoute>
+                    <BomBa />
                   </PrivateRoute>
                 </PageSuspenseFallback>,
       },],

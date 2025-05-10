@@ -10,7 +10,8 @@ import {
   
   AtSymbolIcon, UserIcon,
 
-  Password, SuperInput, Checkbox, Button,
+  B_Button as Button,
+  Password, SuperInput, Checkbox,
   msn,
   // Footer,
 } from '@/utils/alias';

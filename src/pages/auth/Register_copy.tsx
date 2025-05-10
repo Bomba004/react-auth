@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { register as registerUser } from '../../store/slices/authSlice';
 import { Input } from '../../components/ui/Input';
-import { Button } from '../../components/ui/Button';
+import { B_Button as Button } from '@/utils/alias';
 import { AppDispatch } from '../../store';
 import {
   UserIcon,

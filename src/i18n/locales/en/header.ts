@@ -8,6 +8,7 @@ export const header = {
   projects: 'projects',
   blog: 'blog',
   dashboard: 'dashboard',
+  bomba: 'BomBa',
   
   // signIn: 'signIn',
   signIn: 'sign In',

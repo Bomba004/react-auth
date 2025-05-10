@@ -25,6 +25,7 @@ export const Header__test = () => {
     { label: t('header.projects'), href: '/projects' },
     { label: t('header.blog'), href: '/blog' },
     { label: t('header.dashboard'), href: '/dashboard' },
+    { label: t('header.bomba'), href: '/bomba' },
   ];
   // const N2_links = [
   //   { label: 'Home', href: '/' },    
@@ -112,7 +113,8 @@ export const Header__test = () => {
                   </Link>
                 </div> */}
                 <div>
-                  <Button variant="danger" size="sm" onClick={handleLogout} className="btn__login flex items-center">
+                  {/* <Button variant="danger" size="sm" onClick={handleLogout} className="btn__login flex items-center"> */}
+                  <Button variant="destructive" size="sm" onClick={handleLogout} className="btn__login flex items-center">
                     <ArrowRightOnRectangleIcon className="w-5 h-5 me-[0.2em] rtl:-rotate-180" />
                     {t('auth.logout')}
                   </Button>

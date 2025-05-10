@@ -8,6 +8,7 @@ export const header = {
   projects: 'مشاريع',
   blog: 'الأخبار',
   dashboard: 'لوحة التحكم',
+  bomba: 'BomBa',
   
   // signIn: 'signIn',
   signIn: 'تسجيل الدخول',
