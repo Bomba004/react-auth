@@ -206,7 +206,7 @@ export function NestedTabs() {
 
         {/* Content Area */}
         {/* <div className="flex-1 border rounded-lg p-6 min-h-[300px]"> */}
-        <div className="flex-1 border rounded-lg">
+        <div className="flex-1">
           {renderTabContent() || (
             <div className="flex items-center justify-center h-full text-gray-500">
               Select a tab to view content
