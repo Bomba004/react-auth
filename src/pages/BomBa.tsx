@@ -5,6 +5,11 @@ import { Button,
  } from "@/utils/alias";
 import { FileText, Users, Warehouse, PieChart } from 'lucide-react';
 
+
+export default function BomBa() { return <NestedTabs />; }
+
+/// =======================================================================
+
 type TabItem = {
   id: string;
   label: string;
@@ -12,15 +17,6 @@ type TabItem = {
   content?: React.ReactNode;
   children?: TabItem[];
 };
-
-export default function BomBa() {
-  return <NestedTabs />;
-}
-
-
-// ========== ========== ========== ========== ========== ========== ========== ========== 
-
-
 export function NestedTabs() {
   const [activeTabs, setActiveTabs] = useState < string | null > ('101');
 
@@ -103,6 +99,8 @@ export function NestedTabs() {
   ];
 
   const handleTabClick = (tabId: string) => {
+    // console.log(tabId);
+    
     setActiveTabs(tabId);
     // setActiveTabs(prev => {
     //   const newState = { ...prev };
@@ -137,14 +135,15 @@ export function NestedTabs() {
   };
 
   return (
-    // <Card className="w-full max-w-6xl mx-auto">
-    <Card className="w-full mx-auto tap__content">
+      // <Card className="w-full max-w-6xl mx-auto">
+    // <Card className="w-full mx-auto">
+    <Card className="w-full h-full overflow-hidden tap__content2">
       {/* <CardHeader>
         <CardTitle className="text-2xl font-bold">Nested Tab System</CardTitle>
       </CardHeader> */}
-      <CardContent>
+      <CardContent className=" h-full flex flex-col-reverse md:flex-col">
         {/* Level 1 Tabs */}
-        <div className="tap__control flex flex-wrap gap-1 mb-4">
+        <div className="tap__control  flex gap-1 ">
           {tabsData.map((tab) => (
             <Button
               key={tab.id}
@@ -159,27 +158,34 @@ export function NestedTabs() {
           ))}
         </div>
 
+        <hr />
+{/* <p>{activeTabs?.slice(3, 4)}</p> */}
         {/* Level 2 Tabs */}
-        {activeTabs && (
-          <div className="tap__control flex flex-wrap gap-1 mb-4">
-            {tabsData
-              .find(tab => tab.id === activeTabs?.slice(0, 1))
-              ?.children?.map((tab) => (
-                <Button
-                  key={tab.id}
-                  variant='ghost'
-                  className={`flex items-center ${activeTabs?.slice(0, 3) === tab.id ? 'active' : ''}`}
-                  onClick={() => handleTabClick(tab.id)}
-                >
-                  {tab.label}
-                </Button>
-              ))}
-          </div>
+        {activeTabs?.slice(0, 1) !== '' && (
+          <>
+            <div className="tap__control flex flex-wrap gap-1">
+              {tabsData
+                .find(tab => tab.id === activeTabs?.slice(0, 1))
+                ?.children?.map((tab) => (
+                  <Button
+                    key={tab.id}
+                    variant='ghost'
+                    className={`flex items-center ${activeTabs?.slice(0, 3) === tab.id ? 'active' : ''}`}
+                    onClick={() => handleTabClick(tab.id)}
+                  >
+                    {tab.label}
+                  </Button>
+                ))}
+            </div>
+            <hr />
+          </>
         )}
 
+
         {/* Level 3 Tabs */}
-        {activeTabs && (
-          <div className="tap__control flex flex-wrap gap-1 mb-4">
+        {activeTabs?.slice(2, 3) !== '' && (
+        <>
+          <div className="tap__control flex flex-wrap gap-1">
             {tabsData
               .find(tab => tab.id === activeTabs?.slice(0, 1))
               ?.children?.find(tab => tab.id === activeTabs?.slice(0, 3))
@@ -194,10 +200,13 @@ export function NestedTabs() {
                 </Button>
               ))}
           </div>
+          <hr />
+        </>
         )}
 
         {/* Content Area */}
-        <div className="border rounded-lg p-6 min-h-[300px]">
+        {/* <div className="flex-1 border rounded-lg p-6 min-h-[300px]"> */}
+        <div className="flex-1 border rounded-lg">
           {renderTabContent() || (
             <div className="flex items-center justify-center h-full text-gray-500">
               Select a tab to view content
@@ -209,7 +218,9 @@ export function NestedTabs() {
   );
 }
 
-// Content Components
+/// Content Components ====================================================
+
+
 function InvoiceContent({ type }: { type: string }) {
   return (
     <div>
@@ -251,7 +262,7 @@ function InvoiceContent({ type }: { type: string }) {
     </div>
   );
 }
-
+/// ------------------------------------------------------
 function AccountContent({ type }: { type: string }) {
   const [category] = type.split(' ');
   return (
@@ -284,7 +295,7 @@ function AccountContent({ type }: { type: string }) {
     </div>
   );
 }
-
+/// ------------------------------------------------------
 function WarehouseContent({ type }: { type: string }) {
   return (
     <div>
@@ -328,7 +339,7 @@ function WarehouseContent({ type }: { type: string }) {
     </div>
   );
 }
-
+/// ------------------------------------------------------
 function ReportContent({ type }: { type: string }) {
   return (
     <div>
@@ -362,7 +373,7 @@ function ReportContent({ type }: { type: string }) {
     </div>
   );
 }
-
+/// ------------------------------------------------------
 function DefaultContent({ type }: { type: string }) {
   return (
     <div className="flex flex-col items-center justify-center h-full">

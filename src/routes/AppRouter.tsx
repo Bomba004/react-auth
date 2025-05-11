@@ -16,7 +16,8 @@ import {
 } from "@/utils/alias";
 
 // layouts
-const MainLayout = lazy(() => import("@/layouts/MainLayout/MainLayout"));
+const MainLayout = lazy(() => import("@/layouts/MainLayout/MainLayout").then(m => ({ default: m.MainLayout })));
+const MainLayout2 = lazy(() => import("@/layouts/MainLayout/MainLayout").then(m => ({ default: m.MainLayout2 })));
 const AuthLayout = lazy(() => import("@/pages/auth/AuthLayout"));
 const PrivateRoute = lazy(() => import("@/components/auth/PrivateRoute"));
 const PrivateRouteUserOK = lazy(() => import("@/components/auth/PrivateRouteUserOK"));
@@ -96,7 +97,7 @@ const AppRouter = () => {
       element: (
         <Suspense fallback={<LottieWithTranslation /> /* loading: جزء تحميل الصفحة */} >
           {/* MainLayout: Layout المركزي */}
-          <MainLayout setting={{ header: true, footer: true }} />
+          <MainLayout2 setting={{ header: true, footer: false }} />
         </Suspense>
       ),
       errorElement: <Error />,

@@ -1,4 +1,7 @@
-@use './styles/_shadcnUi' as *;
+@use './styles/healper/mixin' as *;
+
+@use './styles/shadcnUi' as *;
+@use './styles/controle/tap__content' as *;
 
 @tailwind base;
 @tailwind components;
@@ -104,12 +107,14 @@
 
     color: hsl(var(--color-black));
     fill: hsl(var(--color-black));
+    // background: linear-gradient(
+    //   to bottom right,
+    //   hsla(var(--color-primary), 0.1),
+    //   hsla(var(--color-secondary), 0.1)
+    // );
+    margin-top: env(safe-area-inset-top);
+    background: hsla(var(--color-background));
 
-    background: linear-gradient(
-      to bottom right,
-      hsla(var(--color-primary), 0.1),
-      hsla(var(--color-secondary), 0.1)
-    );
   }
 
   #root {
@@ -117,9 +122,8 @@
     width: 100dvw;
     height: 100dvh;
 
-    color: hsl(var(--color-black));
-    fill: hsl(var(--color-black));
-    background: hsla(var(--color-background));
+    display: flex;
+    flex-direction: column;
 
     overflow: hidden;
     overflow-y: auto;
@@ -160,6 +164,7 @@
   }
 }
 /*#endregion*/
+
 
 
 
@@ -250,80 +255,8 @@ input:-webkit-autofill:active {
 // }
 //#region ( Global )
 
-@mixin btn($color, $color-hover , $bg, $bg-hover){
-  // $color: hsl(var(--color-black));
-  // $color-hover: hsl(var(--color-black));
-  // $bg: hsl(var(--color-gray));
-  // $bg-hover: hsla(var(--color-gray), 0.8);
-
-  color: $color; fill: $color; background-color: $bg;
-  text-transform: capitalize;
-  font-weight: 500;
-
-  transition: all 0.3s;
-
-  &:hover{ color: $color-hover; fill: $color-hover; background-color: $bg-hover; }
-  @content;
-}
-
-@mixin bg-glass(
-  $bg: hsla(var(--color-black), 0.05),
-  $border: 0.0625em solid hsla(var(--color-black), 0.1),
-  $shadow: 0 0.5em 2em 0 hsla(var(--color-black), 0.3),
-  $radius: 0.5em,
-  $blur: 0.5em
-){
-  position: relative;
-  &::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    
-    background-color: $bg;
-    box-shadow: $shadow;
-    border: $border;
-    border-radius: $radius;
-
-    backdrop-filter: blur($blur);
-    -webkit-backdrop-filter: blur($blur);
-  }
-  @content;
-}
-@mixin un-bg-glass{  @include bg-glass(
-  $bg: transparent,
-  $border: 0.0625em solid transparent,
-  $shadow: 0 0 0 0 transparent,
-  $radius: 0,
-  $blur: 0
-);}
-// -----------------------------------
-
 /* Card */
-.tap__content{
 
-  // .card__content{
-  // }
-  .tap__control{
-    margin-block-start: -0.5em;
-    margin-block-end: 0.5em;
-    padding-inline: 0.5em;
-    padding-block-start: 0.5em;
-    // padding-block: 0.5em;
-    justify-content: space-between;
-    gap: 0.5em;
-    border: 1px solid #d6cee4;
-    border-block-start: 0;
-    border-radius: 0 0 .6em .6em;
-  }
-  button{flex: 1;
-    // @include btn(hsl(var(--color-black)), hsla(var(--color-black), 0.4), hsl(var(--color-gray)), hsla(var(--color-gray), 0.8));
-    &.active{
-      @include btn(hsl(var(--color-white)), hsla(var(--color-white), 0.4), hsl(var(--color-primary)), hsla(var(--color-primary), 0.8));
-    }
-  }
-
-}
 
 
 

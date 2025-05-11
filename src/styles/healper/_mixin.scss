@@ -1,0 +1,51 @@
+
+
+@mixin btn($color, $color-hover , $bg, $bg-hover){
+    // $color: hsl(var(--color-black));
+    // $color-hover: hsl(var(--color-black));
+    // $bg: hsl(var(--color-gray));
+    // $bg-hover: hsla(var(--color-gray), 0.8);
+  
+    color: $color; fill: $color; background-color: $bg;
+    text-transform: capitalize;
+    font-weight: 500;
+  
+    transition: all 0.3s;
+  
+    &:hover{ color: $color-hover; fill: $color-hover; background-color: $bg-hover; }
+    @content;
+  }
+  
+  @mixin bg-glass(
+    $bg: hsla(var(--color-black), 0.05),
+    $border: 0.0625em solid hsla(var(--color-black), 0.1),
+    $shadow: 0 0.5em 2em 0 hsla(var(--color-black), 0.3),
+    $radius: 0.5em,
+    $blur: 0.5em
+  ){
+    position: relative;
+    &::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      
+      background-color: $bg;
+      box-shadow: $shadow;
+      border: $border;
+      border-radius: $radius;
+  
+      backdrop-filter: blur($blur);
+      -webkit-backdrop-filter: blur($blur);
+    }
+    @content;
+  }
+  @mixin un-bg-glass{  @include bg-glass(
+    $bg: transparent,
+    $border: 0.0625em solid transparent,
+    $shadow: 0 0 0 0 transparent,
+    $radius: 0,
+    $blur: 0
+  );}
+  // -----------------------------------
+  

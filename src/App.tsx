@@ -2,18 +2,31 @@ import {
   useLanguage,
   AppRouter,
   useTheme,
+  useEffect,
 } from '@/utils/alias';
 
 
 const App: React.FC = () => {
+  const { theme } = useTheme();
   useLanguage();
-  useTheme();
 
   // useEffect( async () => {
   //   await setTimeout(() => {
   //   }, 100);
   // }, []);
+  useEffect(() => {/* التحكم في لون شريط Status Bar */
+    const themeColor = `hsla(${getComputedStyle(document.documentElement).getPropertyValue('--color-background').trim()})`;
+    let meta = document.querySelector("meta[name='theme-color']");
+    if (!meta) {
+      meta = document.createElement('meta');
+      (meta as HTMLMetaElement).name = 'theme-color';
+      document.head.appendChild(meta);
+    }
+  
+    (meta as HTMLMetaElement).setAttribute('content', themeColor);
+  }, [theme]);
 
+  
   return <AppRouter />;
 }
 export default App;

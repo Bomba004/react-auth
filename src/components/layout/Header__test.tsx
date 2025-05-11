@@ -8,8 +8,10 @@ import { logout } from "@/store/slices/authSlice";
 import { AppDispatch } from "@/store";
 
 
-export const Header__test = () => {
-
+interface IHeader__testProps {
+  toPhone?: boolean;
+}
+export const Header__test = ({toPhone}: IHeader__testProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
@@ -67,12 +69,16 @@ export const Header__test = () => {
 
   return (
     // <header className="bg-white dark:bg-gray-900"> relative z-[1] 
-    <header className="py-1 px-1 lg:px-4 relative z-[1]">
+    // <header className="py-1 px-1 lg:px-4 relative z-[1]">
+    <header className="py-1 relative z-[1]">
       {/* <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8"> */}
       {/* <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"> */}
-      <div className="container mx-auto max-w-md md:max-w-full">
+      <div className={`container mx-auto${!toPhone ? ' max-w-md' : ''} md:max-w-full`}>
         {/* <div className="flex h-16 items-center justify-between"> */}
-        <div className="relative flex items-center justify-between gap-1 md:gap-16 bg-glass px-2 py-2 md:px-4 md:py-3 flex-wrap">
+        <div
+          // className="relative flex items-center justify-between gap-1 md:gap-16 px-2 py-2 md:px-4 md:py-3 flex-wrap bg-glass"
+          className={`relative flex items-center justify-between gap-1 md:gap-16 px-2 py-2 md:px-4 md:py-3 flex-wrap${!toPhone ? ' bg-glass' : ''}`}
+        >
 
           {/* Logo */}
           <div className="Logo md:flex md:items-center md:gap-12">
@@ -163,6 +169,7 @@ export const Header__test = () => {
 
           </div>
         </div>
+        {toPhone && <hr />}
       </div>
     </header>
   );

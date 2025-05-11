@@ -19,5 +19,16 @@ export const MainLayout = ({ setting = { header: false, footer: false } }: MainL
     </>
   );
 };
-
 export default MainLayout;
+
+/// =======================================================================
+
+export const MainLayout2 = ({ setting = { header: false, footer: false } }: MainLayoutProps) => {
+  return (
+    <>
+      {setting.header && <Header__test toPhone={true}/>}
+      <Outlet />
+      {setting.footer && <Footer/>}
+    </>
+  );
+};
