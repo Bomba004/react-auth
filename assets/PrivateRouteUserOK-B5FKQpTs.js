@@ -1,0 +1,1 @@
+import{c as o,f as u,j as t,g as n}from"./index-BQ3lCA5L.js";const i=({children:e})=>{const s=o(a=>a.auth.user),r=u();return s?t.jsx(n,{to:"/dashboard",state:{from:r},replace:!0}):t.jsx(t.Fragment,{children:e})};export{i as PrivateRouteUserOK,i as default};
