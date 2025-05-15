@@ -121,14 +121,14 @@ const CustomersDashboard: React.FC = () => {
   };
 
   // الحصول على نوع المعاملة
-  const getTransactionType = (type: number) => {
-    switch (type) {
-      case 1: return 'مدين';
-      case 2: return 'دائن';
-      case 3: return 'خصم';
-      default: return 'غير معروف';
-    }
-  };
+  // const getTransactionType = (type: number) => {
+  //   switch (type) {
+  //     case 1: return 'مدين';
+  //     case 2: return 'دائن';
+  //     case 3: return 'خصم';
+  //     default: return 'غير معروف';
+  //   }
+  // };
 
   if (loading) {
     return <div className="loading">جاري تحميل البيانات...</div>;
