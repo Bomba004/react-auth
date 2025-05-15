@@ -1,4 +1,5 @@
-import { LanguageIcon, useLanguage} from "@/utils/alias";
+import { useLanguage} from "@/utils/alias";
+import { LanguageIcon } from "@/utils/alias-Image-Icons";
 
 export const LanguageToggle: React.FC = () => {
   const { lang, toggleLanguage   } = useLanguage();

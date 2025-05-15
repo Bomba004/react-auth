@@ -3,8 +3,8 @@ import {
   AppRouter,
   useTheme,
   useEffect,
+  KeyboardWatcher,
 } from '@/utils/alias';
-
 
 const App: React.FC = () => {
   const { theme } = useTheme();
@@ -27,7 +27,7 @@ const App: React.FC = () => {
   }, [theme]);
 
   
-  return <AppRouter />;
+  return <><KeyboardWatcher /><AppRouter /></>;
 }
 export default App;
 

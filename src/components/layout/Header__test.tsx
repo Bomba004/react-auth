@@ -1,9 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import './Header__test.scss';
 import { useState, useRef, useEffect, useTranslation,
-   useSelector, RootState, Button, useDispatch, 
-   ArrowRightOnRectangleIcon} from "@/utils/alias";
-// import {  ChartBarIcon  } from "@heroicons/react/24/outline";
+   useSelector, RootState,
+   List_Links,
+   NavLink,
+   Button, useDispatch, 
+   } from "@/utils/alias";
+import { ArrowRightOnRectangleIcon } from "@/utils/alias-Image-Icons";
+
 import { logout } from "@/store/slices/authSlice";
 import { AppDispatch } from "@/store";
 
@@ -17,18 +21,21 @@ export const Header__test = ({toPhone}: IHeader__testProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const { user } = useSelector((state: RootState) => state.auth);
 
-  const N1_links = [
-    { label: t('header.home'), href: '/' },
-    { label: t('header.about'), href: '/about' },
-    { label: t('header.careers'), href: '/careers' },
-    { label: t('header.history'), href: '/history' },
-    { label: t('header.services'), href: '/services' },
-    { label: t('header.contact'), href: '/contact' },
-    { label: t('header.projects'), href: '/projects' },
-    { label: t('header.blog'), href: '/blog' },
-    { label: t('header.dashboard'), href: '/dashboard' },
-    { label: t('header.bomba'), href: '/bomba' },
-  ];
+  const N1_links = List_Links.filter(link => 0 < link.id && link.id <= 10);
+  // const N2_links = List_Links.filter(link => 10 < link.id && link.id <= 20);
+  
+  // const N1_links = [
+  //   { label: t('header.home'), href: '/' },
+  //   { label: t('header.about'), href: '/about' },
+  //   { label: t('header.careers'), href: '/careers' },
+  //   { label: t('header.history'), href: '/history' },
+  //   { label: t('header.services'), href: '/services' },
+  //   { label: t('header.contact'), href: '/contact' },
+  //   { label: t('header.projects'), href: '/projects' },
+  //   { label: t('header.blog'), href: '/blog' },
+  //   { label: t('header.dashboard'), href: '/dashboard' },
+  //   { label: t('header.bomba'), href: '/bomba' },
+  // ];
   // const N2_links = [
   //   { label: 'Home', href: '/' },    
   //   { label: 'Dashboard', href: '/dashboard' },
@@ -95,11 +102,11 @@ export const Header__test = ({toPhone}: IHeader__testProps) => {
             <nav ref={refMenu} aria-label="Global" className="">
               <ul className="">{/* flex items-center gap-6 text-sm */}
                 {N1_links.map((link) => (
-                  <li key={link.href} className={link.label === "home" ? "active" : ""}>
+                  <li key={link.to}>
                     {/* <Link to={link.href} className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"> */}
-                    <Link to={link.href} onClick={handleClickItem}>
-                      <span>{link.label}</span>
-                    </Link>
+                    <NavLink to={link.to}
+                    className={({isActive}) => isActive ? 'active' : ''}
+                    onClick={handleClickItem}> <span>{t('header.' + link.label)}</span> </NavLink>
                   </li>
                 ))}
               </ul>

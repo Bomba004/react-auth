@@ -8,13 +8,12 @@ import {
   useTranslation,
   motion,
   
-  AtSymbolIcon, UserIcon,
-
   B_Button as Button,
   Password, SuperInput, Checkbox,
   msn,
   // Footer,
 } from '@/utils/alias';
+import { AtSymbolIcon, UserIcon } from '@/utils/alias-Image-Icons';
 
 interface LoginForm {
   userName: string;

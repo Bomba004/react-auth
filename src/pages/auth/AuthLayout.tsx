@@ -37,10 +37,12 @@ export default AuthLayout;
 import {
   motion,
   Slider,
-  UserGroupIcon,
-  UserIcon,
   useTranslation,
 } from '@/utils/alias';
+import {
+  UserGroupIcon,
+  UserIcon,
+} from '@/utils/alias-Image-Icons';
 
 export const Auth__Form = ({ children_Is, children }: AuthLayoutProps) => {
   const { t } = useTranslation();

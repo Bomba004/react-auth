@@ -1,4 +1,4 @@
-import { Footer, Header__test } from "@/utils/alias";
+import { Footer, Header__test, LanguageToggle, ThemeToggle } from "@/utils/alias";
 import { Outlet } from "react-router-dom";
 // import { Header, Footer } from "@components/common";
 
@@ -27,6 +27,10 @@ export const MainLayout2 = ({ setting = { header: false, footer: false } }: Main
   return (
     <>
       {setting.header && <Header__test toPhone={true}/>}
+      <div className="flex items-center space-x-2 ">
+        <LanguageToggle />
+        <ThemeToggle />
+      </div>
       <Outlet />
       {setting.footer && <Footer/>}
     </>

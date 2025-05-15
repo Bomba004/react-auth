@@ -1,4 +1,5 @@
-import { SunIcon, MoonIcon, useTheme } from '@/utils/alias';
+import { useTheme } from '@/utils/alias';
+import { SunIcon, MoonIcon, } from '@/utils/alias-Image-Icons';
 
 export const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();

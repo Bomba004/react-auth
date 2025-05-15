@@ -1,51 +1,91 @@
+@mixin custom-scrollbar(
+  /* العرض */
+  $width: 8px,
+  /* الخلفية */
+  $track-color: transparent,
+  /* المقبض (thumb) */
+  $thumb-color: #888,
+  /* التفاعل عند التحويم (hover) */
+  $thumb-hover-color: #555,
+  /* الحواف */
+  $radius: 10px
+) {
 
-
-@mixin btn($color, $color-hover , $bg, $bg-hover){
-    // $color: hsl(var(--color-black));
-    // $color-hover: hsl(var(--color-black));
-    // $bg: hsl(var(--color-gray));
-    // $bg-hover: hsla(var(--color-gray), 0.8);
-  
-    color: $color; fill: $color; background-color: $bg;
-    text-transform: capitalize;
-    font-weight: 500;
-  
+  // للمتصفحات التي تدعم Webkit (Chrome, Safari, Edge)
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
     transition: all 0.3s;
-  
-    &:hover{ color: $color-hover; fill: $color-hover; background-color: $bg-hover; }
-    @content;
   }
-  
-  @mixin bg-glass(
-    $bg: hsla(var(--color-black), 0.05),
-    $border: 0.0625em solid hsla(var(--color-black), 0.1),
-    $shadow: 0 0.5em 2em 0 hsla(var(--color-black), 0.3),
-    $radius: 0.5em,
-    $blur: 0.5em
-  ){
-    position: relative;
-    &::before{
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      
-      background-color: $bg;
-      box-shadow: $shadow;
-      border: $border;
-      border-radius: $radius;
-  
-      backdrop-filter: blur($blur);
-      -webkit-backdrop-filter: blur($blur);
-    }
-    @content;
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+    border-radius: $radius;
   }
-  @mixin un-bg-glass{  @include bg-glass(
-    $bg: transparent,
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    border-radius: $radius;
+    border: 2px solid $track-color; // لإعطاء فراغ وهمي حول المقبض
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $thumb-hover-color;
+  }
+
+  // لمتصفح Firefox
+  scrollbar-width: thin; // "auto" أو "thin" أو "none"
+  scrollbar-color: $thumb-color $track-color; // المقبض ثم الخلفية
+}
+/// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+@mixin btn($color: #333, $color-hover: #999 , $bg: transparent, $bg-hover: transparent) {
+  color: $color;
+  fill: $color;
+  background-color: $bg;
+  text-transform: capitalize;
+  font-weight: 500;
+
+  transition: all 0.3s;
+
+  &:hover:not(:disabled) {
+    color: $color-hover;
+    fill: $color-hover;
+    background-color: $bg-hover;
+  }
+
+  @content;
+}
+
+@mixin bg-glass($bg: hsla(var(--color-black), 0.05),
+  $border: 0.0625em solid hsla(var(--color-black), 0.1),
+  $shadow: 0 0.5em 2em 0 hsla(var(--color-black), 0.3),
+  $radius: 0.5em,
+  $blur: 0.5em) {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background-color: $bg;
+    box-shadow: $shadow;
+    border: $border;
+    border-radius: $radius;
+
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+  }
+
+  @content;
+}
+
+@mixin un-bg-glass {
+  @include bg-glass($bg: transparent,
     $border: 0.0625em solid transparent,
     $shadow: 0 0 0 0 transparent,
     $radius: 0,
-    $blur: 0
-  );}
-  // -----------------------------------
-  
+    $blur: 0);
+}
+/// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----

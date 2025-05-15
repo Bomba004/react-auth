@@ -9,13 +9,13 @@ import { z } from 'zod';
 import { register as registerUser } from '../../store/slices/authSlice';
 import { Input } from '../../components/ui/Input';
 import { B_Button as Button } from '@/utils/alias';
-import { AppDispatch } from '../../store';
 import {
   UserIcon,
   EnvelopeIcon,
   LockClosedIcon,
   KeyIcon
-} from '@heroicons/react/24/outline';
+} from '@/utils/alias-Image-Icons';
+import { AppDispatch } from '../../store';
 
 const schema = z.object({
   username: z.string().min(3),

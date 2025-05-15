@@ -12,7 +12,7 @@ import {
   ArrowRightOnRectangleIcon,
   LanguageIcon,
   ChartBarIcon
-} from '@heroicons/react/24/outline';
+} from '@/utils/alias-Image-Icons';
 
 export const Navbar: React.FC = () => {
   const { t, i18n } = useTranslation();

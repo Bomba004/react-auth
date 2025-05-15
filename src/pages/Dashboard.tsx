@@ -7,7 +7,7 @@ import {
   UsersIcon,
   DocumentTextIcon,
   CogIcon,
-} from '@heroicons/react/24/outline';
+} from '@/utils/alias-Image-Icons';
 import { RootState } from '../store';
 // import { Footer, Navbar } from '@/utils/alias';
 

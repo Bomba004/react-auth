@@ -1,5 +1,6 @@
-import { clsx, ExclamationTriangleIcon, Footer, HomeIcon, motion, useNavigate, useTranslation } from "@/utils/alias";
-import "./ErrorPage.scss"; // ← ربط ملف SCSS
+import { clsx, Footer, motion, useNavigate, useTranslation } from "@/utils/alias";
+import { ExclamationTriangleIcon, HomeIcon } from "@/utils/alias-Image-Icons";
+// import "./ErrorPage.scss"; // ← ربط ملف SCSS
 
 interface ErrorPageProps {
   title?: string;
