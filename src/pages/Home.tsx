@@ -2,7 +2,7 @@ import { useTranslation } from "@/utils/alias";
 
 export const Home: React.FC = () => {
   const { t } = useTranslation();
-  const version = '4.3.6';
+  const version = '4.3.6.3';
   
   return (
   <div className="p-4">

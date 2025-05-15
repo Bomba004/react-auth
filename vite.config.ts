@@ -9,14 +9,6 @@ export default defineConfig({
     // port: 5173,
     port: 3000,
     host: true,
-    
-    // proxy: {
-    //   '/api': {
-    //     target: '', // غيّر هذا للمنفذ الذي يعمل عليه سيرفرك
-    //     changeOrigin: true,
-    //     rewrite: (path) => path.replace(/^\/api/, '')
-    //   }
-    // }
   },
   resolve: {
     alias: {
