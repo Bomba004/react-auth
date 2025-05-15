@@ -1,1 +1,0 @@
-import{j as e}from"./index-BPoGSbFl.js";const s=()=>e.jsxs(e.Fragment,{children:[e.jsx("h1",{children:"Home"}),e.jsx("p",{children:"welcome BomBa"}),e.jsx("p",{children:"v4.3.5"})]});export{s as Home,s as default};
