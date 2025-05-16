@@ -1,1 +1,0 @@
-import{u as e,j as o}from"./index-CKEM60X-.js";const r=()=>{const{t:s}=e();return o.jsxs("div",{className:"p-4",children:[o.jsx("h1",{children:s("global.home")}),o.jsx("p",{children:s("global.welcome")+" "+s("global.bomba")}),o.jsxs("p",{children:[s("global.version"),": ","4.3.6.3"]})]})};export{r as Home,r as default};
