@@ -12,30 +12,15 @@
 
 :root {
   /* Colors - Light Theme (Default) */
-  --color-primary: 260, 80%, 60%;
-  /* --color-primary-light: 260, 80%, 60%; */
-  /* --color-primary-dark: 260, 20%, 40%; */
+  --color-primary: 260, 80%, 60%; /* hsl(260, 80%, 60%) */
+  --color-secondary: 000, 80%, 70%; /* hsl(0, 80%, 70%) */
+  --color-gray: 260, 10%, 70%; /* hsl(260, 10%, 70%) */
   
-  --color-secondary: 000, 80%, 70%;
-  /* --color-secondary-light: 140, 80%, 70%; */
-  /* --color-secondary-dark: 140, 20%, 30%; */
+  --color-white: 260, 95%, 95%; /* hsl(260, 95%, 95%) */
+  --color-black: 260, 4%, 10%; /* hsl(260, 4%, 10%) */
   
-  --color-gray: 260, 10%, 70%;
-  /* --color-gray-light: 260, 10%, 70%; */
-  /* --color-gray-dark: 260, 90%, 30%; */
-  
-  
-  --color-white: 260, 95%, 95%;
-  /* --color-white-light: 260, 95%, 95%; */
-  /* --color-white-dark: 260, 5%, 5%; */
-
-  --color-black: 260, 4%, 10%;
-  /* --color-black-light: 260, 96%, 90%; */
-  /* --color-black-dark: 260, 4%, 10%; */
-  
-
-  --color-background: 260, 95%, 95%;
-  --color-muted: 260, 5%, 50%;
+  --color-background: 260, 95%, 95%; /* hsl(260, 95%, 95%) */
+  --color-muted: 260, 5%, 50%; /* hsl(260, 5%, 50%) */
 
   
   
@@ -44,6 +29,8 @@
   --success: 150, 80%, 40%;
   --warning: 40, 90%, 50%;
   --danger: 0, 90%, 50%;
+  --light: 260, 80%, 92%;
+  --dark: 260, 80%, 10%;
 
   --success-bg: hsla(var(--success), 0.6);
   --success-bar: hsla(var(--success), 0.8);
@@ -57,6 +44,18 @@
   --warning-bg: hsla(var(--warning), 0.4);
   --warning-bar: hsla(var(--warning), 0.8);
   --warning-shd: hsla(var(--warning), 0.9);
+
+  --light-bg: hsla(var(--light), 0.6);
+  --light-bar: hsla(var(--light), 0.8);
+  --light-shd: hsla(var(--light), 0.9);
+
+  --dark-bg: hsla(var(--dark), 0.6);
+  --dark-bar: hsla(var(--dark), 0.8);
+  --dark-shd: hsla(var(--dark), 0.9);
+
+
+
+
   --text-color: hsl(var(--color-black));
   --shadow: 0 0.125em 0.5em hsla(var(--color-primary), 0.3);
 
