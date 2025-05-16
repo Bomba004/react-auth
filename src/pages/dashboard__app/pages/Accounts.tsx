@@ -25,8 +25,8 @@ function AccountsContent({ type }: { type: string }) {
   const { t } = useTranslation();
   
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-semibold mb-4">{ t('dashboard__app.accounts.title').replace('ال', '') } { type }</h2>
+    <div className="">
+    {(false) && <h2 className="text-xl font-semibold mb-4">{ t('dashboard__app.accounts.title').replace('ال', '') } { type }</h2>}
       <CustomersDashboard/>
     </div>
   );
@@ -100,10 +100,10 @@ const CustomersDashboard: React.FC = () => {
   }, []);
 
   // حساب الإحصائيات
-  const totalCustomers = customers.length;
-  const totalBalance = customers.reduce((sum, customer) => {
-    return sum + customer.accounts.reduce((acc, account) => acc + account.balance, 0);
-  }, 0);
+  // const totalCustomers = customers.length;
+  // const totalBalance = customers.reduce((sum, customer) => {
+  //   return sum + customer.accounts.reduce((acc, account) => acc + account.balance, 0);
+  // }, 0);
 
   // تصفية العملاء حسب البحث
   const filteredCustomers = customers.filter(customer =>
@@ -136,22 +136,7 @@ const CustomersDashboard: React.FC = () => {
 
   return (
     <div className="customers-dashboard">
-      {/* شريط العنوان والإحصائيات */}
-      <div className="dashboard-header">
-        {/* <h1>لوحة تحكم العملاء</h1> */}
-        
-        <div className="stats-container">
-          <div className="stat-card">
-            <div className="stat-value">{totalCustomers}</div>
-            <div className="stat-label">إجمالي العملاء</div>
-          </div>
-          
-          <div className="stat-card">
-            <div className="stat-value">{formatCurrency(totalBalance)}</div>
-            <div className="stat-label">إجمالي الأرصدة</div>
-          </div>
-        </div>
-      </div>
+
 
       {/* شريط البحث والتصفية */}
       <div className="controls-bar">

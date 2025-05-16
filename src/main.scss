@@ -81,6 +81,12 @@
 
   --color-background: 260, 5%, 5%;    /* RGB(24, 24, 27) -> HSL(260, 4%, 10%) */
   --color-muted: 260, 95%, 45%;         /* RGB(161, 161, 170) -> HSL(260, 5%, 65%) */
+
+  --success: 150, 20%, 60%;
+  --warning: 40, 10%, 50%;
+  --danger: 0, 10%, 50%;
+  --light: 260, 20%, 8%;
+  --dark: 260, 20%, 90%;
 }
 
 /* @media (prefers-color-scheme: dark) {

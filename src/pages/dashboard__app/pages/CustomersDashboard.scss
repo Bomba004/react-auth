@@ -6,13 +6,23 @@ $success: var(--success);
 $danger: var(--danger);
 $light: var(--light);
 $dark: var(--dark);
-$border: var(--border);
+$border: var(--color-gray); 
 
 // التصميم العام
 .customers-dashboard {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 1.1em;
+  padding-block-start: 1em;
+  padding-inline: 0.5em;
   margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  overflow: auto;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  height: 72vh;
+  @media (width >= 48em) { /* md: 768px */height: 80vh;}
+  // gap: 0.8em;
   // max-width: 1200px;
   // direction: rtl;
 
@@ -20,8 +30,8 @@ $border: var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2em;
-    flex-wrap: wrap;
+    // margin-bottom: 2em;
+    // flex-wrap: wrap;
 
     h1 {
       color: hsl($dark);
@@ -31,44 +41,62 @@ $border: var(--border);
   }
 
   .stats-container {
+    // background: #000;
+    width: 100%;
     display: flex;
-    gap: 1.1em;
+    // justify-content: space-between;
+    justify-content: space-evenly;
+    gap: 1em;
 
     .stat-card {
+      font-size: 100%;
+      // flex: 1;
       background: hsl($light);
-      border-radius: 0.8em;
-      padding: 1.1em;
+      border-radius: 0.6em;
+      padding: 0.5em;
       box-shadow: 0 0.4em 0.6em hsla($light, 10%);
       text-align: center;
       min-width: 10em;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25em;
 
       .stat-value {
         font-size: 150%;
         font-weight: bold;
         color: hsl($primary);
-        margin-bottom: 0.4em;
       }
 
       .stat-label {
         color: hsla($dark, .4);
-        font-size: 90%;
+        font-size: 75%;
       }
     }
   }
 
   .controls-bar {
-    margin-bottom: 1.1em;
+    // background: #000;
+    // margin-bottom: 1em;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
 
     .search-box {
+      width: 100%;
       position: relative;
 
       input {
         padding: 0.625em 2.5em 0.625em 0.9em;
         border: 0.0625em solid hsl($border);
-        border-radius: 1.5em;
-        width: 18em;
+        border-radius: 0.6em;
+        width: 100%;
+        
+        // background: hsl($light);
+        background: transparent;
+        // border: 0.0625em solid hsl($border);
+
         font-size: 90%;
         transition: all 0.3s;
 
@@ -90,7 +118,8 @@ $border: var(--border);
   }
 
   .customers-table-container {
-    background: hsl($light);
+    // background: hsl($light);
+    // background: #000;
     border-radius: 0.625em;
     box-shadow: 0 0.4em 0.6em hsla($light, 10%);
     overflow-x: auto;
@@ -107,16 +136,15 @@ $border: var(--border);
     }
 
     th {
-      background-color: hsl($light);
+      // background-color: hsl($light);
+      background-color: hsla($dark, 10%);
       color: hsl($dark);
       font-weight: 600;
       position: sticky;
       top: 0;
     }
 
-    tr:hover {
-      background-color: hsl($light);
-    }
+    tr:hover { background-color: hsl($light); }
 
     .customer-avatar {
       width: 2.5em;
@@ -166,38 +194,38 @@ $border: var(--border);
 }
 
 // تصميم متجاوب
-@media (max-width: 48em) {/* 768px */
-  .customers-dashboard {
-    padding: 0.625em;
+// @media (max-width: 48em) {/* 768px */
+//   .customers-dashboard {
+//     padding: 0.625em;
 
-    .dashboard-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.1em;
-    }
+//     .dashboard-header {
+//       flex-direction: column;
+//       align-items: flex-start;
+//       gap: 1em;
+//     }
 
-    .stats-container {
-      width: 100%;
-      justify-content: space-between;
-    }
+//     // .stats-container {
+//     //   width: 100%;
+//     //   justify-content: space-between;
+//     // }
 
-    .controls-bar {
-      justify-content: center;
+//     .controls-bar {
+//       justify-content: center;
 
-      .search-box {
-        width: 100%;
+//       .search-box {
+//         width: 100%;
 
-        input {
-          width: 100%;
-        }
-      }
-    }
+//         input {
+//           width: 100%;
+//         }
+//       }
+//     }
 
-    .customers-table {
-      th, td {
-        padding: 0.625em 0.6em;
-        font-size: 85%;
-      }
-    }
-  }
-}
+//     .customers-table {
+//       th, td {
+//         padding: 0.625em 0.6em;
+//         font-size: 85%;
+//       }
+//     }
+//   }
+// }
