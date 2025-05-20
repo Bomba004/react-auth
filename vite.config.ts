@@ -18,4 +18,9 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['@tailwindcss/nesting'],
   },
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    chunkSizeWarningLimit: 1600,
+  },
 });
