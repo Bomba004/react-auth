@@ -10,7 +10,7 @@ export const ThemeToggle: React.FC = () => {
       // className="inline-flex items-center justify-center p-2 rounded-lg  hover:text-white
       //           bg-white/5 hover:bg-white/10 backdrop-blur-lg
       //           transition-all duration-200 hover:scale-105"
-      className="btn-bg-none"
+      className="btn-none"
       title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
     >
       {theme === 'dark' ? (

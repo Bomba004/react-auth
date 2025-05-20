@@ -1,0 +1,14 @@
+// 📁 _index.scss
+
+// var:-
+@forward './var';
+// Fun:-
+@forward './fun';
+
+// Mixin:-
+@forward './mixin/color';
+@forward './mixin/media';
+@forward './mixin/global';
+
+// GlobalClass:-
+@forward './globalClass';

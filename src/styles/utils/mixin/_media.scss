@@ -1,0 +1,72 @@
+// 📘 _media.scss
+
+// 1. تعريف نقاط التوقف مثل Tailwind
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  '2xl': 1536px
+);
+
+// 2. مكسن للحد الأدنى (min-width)
+@mixin screen($size) {
+  $value: map-get($breakpoints, $size);
+  @if $value != null {
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "⚠️  Breakpoint `#{$size}` غير معرف في \$breakpoints.";
+  }
+}
+
+// 3. مكسن للحد الأقصى (max-width)
+@mixin screen-max($size) {
+  $value: map-get($breakpoints, $size);
+  @if $value != null {
+    @media (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "⚠️  Breakpoint `#{$size}` غير معرف في \$breakpoints.";
+  }
+}
+
+// 4. مكسن بين نقطتين (min-width & max-width)
+@mixin screen-between($min, $max) {
+  $min-value: map-get($breakpoints, $min);
+  $max-value: map-get($breakpoints, $max);
+  @if $min-value != null and $max-value != null {
+    @media (min-width: $min-value) and (max-width: $max-value) {
+      @content;
+    }
+  } @else {
+    @warn "⚠️  نقطة التوقف غير معرفة: #{$min} أو #{$max}.";
+  }
+}
+
+
+
+// ✅ مثال استخدام في ملفات SCSS أخرى:
+/*
+@use './mixin_media'; // تأكد من المسار الصحيح
+
+.card {
+  padding: 1rem;
+  font-size: 1rem;
+
+  @include screen('md') {
+    padding: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  @include screen-max('sm') {
+    background-color: #f0f0f0;
+  }
+
+  @include screen-between('md', 'lg') {
+    border: 2px solid blue;
+  }
+}
+*/

@@ -1,0 +1,38 @@
+// 📁 colors.scss
+@use '../var' as *;
+
+// ✅ 1. Mixin لإنشاء تدرج لوني
+@mixin linear-gradient($direction, $color1, $color2) {
+  // $direction: 217deg;
+  background-image: linear-gradient($direction, $color1, $color2);
+}
+
+// ✅ 2. دوال لتوليد shade و tint من لون معين
+@function color-shade($color, $weight, $black: #000) {
+  @return mix($black, $color, $weight);
+}
+
+@function color-tint($color, $weight, $white: #fff) {
+  @return mix($white, $color, $weight);
+}
+
+// // ✅ 3. توليد تلقائي لدرجات من اللون الأساسي
+// @for $i from 1 through 9 {
+//   .shade-#{$i} {
+//     background-color: color-shade($primary, $i * 10%);
+//   }
+
+//   .tint-#{$i} {
+//     background-color: color-tint($primary, $i * 10%);
+//   }
+// }
+
+// ✅ 4. مثال على استخدام gradient مع mixin
+/*
+ .btn-gradient {
+  @include linear-gradient(to right, #4f46e5, #3b82f6);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+}
+ */

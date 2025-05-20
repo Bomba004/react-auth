@@ -1,0 +1,63 @@
+@use '../../utils' as *;
+
+
+$color-svg: var(--alertColor);
+// $color-svg: hsl(207, 73%, 57%);
+$border: 0.0625em solid hsla(var(--alertColor), 0.1);
+$shadow: 0 0.0625em 0.125em 0 hsla(var(--alertColor), 0.1);
+$radius: 0.5em;
+$radius-full: 50%;
+
+.alert{
+
+  &{
+    --alertColor: var(--color-black);
+    color: hsl(var(--alertColor));
+    font-size: 90%; font-weight: 400;
+  }
+
+  &__body {
+    border: $border;
+    border-radius: $radius;
+    box-shadow: $shadow;
+
+    overflow: hidden;
+  }
+  
+  svg{ color: hsla($color-svg, 1); }
+  &__icon{
+    padding: 0.375em;
+    background-color: hsla($color-svg, 0.1);
+    border-radius: $radius-full; 
+    flex-shrink: 0;
+  }
+  .Box{
+    // @include box();
+    font-size: 80%; font-weight: 500;
+    padding: 0.375em 0.75em;
+    color: inherit;
+    background-color: hsla(var(--alertColor), 0.1);
+    border-radius: $radius; 
+  }
+
+  Button{
+    margin: 0.3em;
+    padding: 0.3em;
+    border-radius: $radius;
+    color: hsl(var(--color-primary));
+    background-color: transparent;
+    border: $border;
+    &:hover{
+      // color: hsl(var(--color-white)) !important;
+      background-color: hsla(var(--danger), 0.8);
+      border-color: hsla(var(--danger), 0.8);
+      svg{ color: hsla(var(--color-white), 0.6); }
+    }
+  }
+  
+
+  &.success{ --alertColor: var(--success); }
+  &.danger{ --alertColor: var(--danger); }
+  &.warning{ --alertColor: var(--warning); }
+  &.info{ --alertColor: var(--info); }
+}

@@ -13,10 +13,13 @@ import {
 
 
 //  https://react-icons.github.io/react-icons/search/#q=users
-import { FiFileText, } from "react-icons/fi";
-import { FaUsersViewfinder, } from "react-icons/fa6";
-import { MdWarehouse, } from "react-icons/md";
-import { GrPieChart, } from "react-icons/gr";
+import { FiFileText, /* ملف */ } from "react-icons/fi";
+import { FaUsersViewfinder, /* عرض المستخدم */ } from "react-icons/fa6";
+import { MdWarehouse, /* مخزن */ } from "react-icons/md";
+import { GrPieChart, /* دائرة */ } from "react-icons/gr";
+import { IoIosClose, /* إغلاق */ } from "react-icons/io";
+import { IoMdSearch as FaSearch /* عدسة بحث */ } from "react-icons/io";
+import { CiMenuKebab /* النقاط الرئسية للقائمة */ } from "react-icons/ci";
 
 import {
   FaUserFriends, /* عملاء */
@@ -45,6 +48,7 @@ export {
 
     FiFileText, FaUsersViewfinder ,
     MdWarehouse, GrPieChart,
+    IoIosClose, FaSearch, CiMenuKebab,
 
     FaUserFriends, FaTruckLoading, FaUsersRectangle, FaCashRegister, FaShippingFast, GiStrongbox,
     // Images

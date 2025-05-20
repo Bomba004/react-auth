@@ -17,19 +17,19 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={clsx(
-          'relative inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200',
-          'focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed',
-          {
-            'btn-primary': variant === 'primary',
-            'btn-secondary': variant === 'secondary',
-            'btn-outline': variant === 'outline',
-            'btn-danger': variant === 'danger',
-            'w-full': fullWidth,
-            'px-4 py-2 text-sm': size === 'sm',
-            'px-6 py-3 text-base': size === 'md',
-            'px-8 py-4 text-lg': size === 'lg',
-          },
-          'transform hover:scale-[1.02] active:scale-[0.98]',
+          // 'relative inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200',
+          // 'focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed',
+          // {
+          //   'btn-primary': variant === 'primary',
+          //   'btn-secondary': variant === 'secondary',
+          //   'btn-outline': variant === 'outline',
+          //   'btn-danger': variant === 'danger',
+          //   'w-full': fullWidth,
+          //   'px-4 py-2 text-sm': size === 'sm',
+          //   'px-6 py-3 text-base': size === 'md',
+          //   'px-8 py-4 text-lg': size === 'lg',
+          // },
+          // 'transform hover:scale-[1.02] active:scale-[0.98]',
           className
         )}
         disabled={isLoading}

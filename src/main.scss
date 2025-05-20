@@ -1,9 +1,10 @@
-@use './styles/healper/mixin' as *;
+@use './styles/utils' as *;
 
 @use './styles/shadcnUi' as *;
 @use './styles/controle/_page_error.scss' as *;
 @use './styles/controle/tap__content' as *;
 @use './styles/controle/tap__controller' as *;
+@use './styles/controle/ui/alert' as *;
 
 @tailwind base;
 @tailwind components;
@@ -17,7 +18,7 @@
   --color-gray: 260, 10%, 70%; /* hsl(260, 10%, 70%) */
   
   --color-white: 260, 95%, 95%; /* hsl(260, 95%, 95%) */
-  --color-black: 260, 4%, 10%; /* hsl(260, 4%, 10%) */
+  --color-black: 260, 5%, 10%; /* hsl(260, 4%, 10%) */
   
   --color-background: 260, 95%, 95%; /* hsl(260, 95%, 95%) */
   --color-muted: 260, 5%, 50%; /* hsl(260, 5%, 50%) */
@@ -29,8 +30,10 @@
   --success: 150, 80%, 40%;
   --warning: 40, 90%, 50%;
   --danger: 0, 90%, 50%;
-  --light: 260, 80%, 92%;
-  --dark: 260, 80%, 10%;
+  --warning: 40, 90%, 50%;
+  --info: 200, 70%, 60%;
+  --light: 260, 95%, 95%;
+  --dark: 260, 5%, 10%;
 
   --success-bg: hsla(var(--success), 0.6);
   --success-bar: hsla(var(--success), 0.8);
@@ -100,7 +103,10 @@
 
 /*#region -------------------- { BASE } ----------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
-
+* { border-color: hsla(var(--color-black), 0/* 0.1 */); 
+    // outline: none;
+    outline-color: inherit;
+}
 *:not(input[text], input[number], input[email], input[password]){user-select: none;}
 *::selection { background: hsl(var(--color-primary)); text-shadow: none; }
 * input{ -webkit-text-fill-color: hsl(var(--color-black)) /* !important */; } /* تغيير لون النص إلى أحمر */
@@ -296,11 +302,10 @@ input:-webkit-autofill:active {
 
 hr{
   width: 100%;
-  height: 0.065em;
+  height: 0.1em;
   padding: 0 1em;
   border-radius: 0.5em;
   @extend .bg-glass;
-  // @apply bg-glass rounded-[0.5em];
 
 }
 hr.horizontal{/* أفقي */

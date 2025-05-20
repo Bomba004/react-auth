@@ -37,6 +37,7 @@ import { Button as B_Button } from '@/components/ui/B_Button';
 import { Spinner } from '@/components/ui/Spinner';
 import { type TabItems, TabControl } from '@/components/ui/controls/TabControl';
 import { Slider } from '@/components/ui/slider/Slider';
+import { Alert } from '@/components/ui/alert/Alert';
 import { showToast as msn } from '@/components/ui/toast/Toast';
   // UI Components Shadcn
   import { Button } from '@/components/ui/button';
@@ -101,6 +102,7 @@ export {// Global
       Button,
       Card, CardContent, CardHeader, CardTitle,
     KeyboardWatcher,
+    Alert,
     msn,
     Header__test,
     Footer,

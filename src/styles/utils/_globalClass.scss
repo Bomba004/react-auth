@@ -1,0 +1,150 @@
+@use './var' as *;
+@use './mixin/global' as *;
+
+
+//#region  text:-
+  
+.text {
+  &-wrap{ // .text-wrap
+    $width: 12.5em;
+    $tooltip-bg: hsla(var(--color-black), 0.6);
+    $tooltip-color: hsl(var(--color-white));
+    $tooltip-padding: 0.3125em 0.625em; // 5px 10px → em
+    $border-radius: 0.25em; // 4px → em
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: $width;
+    position: relative;
+
+    &:hover::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: $tooltip-bg;
+      color: $tooltip-color;
+      padding: $tooltip-padding;
+      border-radius: $border-radius;
+      white-space: normal;
+      width: auto;
+      z-index: 10;
+    }
+  }
+}
+//#endregion
+
+
+//#region  Background:-
+  .bg-glass-menu {
+    @include bg-glass(
+      $bg: hsla(var(--color-black), 0.01),
+      $border: 0.0625em solid hsla(var(--color-black), 0.1),
+      $shadow: 0 0.5em 2em 0 hsla(var(--color-black), 0.3),
+      $radius: 0.5em,
+      $blur: 0.5em
+    );
+  }
+  .bg-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: rgba(0,0,0);  // اللون الرمادي مع الشفافية
+    z-index: 1;  // تأكد من ظهور المودال فوق العناصر الأخرى
+  }
+//#endregion
+
+//#region  Button:-
+  .btn{
+    &-none{ 
+      @include btn(
+        $color: hsl(var(--color-black)),
+        $color-hover: hsl(var(--color-black)),
+        $bg: transparent,
+        $bg-hover: transparent
+        );
+      &.hover:hover{color: hsl(var(--color-white)); background-color: hsla(var(--color-black)); }
+     }
+     
+    &-danger{ @include btn(hsl(var(--color-white)), hsla(var(--color-white), 0.6), hsl(var(--danger)), hsla(var(--danger), 0.8)); }
+    
+    &-primary{ 
+      @include btn(hsl(var(--color-white)), hsla(var(--color-white), 0.6), hsl(var(--color-primary)), hsla(var(--color-primary), 0.8));
+      border-radius: $radius;
+      padding: inherit;
+      margin-inline-start: 0.2em;
+    }
+    &-1{ @include btn(hsl(var(--color-white)), hsla(var(--color-white), 0.6), hsl(var(--color-primary)), hsla(var(--color-primary), 0.8)); }
+    &-2{ @include btn(hsl(var(--color-black)), hsla(var(--color-black), 0.6), hsl(var(--color-gray)), hsla(var(--color-gray), 0.8)); }
+  }
+//#endregion
+
+//#region  Box:-
+  // .Box{
+  //   // @include box();
+  //   font-size: 80%; font-weight: 500;
+  //   padding: 0.375em 0.75em;
+  //   color: inherit;
+  //   background-color: hsla(var(--info), 0.1);
+  //   border-radius: $radius; 
+  // }
+//#endregion
+
+//#region  Field:-
+/* CSS العام */
+$bg: hsl(var(--color-background));
+$c_br: hsla(var(--color-black), 0.5);
+$c_focus: hsl(var(--color-primary));
+
+.field{
+
+  &__container {
+    font-size: 100%;
+    position: relative;
+    // padding: 0.5em 0.6rem 0.1em 0.6rem;
+    padding: 0.5em 0.6rem;
+    width: 100%;
+    background-color: $bg;
+    border: /* 0.125em */ 0.0625em solid $c_br;
+    border-radius: $radius;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    svg{ margin-block-start: 0.25em; color: $c_br; }
+    // عندما يكون هناك تركيز داخل الحاوية
+    &:focus-within {
+      border-color: $c_focus;
+      label, svg{ color: $c_focus; }
+    }
+  }
+
+  &__label {
+    position: absolute;
+    padding: 0 0.25em;
+    color: $c_br;
+    font-size: 75%; /* 12px */
+    font-weight: 600;
+    text-transform: capitalize;
+    top: -0.8em;
+    inset-inline-start: 0.5rem;
+    background-color: $bg;
+    width: fit-content;
+
+  }
+
+  &__input {
+    background-color: transparent;
+    flex: 1;
+
+    &:focus { outline: none; }
+    &::placeholder { color: $c_focus; opacity: 1; }
+    &::-webkit-input-placeholder { color: $c_focus; }
+    &::-moz-placeholder { color: $c_focus; }
+    &:-ms-input-placeholder { color: $c_focus; }
+    &:-moz-placeholder { color: $c_focus; }
+  }
+}
+//#endregion

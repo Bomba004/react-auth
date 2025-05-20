@@ -10,7 +10,7 @@ export const LanguageToggle: React.FC = () => {
       // className="inline-flex items-center justify-center p-2 rounded-lg hover:text-white
       //           bg-glass hover:bg-white/10
       //           transition-all duration-200 hover:scale-105"
-      className="btn-bg-none"
+      className="btn-none"
       title={lang === 'ar' ? 'English' : 'العربية'}
     >
       <LanguageIcon className="w-5 h-5" />

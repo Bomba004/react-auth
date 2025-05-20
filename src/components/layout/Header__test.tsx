@@ -176,7 +176,8 @@ export const Header__test = ({toPhone}: IHeader__testProps) => {
 
           </div>
         </div>
-        {toPhone && <hr />}
+        {toPhone && <><hr /></>}
+
       </div>
     </header>
   );

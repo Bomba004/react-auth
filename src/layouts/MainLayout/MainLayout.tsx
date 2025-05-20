@@ -27,6 +27,7 @@ export const MainLayout2 = ({ setting = { header: false, footer: false } }: Main
   return (
     <>
       {setting.header && <Header__test toPhone={true}/>}
+      {/* <hr /> */}
       <div className="flex items-center space-x-2 ">
         <LanguageToggle />
         <ThemeToggle />
