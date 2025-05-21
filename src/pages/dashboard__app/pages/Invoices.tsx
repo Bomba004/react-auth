@@ -27,7 +27,7 @@ function InvoiceContent({ type }: { type: string }) {
 
   // console.log(1);
   return (
-    <div className="p-4">
+    <>
       <h2 className="text-xl font-semibold mb-4">{ t('dashboard__app.invoices.title').replace('ال', '') } { type }</h2>
       {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="border rounded p-4">
@@ -63,6 +63,6 @@ function InvoiceContent({ type }: { type: string }) {
           </div>
         </div>
       </div> */}
-    </div>
+    </>
   );
 }

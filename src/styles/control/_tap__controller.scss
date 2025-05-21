@@ -1,0 +1,68 @@
+@use '../utils' as *;
+
+$primary: hsla(var(--color-primary));
+.tab-control {
+  &{ 
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+
+    &.vertical { flex-direction: column-reverse; }
+    &.horizontal { flex-direction: column; }
+  }
+
+  .tab-controller{
+    &{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+      &:hover{ overflow: auto; }
+    }
+    button{
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5em 1em;
+      border-bottom: 0.125em solid transparent;
+      gap: 0.25em;
+
+      .icon{ font-size: 60%; }
+      &.active{ color: $primary; fill: $primary; border-color: $primary; font-weight: 700; }
+    }
+  }
+
+  &.reverse {
+    @media (0 < width < 48rem) { 
+      flex-direction: column-reverse;
+      .tab__controller button{ 
+        flex-direction: column; gap: 0;
+        .icon{ font-size: 110%; }
+        .label{ font-size: 80%; font-weight: 700; }
+      }
+    }
+    &.tab_1 {
+      .tab__controller {
+        button{ flex: 1; justify-content: center; }
+      }
+    }
+  }
+}
+
+// ---------- ---------- ---------- ---------- ---------- ---------- ----------
+
+.tab-content{
+  position: relative;
+  padding: 0.2em;
+  padding-block-end: 0;
+  flex: 1;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}

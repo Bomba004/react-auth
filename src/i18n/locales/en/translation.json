@@ -1,0 +1,136 @@
+{
+  "global": {
+    "home": "Home",
+    "welcome": "welcome",
+    "bomba": "bomba",
+    "version": "version",
+    "loading": "Loading please wait..."
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "h2": "Welcome back",
+      "p1": "Please log in to access the dashboard"
+    },
+    "register": {
+      "title": "Create Account",
+      "h2": "Create a New Account",
+      "p1": "Create an account to access the dashboard"
+    },
+    "logout": "Logout",
+    "email": "Email",
+    "usernamePlaceholder": "Username or Email",
+    "password": "Password",
+    "passwordPlaceholder": "Password",
+    "confirmPassword": "Confirm Password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "submit": "Login",
+    "signIn": "Login",
+    "loginSuccess": "Logged in successfully",
+    "loginError": "Login failed. Please check your credentials",
+    "not_Have_an_account": "Do not have an account?",
+    "errors": {
+      "required": "This field is required",
+      "requiredUsernameAndPassword": "Please enter your username and password correctly!",
+      "email": "Invalid email address",
+      "identifier": "Please enter your username or email",
+      "password": "Please enter your password",
+      "passwordMatch": "Passwords do not match",
+      "invalidCredentials": "Invalid login credentials",
+      "userExists": "User already exists",
+      "userNameRequired": "Username is required",
+      "passwordRequired": "Password is required"
+    }
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "welcome": "Welcome, {{name}}",
+    "overview": "System overview and statistics",
+    "totalUsers": "Total Users",
+    "activeProjects": "Active Projects",
+    "pendingTasks": "Pending Tasks",
+    "systemHealth": "System Health",
+    "recentActivity": "Recent Activity",
+    "activityTitle": "New user added",
+    "activityTime": "2 hours ago",
+    "quickActions": "Quick Actions",
+    "newProject": "New Project",
+    "addUser": "Add User",
+    "analytics": "Analytics",
+    "settings": "Settings"
+  },
+  "dashboard__app": {
+    "invoices": {
+      "title": "invoices",
+      "sale": "sale",
+      "purchase": "purchase",
+      "sale_return": "sale return",
+      "purchase_return": "purchase return",
+      "damaged": "damaged",
+      "transfer": "transfer",
+      "reports": "invoice reports"
+    },
+    "accounts": {
+      "title": "accounts",
+      "customers": "customers",
+      "suppliers": "suppliers",
+      "employees": "employees",
+      "safety_drawer": "safety | drawer",
+      "shipping_bag": "shipping & bag"
+    },
+    "warehouses": {
+      "title": "warehouses"
+    },
+    "reports": {
+      "title": "reports"
+    },
+    "users": {
+      "title": "users",
+      "data": "data",
+      "permissions": "permissions"
+    }
+  },
+  "header": {
+    "home": "home",
+    "about": "about",
+    "careers": "careers",
+    "history": "history",
+    "services": "services",
+    "contact": "contact",
+    "projects": "projects",
+    "blog": "blog",
+    "dashboard": "dashboard",
+    "bomba": "BomBa",
+    "signIn": "sign In"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved",
+    "bombaLink": "BomBa",
+    "copyright": " 2025"
+  },
+  "components": {
+    "SearchFilterBar": {
+      "title": "Search",
+      "placeholder": "Search..."
+    }
+  },
+  "error": {
+    "Error_401": "Error 401",
+    "Error_404": "Error 404",
+    "Error_403": "Error 403",
+    "Error_500": "Error 500",
+    "Error_501": "Error 501",
+    "Error_502": "Error 502",
+    "Error_503": "Error 503",
+    "Error_504": "Error 504",
+    "Page not found": "Page not found",
+    "You do not have permission to access this page": "You do not have permission to access this page",
+    "permission": "You do not have permission to access this page",
+    "backToDashboard": "Back to Dashboard"
+  }
+}

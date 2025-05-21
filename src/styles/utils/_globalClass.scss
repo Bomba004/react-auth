@@ -1,4 +1,5 @@
 @use './var' as *;
+@use './mixin/media' as *;
 @use './mixin/global' as *;
 
 
@@ -52,7 +53,7 @@
     width: 100dvw;
     height: 100dvh;
     background-color: rgba(0,0,0);  // اللون الرمادي مع الشفافية
-    z-index: 1;  // تأكد من ظهور المودال فوق العناصر الأخرى
+    z-index: 1;  // تأكد من ظهور المود فوق العناصر الأخرى
   }
 //#endregion
 
@@ -148,3 +149,49 @@ $c_focus: hsl(var(--color-primary));
   }
 }
 //#endregion
+
+//#region  Card:-
+@mixin card{
+  // width: 100%;
+  width: fit-content;
+  height: fit-content;
+  
+  margin-inline: auto;
+  border-radius: $radius;
+  box-shadow: $shadow-2;
+  @include trans($time: 0.3s);
+  
+  &:hover { box-shadow: $shadow-22; }
+  // &{ @include md { width: fit-content; } }
+  @content;
+}
+.card{ @include card; }
+
+//#endregion
+
+//#region  Avatar:-
+.avatar {
+  // display: none;
+  padding: 0.125em;
+  $size: 3.375em; // 54px → rem
+  width: $size;
+  height: $size;
+  border: 0.125em solid $gray; // 3px → rem
+  overflow: hidden;
+
+  &,img{ border-radius: $radius-full; }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+//#endregion
+
+
+
+//#region  UTILS:-
+.cursor-pointer{ cursor: pointer; }
+//#endregion
+
+

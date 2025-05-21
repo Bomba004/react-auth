@@ -34,6 +34,8 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { Password, SuperInput } from '@/components/ui/Input';
 import { Checkbox } from '@/components/ui/Checkbox';
 import { Button as B_Button } from '@/components/ui/B_Button';
+import SearchFilterBar from "@/components/ui/searchFilterBar/SearchFilterBar";
+import { Avatar } from '@/components/ui/B_Avatar';
 import { Spinner } from '@/components/ui/Spinner';
 import { type TabItems, TabControl } from '@/components/ui/controls/TabControl';
 import { Slider } from '@/components/ui/slider/Slider';
@@ -97,7 +99,8 @@ export {// Global
 
     // UI Components
     LanguageToggle, ThemeToggle,
-    Password, SuperInput, Checkbox, B_Button, Slider, Spinner, TabItems, TabControl,
+    Password, SuperInput, Checkbox, B_Button, SearchFilterBar,
+    Avatar, Slider, Spinner, TabItems, TabControl,
       // UI Components Shadcn
       Button,
       Card, CardContent, CardHeader, CardTitle,

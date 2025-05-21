@@ -2,7 +2,7 @@
 
 export const Register = () => {
 
-  function onSubmit(data: any) {
+  function onSubmit(data: unknown) {
     console.log(data);
   }
 

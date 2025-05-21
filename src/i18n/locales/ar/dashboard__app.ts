@@ -25,8 +25,12 @@ const reports = {
   title: 'التقارير',
 
 };
-
+const users = {
+  title: 'المستخدمين',
+  data: 'بيانات',
+  permissions: 'صلاحيات'
+};
 // level 0:
 export default {
-  invoices, accounts, warehouses, reports
+  invoices, accounts, warehouses, reports, users
 };

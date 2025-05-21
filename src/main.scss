@@ -1,10 +1,9 @@
 @use './styles/utils' as *;
 
 @use './styles/shadcnUi' as *;
-@use './styles/controle/_page_error.scss' as *;
-@use './styles/controle/tap__content' as *;
-@use './styles/controle/tap__controller' as *;
-@use './styles/controle/ui/alert' as *;
+@use './styles/control/ui/alert' as *;
+@use './styles/control/tap__controller' as *;
+@use './styles/control/_page_error.scss' as *;
 
 @tailwind base;
 @tailwind components;
@@ -13,19 +12,26 @@
 
 :root {
   /* Colors - Light Theme (Default) */
-  --color-primary: 260, 80%, 60%; /* hsl(260, 80%, 60%) */
-  --color-secondary: 000, 80%, 70%; /* hsl(0, 80%, 70%) */
-  --color-gray: 260, 10%, 70%; /* hsl(260, 10%, 70%) */
-  
-  --color-white: 260, 95%, 95%; /* hsl(260, 95%, 95%) */
-  --color-black: 260, 5%, 10%; /* hsl(260, 4%, 10%) */
-  
-  --color-background: 260, 95%, 95%; /* hsl(260, 95%, 95%) */
-  --color-muted: 260, 5%, 50%; /* hsl(260, 5%, 50%) */
+  --color-primary: 260, 80%, 60%;
+  /* hsl(260, 80%, 60%) */
+  --color-secondary: 000, 80%, 70%;
+  /* hsl(0, 80%, 70%) */
+  --color-gray: 260, 10%, 70%;
+  /* hsl(260, 10%, 70%) */
 
-  
-  
-  
+  --color-white: 260, 95%, 95%;
+  /* hsl(260, 95%, 95%) */
+  --color-black: 260, 5%, 10%;
+  /* hsl(260, 4%, 10%) */
+
+  --color-background: 260, 95%, 95%;
+  /* hsl(260, 95%, 95%) */
+  --color-muted: 260, 5%, 50%;
+  /* hsl(260, 5%, 50%) */
+
+
+
+
   /* تعريف متغيرات الألوان */
   --success: 150, 80%, 40%;
   --warning: 40, 90%, 50%;
@@ -65,13 +71,15 @@
   /* Font */
   // --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family: "Cairo", sans-serif, 'Inter', system-ui, -apple-system, sans-serif;
-  
+
 }
 
 /* Light Theme */
 :root[class='light'] {
-  --color-background: 260, 95%, 95%;       /* RGB(255, 255, 255) -> HSL(0, 0%, 100%) */
-  --color-muted: 260, 5%, 50%;           /* RGB(113, 113, 122) -> HSL(260, 5%, 50%) */
+  --color-background: 260, 95%, 95%;
+  /* RGB(255, 255, 255) -> HSL(0, 0%, 100%) */
+  --color-muted: 260, 5%, 50%;
+  /* RGB(113, 113, 122) -> HSL(260, 5%, 50%) */
 }
 
 /* Dark Theme */
@@ -79,11 +87,13 @@
   --color-gray: 260, 10%, 30%;
   --color-white: 260, 5%, 5%;
   --color-black: 260, 96%, 90%;
-  
 
 
-  --color-background: 260, 5%, 5%;    /* RGB(24, 24, 27) -> HSL(260, 4%, 10%) */
-  --color-muted: 260, 95%, 45%;         /* RGB(161, 161, 170) -> HSL(260, 5%, 65%) */
+
+  --color-background: 260, 5%, 5%;
+  /* RGB(24, 24, 27) -> HSL(260, 4%, 10%) */
+  --color-muted: 260, 95%, 45%;
+  /* RGB(161, 161, 170) -> HSL(260, 5%, 65%) */
 
   --success: 150, 20%, 60%;
   --warning: 40, 10%, 50%;
@@ -103,13 +113,31 @@
 
 /*#region -------------------- { BASE } ----------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
-* { border-color: hsla(var(--color-black), 0/* 0.1 */); 
-    // outline: none;
-    outline-color: inherit;
+
+* {
+  border-color: hsla(var(--color-black), 0
+      /* 0.1 */
+    );
+  // outline: none;
+  outline-color: inherit;
 }
-*:not(input[text], input[number], input[email], input[password]){user-select: none;}
-*::selection { background: hsl(var(--color-primary)); text-shadow: none; }
-* input{ -webkit-text-fill-color: hsl(var(--color-black)) /* !important */; } /* تغيير لون النص إلى أحمر */
+
+*:not(input[text], input[number], input[email], input[password]) {
+  user-select: none;
+}
+
+*::selection {
+  background: hsl(var(--color-primary));
+  text-shadow: none;
+}
+
+* input {
+  -webkit-text-fill-color: hsl(var(--color-black))
+    /* !important */
+  ;
+}
+
+/* تغيير لون النص إلى أحمر */
 /* *::-moz-selection { color: var(--info-color); background: var(--warning-color); text-shadow: none; } */
 
 
@@ -130,7 +158,7 @@
     // );
     margin-top: env(safe-area-inset-top);
     background: hsla(var(--color-background));
-    
+
     @include custom-scrollbar($width: 0.5em,
       $thumb-color: hsl(var(--color-primary)),
       $thumb-hover-color: hsla(var(--color-primary), 0.8),
@@ -159,7 +187,8 @@
   .btn-primary {
     background-color: hsl(var(--color-primary));
     color: hsl(var(--color-black));
-    transition: all 0.2s;
+    @include trans($time: 0.2s);
+
   }
 
   .btn-primary:hover {
@@ -169,7 +198,7 @@
   .btn-secondary {
     background-color: hsl(var(--color-secondary));
     color: hsl(var(--color-black));
-    transition: all 0.2s;
+    @include trans($time: 0.2s);
   }
 
   .btn-secondary:hover {
@@ -180,10 +209,8 @@
     @apply w-full px-4 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200;
   }
 
-  .card {
-    @apply bg-white rounded-lg shadow-md p-6;
-  }
 }
+
 /*#endregion*/
 
 
@@ -204,18 +231,27 @@
 
 
 /* RTL Support */
-[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+[dir="rtl"] .space-x-2> :not([hidden])~ :not([hidden]) {
   --tw-space-x-reverse: 1;
 }
 
-[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+[dir="rtl"] .space-x-4> :not([hidden])~ :not([hidden]) {
   --tw-space-x-reverse: 1;
 }
 
 /* Error styles */
-.error { color: hsl(var(--danger-color)) !important; border-color: hsl(var(--danger-color)) !important; }
-.error input::placeholder { color: hsl(var(--danger-color)) !important; }
-.error .icon { border-color: hsl(var(--danger-color)) !important; }
+.error {
+  color: hsl(var(--danger-color)) !important;
+  border-color: hsl(var(--danger-color)) !important;
+}
+
+.error input::placeholder {
+  color: hsl(var(--danger-color)) !important;
+}
+
+.error .icon {
+  border-color: hsl(var(--danger-color)) !important;
+}
 
 /* SweetAlert2 */
 div:where(.swal2-container) div:where(.swal2-timer-progress-bar) {
@@ -261,9 +297,12 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-text-fill-color: inherit !important; /* تغيير لون النص إلى أحمر */
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important; /* إزالة الخلفية */
-    transition: background-color 5000s ease-in-out 0s !important; /* منع التغيير التلقائي للخلفية */
+  -webkit-text-fill-color: inherit !important;
+  /* تغيير لون النص إلى أحمر */
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  /* إزالة الخلفية */
+  // transition: background-color 5000s ease-in-out 0s !important; /* منع التغيير التلقائي للخلفية */
+  @include trans($property: background-color, $time: 5000s, $easing: ease-in-out, $delay: 0s);
 }
 
 
@@ -276,31 +315,25 @@ input:-webkit-autofill:active {
 // }
 //#region ( Global )
 
-/* Card */
-
-
-
-
 
 ///* Global Styles | Classes */
 .bg-glass {
-  @include bg-glass(
-    $bg: hsla(var(--color-black), 0.01),
+  @include bg-glass($bg: hsla(var(--color-black), 0.01),
     $border: 0.0625em solid hsla(var(--color-black), 0.1),
     $shadow: none,
     $radius: 0.5em,
-    $blur: 0.5em
-  );
+    $blur: 0.5em);
 }
-.bg-glass-full{  @include bg-glass(
-  $bg: hsla(var(--color-black), 0.05),
-  $border: 0.0625em solid hsla(var(--color-black), 0.1),
-  $shadow: 0 0 0 0 transparent,
-  $radius: 50%,
-  $blur: 0.5em
-);}
 
-hr{
+.bg-glass-full {
+  @include bg-glass($bg: hsla(var(--color-black), 0.05),
+    $border: 0.0625em solid hsla(var(--color-black), 0.1),
+    $shadow: 0 0 0 0 transparent,
+    $radius: 50%,
+    $blur: 0.5em);
+}
+
+hr {
   width: 100%;
   height: 0.1em;
   padding: 0 1em;
@@ -308,49 +341,43 @@ hr{
   @extend .bg-glass;
 
 }
-hr.horizontal{/* أفقي */
+
+hr.horizontal {
+  /* أفقي */
   width: 0.065em;
-  height: 100%; 
+  height: 100%;
   padding: 1em 0;
 }
 
-button {
-  &{
-    text-transform: capitalize;
-    transition: all 0.3s ease;
-  }
-  &.btn-3{ @include btn(hsla(var(--color-black)), hsla(var(--color-black), 0.5) ); }
-  &.btn-10{
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.5em;
-    background-color: #4a90e2;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0.4em 0.6em rgba(0, 0, 0, 0.1);
-
-    &:hover:not(:disabled) {
-      // background-color: darken(#4a90e2, 10%);
-      box-shadow: 0 0.6em 1em rgba(0, 0, 0, 0.15);
-    }
- 
-  }
-  &:disabled {
-    color: hsla(var(--color-black), 0.3);                     // نص باهت
-    cursor: no-drop;                   // المؤشر المناسب
-    box-shadow: none;                  // بدون ظل
-    opacity: 0.7;                      // شفافية خفيفة
-    transform: none !important;        // إزالة أي تحريك
-  }
-}
+// button {
+//   &{
+//     text-transform: capitalize;
+//     @include trans($time: 0.3s);
+//   }
+//   &.btn-3{ @include btn(hsla(var(--color-black)), hsla(var(--color-black), 0.5) ); }
+//   &:disabled {
+//     color: hsla(var(--color-black), 0.3);                     // نص باهت
+//     cursor: no-drop;                   // المؤشر المناسب
+//     box-shadow: none;                  // بدون ظل
+//     opacity: 0.7;                      // شفافية خفيفة
+//     transform: none !important;        // إزالة أي تحريك
+//   }
+// }
 
 
 // .active{ background-color:#ff0 !important; color:#f00 !important; }
-.bg1{ background: #f00; }
-.bg2{ background: #00f; }
-.bg3{ background: #ff0; }
-.bg4{ background: #0f0; }
+.bg1 {
+  background: #f00;
+}
 
+.bg2 {
+  background: #00f;
+}
 
+.bg3 {
+  background: #ff0;
+}
+
+.bg4 {
+  background: #0f0;
+}

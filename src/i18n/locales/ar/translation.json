@@ -1,0 +1,136 @@
+{
+  "global": {
+    "home": "الرئيسية",
+    "welcome": "مرحباً",
+    "bomba": "بومبا",
+    "version": "الإصدار",
+    "loading": "الرجاء الانتظار..."
+  },
+  "auth": {
+    "login": {
+      "title": "تسجيل الدخول",
+      "h2": "مرحباً بعودتك",
+      "p1": "قم بتسجيل الدخول للوصول إلى لوحة التحكم"
+    },
+    "register": {
+      "title": "إنشاء حساب",
+      "h2": "إنشاء حساب جديد",
+      "p1": "قم بإنشاء حساب للوصول إلى لوحة التحكم"
+    },
+    "logout": "تسجيل الخروج",
+    "email": "البريد الإلكتروني",
+    "usernamePlaceholder": "اسم المستخدم او البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "rememberMe": "تذكرني",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "submit": "تسجيل الدخول",
+    "signIn": "تسجيل الدخول",
+    "loginSuccess": "تم تسجيل الدخول بنجاح",
+    "loginError": "فشل تسجيل الدخول. يرجى التحقق من بيانات الاعتماد الخاصة بك",
+    "not_Have_an_account": "لا تملك حساب؟",
+    "errors": {
+      "required": "هذا الحقل مطلوب",
+      "requiredUsernameAndPassword": "يرجى إدخال اسم المستخدم وكلمة المرور بالشكل الصحيح!",
+      "email": "البريد الإلكتروني غير صالح",
+      "identifier": "يرجى إدخال اسم المستخدم أو البريد الإلكتروني",
+      "password": "يرجى إدخال كلمة المرور",
+      "passwordMatch": "كلمات المرور غير متطابقة",
+      "invalidCredentials": "بيانات الدخول غير صحيحة",
+      "userExists": "المستخدم موجود بالفعل",
+      "userNameRequired": "اسم المستخدم مطلوب",
+      "passwordRequired": "كلمة المرور مطلوبة"
+    }
+  },
+  "navigation": {
+    "dashboard": "لوحة التحكم",
+    "profile": "الملف الشخصي",
+    "settings": "الإعدادات"
+  },
+  "dashboard": {
+    "welcome": "مرحباً، {{name}}",
+    "overview": "نظرة عامة على النظام والإحصائيات",
+    "totalUsers": "إجمالي المستخدمين",
+    "activeProjects": "المشاريع النشطة",
+    "pendingTasks": "المهام المعلقة",
+    "systemHealth": "صحة النظام",
+    "recentActivity": "النشاط الأخير",
+    "activityTitle": "تم إضافة مستخدم جديد",
+    "activityTime": "منذ ساعتين",
+    "quickActions": "إجراءات سريعة",
+    "newProject": "مشروع جديد",
+    "addUser": "إضافة مستخدم",
+    "analytics": "التحليلات",
+    "settings": "الإعدادات"
+  },
+  "dashboard__app": {
+    "invoices": {
+      "title": "الفواتير",
+      "sale": "بيع",
+      "purchase": "شراء",
+      "sale_return": "مرتجع بيع",
+      "purchase_return": "مرتجع شراء",
+      "damaged": "تالف",
+      "transfer": "انتقال",
+      "reports": "تقرير الفوار"
+    },
+    "accounts": {
+      "title": "الحسابات",
+      "customers": "عملاء",
+      "suppliers": "موردين",
+      "employees": "موظفين",
+      "safety_drawer": "خزنة | درج",
+      "shipping_bag": "شحن & شوال"
+    },
+    "warehouses": {
+      "title": "المخازن"
+    },
+    "reports": {
+      "title": "التقارير"
+    },
+    "users": {
+      "title": "المستخدمين",
+      "data": "بيانات",
+      "permissions": "صلاحيات"
+    }
+  },
+  "header": {
+    "home": "الرئيسية",
+    "about": "عني",
+    "careers": "الوظائف",
+    "history": "تاريخ",
+    "services": "خدمات",
+    "contact": "اتصال",
+    "projects": "مشاريع",
+    "blog": "الأخبار",
+    "dashboard": "لوحة التحكم",
+    "bomba": "BomBa",
+    "signIn": "تسجيل الدخول"
+  },
+  "footer": {
+    "allRightsReserved": "جميع الحقوق محفوظة",
+    "bombaLink": "BomBa",
+    "copyright": " 2025"
+  },
+  "components": {
+    "SearchFilterBar": {
+      "title": "بحث",
+      "placeholder": "بحث..."
+    }
+  },
+  "error": {
+    "Error_401": "خطأ 401",
+    "Error_404": "خطأ 404",
+    "Error_403": "خطأ 403",
+    "Error_500": "خطأ 500",
+    "Error_501": "خطأ 501",
+    "Error_502": "خطأ 502",
+    "Error_503": "خطأ 503",
+    "Error_504": "خطأ 504",
+    "Page not found": "الصفحة غير موجودة",
+    "You do not have permission to access this page": "لا تملك صلاحيات الوصول لهذه الصفحة",
+    "permission": "لا تملك صلاحيات الوصول لهذه الصفحة",
+    "backToDashboard": "العودة إلى لوحة التحكم"
+  }
+}

@@ -1,19 +1,18 @@
 import React from 'react';
-import { ICustomer } from "@/utils/type";
-import './UserCard.scss';
+import './AllCard.scss';
+
+
+// ---------- ---------- ---------- ---------- ---------- ---------- ----------
+
+import { Avatar } from '@/utils/alias';
 import { CiMenuKebab } from '@/utils/alias-Image-Icons';
-
-
-interface UserCardProps {
-  user: ICustomer;
-}
-
-const UserCard: React.FC<UserCardProps> = ({ user }) => {
+import { ICustomer } from "@/utils/type";
+export const AccountsCard: React.FC<{ data: ICustomer }> = ({ data }) => {
   // حساب إجمالي الرصيد
-  const totalBalance = user.accounts.reduce((sum, account) => sum + account.balance, 0);
+  const totalBalance = data.accounts.reduce((sum, account) => sum + account.balance, 0);
 
   // تصنيف الحسابات حسب النوع
-  // const incomeAccounts = user.accounts.filter(acc => acc.transactionType === 1);
+  // const incomeAccounts = data.accounts.filter(acc => acc.transactionType === 1);
   // const expenseAccounts = user.accounts.filter(acc => acc.transactionType === 2);
   // const otherAccounts = user.accounts.filter(acc => acc.transactionType === 3);
 
@@ -24,23 +23,21 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
   // };
 
   return (
-    <div className="user-card">
+    <div className="accounts-card">
 
-      <div className="user-card__header">
-        <div className="user-card__avatar">
-          <img src={user.picture} alt={user.name} />
-        </div>
-        <div className="user-card__info">
-          <h3 className="text-wrap">{user.name}</h3>
-          <p className="text-wrap user-card__location"
-            data-text={`${user.address}, ${user.city}, ${user.country}`}>
-            <i className="icon-location"></i> {user.address}, {user.city}, {user.country}
+      <div className="accounts-card__header">
+        <Avatar src={data.picture} alt={data.name} />
+        <div className="accounts-card__info">
+          <h3 className="text-wrap">{data.name}</h3>
+          <p className="text-wrap accounts-card__location"
+            data-text={`${data.address}, ${data.city}, ${data.country}`}>
+            <i className="icon-location"></i> {data.address}, {data.city}, {data.country}
           </p>
-          <p className="text-wrap user-card__contact" data-text={`${user.phone} | ${user.email}`}>
-            <i className="icon-phone"></i> {user.phone} | <i className="icon-email"></i> {user.email}
+          <p className="text-wrap accounts-card__contact" data-text={`${data.phone} | ${data.email}`}>
+            <i className="icon-phone"></i> {data.phone} | <i className="icon-email"></i> {data.email}
           </p>
         </div>
-        <div className={`user-card__balance ${totalBalance >= 0 ? 'positive' : 'negative'}`}>
+        <div className={`accounts-card__balance ${totalBalance >= 0 ? 'positive' : 'negative'}`}>
           <span className="balance-label">{`--: ${'الرصيد الكلي'} :--`}</span>
           <span className={`text-wrap balance-amount`}>
             {totalBalance.toLocaleString('ar-EG')} ج.م
@@ -49,14 +46,14 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
         <button
           // ref={refBtnToggleMenu}
           className="btn-primary"
-          // onClick={handleClickToggleMenu} // إضافة معالج الحدث
+        // onClick={handleClickToggleMenu} // إضافة معالج الحدث
         >
-          <CiMenuKebab className="size-[1.25rem]"/>
+          <CiMenuKebab className="size-[1.25rem]" />
         </button>
       </div>
 
-      {/* <div className="user-card__details">
-        <div className="user-card__section">
+      {/* <div className="accounts-card__details">
+        <div className="accounts-card__section">
           <h4 className="section-title">الدخل</h4>
           <div className="accounts-grid">
             {incomeAccounts.map(account => (
@@ -71,7 +68,7 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
           </div>
         </div>
 
-        <div className="user-card__section">
+        <div className="accounts-card__section">
           <h4 className="section-title">المصروفات</h4>
           <div className="accounts-grid">
             {expenseAccounts.map(account => (
@@ -86,7 +83,7 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
           </div>
         </div>
 
-        <div className="user-card__section">
+        <div className="accounts-card__section">
           <h4 className="section-title">معاملات أخرى</h4>
           <div className="accounts-grid">
             {otherAccounts.map(account => (
@@ -104,7 +101,7 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
         </div>
       </div> */}
 
-      {/* <div className="user-card__footer">
+      {/* <div className="accounts-card__footer">
         <span className="created-date">تم الإنشاء: {formatDate(user.createdAt)}</span>
         <span className="last-updated">آخر تحديث: {formatDate(user.updatedAt)}</span>
       </div> */}
@@ -112,4 +109,5 @@ const UserCard: React.FC<UserCardProps> = ({ user }) => {
   );
 };
 
-export default UserCard;
+// ---------- ---------- ---------- ---------- ---------- ---------- ----------
+

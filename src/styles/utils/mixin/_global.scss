@@ -1,5 +1,16 @@
 // 📁 _global.scss
 
+/// Transition:-
+@mixin trans(
+  $property: all,
+  $time: 0.3s,
+  $easing: ease,
+  $delay: 0s
+) {
+  transition: $property $time $easing $delay;
+}
+
+/// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
 @mixin custom-scrollbar(
   /* العرض */
@@ -18,7 +29,7 @@
   &::-webkit-scrollbar {
     width: $width;
     height: $width;
-    transition: all 0.3s;
+    @include trans($time: 0.3s);
   }
 
   &::-webkit-scrollbar-track {
@@ -48,7 +59,7 @@
   text-transform: capitalize;
   font-weight: 500;
 
-  transition: all 0.3s;
+  @include trans($time: 0.3s);
 
   &:hover:not(:disabled) {
     color: $color-hover;

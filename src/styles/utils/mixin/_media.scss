@@ -46,6 +46,11 @@ $breakpoints: (
   }
 }
 
+// Mixins للاستجابة :--- ---------- ---------- ---------- ---------- 
+@mixin md { @media (min-width: 48em) { @content; } } // width > 768px → em
+@mixin lg { @media (min-width: 56.25em) { @content; } } // width > 900px → em
+@mixin xl { @media (min-width: 75em) { @content; } } // width > 1200px → em
+// ---------- ---------- ---------- ---------- ---------- ---------- 
 
 
 // ✅ مثال استخدام في ملفات SCSS أخرى:

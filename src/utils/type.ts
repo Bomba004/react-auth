@@ -6,6 +6,24 @@
 
 
 
+// #region { Accounts, Clients }
+export interface IAddress {
+  street: string;
+  city: string;
+  country: string;
+}
+export interface IUser {
+  id: number|string;
+  name: string
+  email: string
+  role: string
+  avatar: string
+  jobTitle: string
+  phone: string
+  address: IAddress
+}
+// export interface IUsers { users: IUser[] }
+// #endregion
 
 // #region { Accounts, Clients }
 

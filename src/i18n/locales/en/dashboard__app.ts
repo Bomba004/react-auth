@@ -24,8 +24,13 @@ const reports = {
   title: 'reports',
 
 };
+const users = {
+  title: 'users',
+  data: 'data',
+  permissions: 'permissions'
+};
 
 // level 0:
 export default {
-  invoices, accounts, warehouses, reports
+  invoices, accounts, warehouses, reports, users
 };

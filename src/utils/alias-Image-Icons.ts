@@ -5,7 +5,7 @@ import {
     ExclamationTriangleIcon, HomeIcon,
     AtSymbolIcon, UserIcon, UserGroupIcon, ArrowRightOnRectangleIcon,
     ChartBarIcon,
-    UsersIcon, DocumentTextIcon, CogIcon,
+    DocumentTextIcon, CogIcon,
     EnvelopeIcon, LockClosedIcon, KeyIcon,
 
 
@@ -13,22 +13,30 @@ import {
 
 
 //  https://react-icons.github.io/react-icons/search/#q=users
-import { FiFileText, /* ملف */ } from "react-icons/fi";
-import { FaUsersViewfinder, /* عرض المستخدم */ } from "react-icons/fa6";
-import { MdWarehouse, /* مخزن */ } from "react-icons/md";
-import { GrPieChart, /* دائرة */ } from "react-icons/gr";
-import { IoIosClose, /* إغلاق */ } from "react-icons/io";
-import { IoMdSearch as FaSearch /* عدسة بحث */ } from "react-icons/io";
-import { CiMenuKebab /* النقاط الرئسية للقائمة */ } from "react-icons/ci";
+import { FiFileText /* ملف */ } from "react-icons/fi";
+import { FaUsersViewfinder /* عرض المستخدم */,
+  FaUsersGear /* إدارة المستخدمين */,
+  FaUsers /* المستخدم */,
+  FaUsersRectangle /* موظفين */,
+ } from "react-icons/fa6";
+import { MdWarehouse /* مخزن */, } from "react-icons/md";
+import { GrPieChart /* دائرة */, } from "react-icons/gr";
+import { IoIosClose /* إغلاق */, } from "react-icons/io";
+import { IoMdSearch as FaSearch /* عدسة بحث */, } from "react-icons/io";
+import { CiMenuKebab /* النقاط الرئيسية للقائمة */, } from "react-icons/ci";
+import { CgRename /* الاسم */, } from "react-icons/cg";
+import { MdOutlineAttachEmail /* البريد الإلكتروني */, } from "react-icons/md";
+import { MdOutlineLocalPhone } from "react-icons/md";
+import { GiJourney /* العنوان */} from "react-icons/gi";
+import { BiSolidJoystick   /* الوظيفة | الحالة */ } from "react-icons/bi";
 
 import {
-  FaUserFriends, /* عملاء */
-  FaTruckLoading, /* موردين */
-  FaCashRegister, /* درج النقود */
-  FaShippingFast /* شحن */
+  FaUserFriends /* عملاء */,
+  FaTruckLoading /* موردين */,
+  FaCashRegister /* درج النقود */,
+  FaShippingFast /* شحن */,
 } from 'react-icons/fa';
-import { FaUsersRectangle, /* موظفين */  } from 'react-icons/fa6';
-import { GiStrongbox /* خونة */ } from 'react-icons/gi';
+import { GiStrongbox /* خونة */, } from 'react-icons/gi';
 
 
 //// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
@@ -43,14 +51,17 @@ export {
     ExclamationTriangleIcon, HomeIcon,
     AtSymbolIcon, UserIcon, UserGroupIcon, ArrowRightOnRectangleIcon,
     ChartBarIcon,
-    UsersIcon, DocumentTextIcon, CogIcon,   
+    DocumentTextIcon, CogIcon,   
     EnvelopeIcon, LockClosedIcon, KeyIcon,
 
     FiFileText, FaUsersViewfinder ,
     MdWarehouse, GrPieChart,
     IoIosClose, FaSearch, CiMenuKebab,
 
-    FaUserFriends, FaTruckLoading, FaUsersRectangle, FaCashRegister, FaShippingFast, GiStrongbox,
+    FaUsers, FaUsersGear, FaUsersRectangle, FaUserFriends, FaTruckLoading, FaCashRegister, FaShippingFast, GiStrongbox,
+
+    CgRename, MdOutlineAttachEmail, MdOutlineLocalPhone, GiJourney, BiSolidJoystick,
+        
     // Images
 
 };

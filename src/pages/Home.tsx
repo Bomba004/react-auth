@@ -1,3 +1,6 @@
+/* p:0.1.r2
+   p:3[Home]
+------------------------------------------------------*/
 import { useTranslation } from "@/utils/alias";
 
 export const Home: React.FC = () => {

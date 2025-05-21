@@ -6,6 +6,7 @@ export type TabItem = {
   icon?: JSX.Element;
   content?: React.ReactNode;
   className?: string;
+  className_tabContent?: string;
   disabled?: boolean;
 };
 
@@ -16,18 +17,21 @@ export function TabControl({
   tabSelect,
   direction = "horizontal",
   className,
+  className_tabContent,
 }: {
   tabs: TabItems;
   tabSelect?: string;
   direction?: "vertical" | "horizontal";
   className?: string;
+  className_tabContent?: string;
 }) {
   const [activeTab, setActiveTab] = useState<string>(tabSelect || tabs[0]?.id || "");
 
   return (
     <article
-      className={`size-full flex-1 overflow-hidden flex ${direction === "vertical" ? "flex-col-reverse" : "flex-col"
-        } tabControl ${className || ""}`}
+      className={
+        `${direction === "vertical" ? "flex-col-reverse" : "flex-col"}
+        tab-control ${className || ""}`}
     >
       <TabController
         tabs={tabs}
@@ -35,13 +39,14 @@ export function TabControl({
         setActiveTab={setActiveTab}
       />
       <hr />
-      <TabContent tabs={tabs} activeTab={activeTab} />
+      <TabContent tabs={tabs} activeTab={activeTab} className={className_tabContent} />
     </article>
   );
 }
 
 /// =======================================================================
 
+// controller:-
 export function TabController({
   tabs,
   activeTab,
@@ -52,18 +57,18 @@ export function TabController({
   setActiveTab: (id: string) => void;
 }) {
   return (
-    <section className="flex justify-start tab__controller">
+    <section className="tab-controller">
       {tabs.map((tab) => (
         <button
           key={tab.id}
           onClick={() => setActiveTab(tab.id)}
-          className={`flex items-center px-4 py-2 border-b-2 ${activeTab === tab.id
-            ? "active font-semibold"
-            : "border-transparent btn-3"
+          className={`${activeTab === tab.id
+            ? "active"
+            : "btn-3"
             } ${tab.className || ""}`}
           disabled={tab.disabled}
         >
-          {tab.icon && <i className="icon mr-1">{tab.icon}</i>}
+          {tab.icon && <i className="icon">{tab.icon}</i>}
           {tab.label && <span className="label">{tab.label}</span>}
         </button>
       ))}
@@ -71,25 +76,27 @@ export function TabController({
   );
 }
 
+// body|content:-
 export function TabContent({
   tabs,
   activeTab,
+  className,
 }: {
   tabs: TabItems;
   activeTab: string;
+  className?: string;
 }) {
   return (
-    <section className="flex-1 tab__content relative">
+    <>
       {tabs.map((tab) => (
-        <div
+        <section
           key={tab.id}
-          style={{ display: tab.id === activeTab ? "block" : "none" }}
-          // className="absolute bg2 size-full top-0 left-0"
-          className="size-full overflow-hidden"
+          style={{ display: tab.id === activeTab ? "flex" : "none" }}
+          className={"tab-content" + (className ? " " + className : "")}
         >
           {tab.content}
-        </div>
+        </section>
       ))}
-    </section>
+    </>
   );
 }

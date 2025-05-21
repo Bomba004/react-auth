@@ -1,4 +1,4 @@
-@use '../../../styles/utils' as *;
+@use '../../../../styles/utils' as *;
 
 // المتغيرات
 $primary: var(--color-primary);
@@ -17,15 +17,15 @@ $border: var(--color-gray);
   padding-block-start: 0.5em;
   padding-inline: 0.5em;
   margin: 0 auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   overflow: auto;
   
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  height: 72vh;
-  @media (width >= 48em) { /* md: 768px */height: 80vh;}
+  // height: 72vh;
+  // @media (width >= 48em) { /* md: 768px */height: 80vh;}
   // gap: 0.8em;
   // max-width: 1200px;
   // direction: rtl;
@@ -106,7 +106,7 @@ $border: var(--color-gray);
         // border: 0.0625em solid hsl($border);
 
         font-size: 90%;
-        transition: all 0.3s;
+        @include trans($time: 0.3s);
 
         &:focus {
           outline: none;
@@ -131,6 +131,10 @@ $border: var(--color-gray);
     border-radius: 0.625em;
     box-shadow: 0 0.4em 0.6em hsla($light, 10%);
     overflow-x: auto;
+
+    background: #f00;
+    flex: 1;
+    min-height: 0;
   }
 
   .customers-table {
@@ -177,7 +181,7 @@ $border: var(--color-gray);
       border-radius: 0.8em;
       cursor: pointer;
       font-size: 85%;
-      transition: all 0.2s;
+      @include trans($time: 0.2s);
       display: inline-flex;
       align-items: center;
       gap: 0.6em;

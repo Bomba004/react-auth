@@ -1,3 +1,5 @@
+@use '../../styles/utils' as *;
+
 // الألوان الأساسية
 $color-white: hsl(var(--color-white));
 $color-black: hsl(var(--color-black));
@@ -65,7 +67,7 @@ $color-white-70: hsla(var(--color-primary), 0.7);
     border-radius: 0.5em;
     background-color: $color-white-10;
     color: $color-black;
-    transition: background-color 0.3s ease;
+    @include trans($time: 0.3s, $easing: ease);
 
     &:hover {
       background-color: $color-white-20;

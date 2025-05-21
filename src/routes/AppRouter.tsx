@@ -1,3 +1,5 @@
+/* p:0.1.r2
+------------------------------------------------------*/
 import React, { lazy, Suspense } from "react";
 import {
   createBrowserRouter, RouterProvider,
@@ -81,7 +83,7 @@ export const AppRouter = () => {
 
   const LottieWithTranslation = () => {
     const { t } = useTranslation();
-    return <LottieHandler type="loading" message={t("global.loading")} />;
+    return <LottieHandler type="loading" message={t('global.loading')} />;
   };
 
   const element = ({ header= true, footer= true, layout = 1 } : { header: boolean, footer: boolean, layout?: number }) =>{

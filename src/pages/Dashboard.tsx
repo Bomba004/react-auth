@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import {
   ChartBarIcon,
-  UsersIcon,
+  FaUsers,
   DocumentTextIcon,
   CogIcon,
 } from '@/utils/alias-Image-Icons';
@@ -43,7 +43,7 @@ export const Dashboard: React.FC = () => {
     {
       title: t('dashboard.totalUsers'),
       value: '1,234',
-      icon: <UsersIcon className="w-6 h-6" />,
+      icon: <FaUsers className="w-6 h-6" />,
       color: 'text-blue-500',
     },
     {
@@ -119,7 +119,7 @@ export const Dashboard: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3 rtl:space-x-reverse">
                       <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                        <UsersIcon className="w-5 h-5 text-primary" />
+                        <FaUsers className="w-5 h-5 text-primary" />
                       </div>
                       <div>
                         <p className="font-medium">{t('dashboard.activityTitle')}</p>
@@ -143,7 +143,7 @@ export const Dashboard: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { title: t('dashboard.newProject'), icon: <DocumentTextIcon className="w-6 h-6" /> },
-                { title: t('dashboard.addUser'), icon: <UsersIcon className="w-6 h-6" /> },
+                { title: t('dashboard.addUser'), icon: <FaUsers className="w-6 h-6" /> },
                 { title: t('dashboard.analytics'), icon: <ChartBarIcon className="w-6 h-6" /> },
                 { title: t('dashboard.settings'), icon: <CogIcon className="w-6 h-6" /> },
               ].map((action, index) => (

@@ -1,3 +1,5 @@
+/* p:0
+------------------------------------------------------*/
 import { ReactDOM, Provider, PersistGate, store, persistor, App, } from '@/utils/alias';
 // axios
 import "./services/axios-global.js";
