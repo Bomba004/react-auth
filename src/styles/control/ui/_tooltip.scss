@@ -1,0 +1,23 @@
+// styles/control/ui/_Tooltip.scss
+@use 'tippy.js/dist/tippy.css'; // الأنماط الأساسية
+
+// تخصيص التلميحات
+.tippy-box {
+  &[data-theme='custom'] {
+    background-color: var(--tooltip-bg, #333);
+    color: var(--tooltip-color, #fff);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    padding: 0.5em 1em;
+    
+    .tippy-arrow {
+      color: var(--tooltip-bg, #333);
+    }
+    
+    // تأثيرات الظهور
+    &[data-state='hidden'] {
+      opacity: 0;
+    }
+  }
+}

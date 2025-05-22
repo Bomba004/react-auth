@@ -2,38 +2,49 @@
 @use './mixin/media' as *;
 @use './mixin/global' as *;
 
-
+  
 //#region  text:-
   
-.text {
-  &-wrap{ // .text-wrap
-    $width: 12.5em;
-    $tooltip-bg: hsla(var(--color-black), 0.6);
-    $tooltip-color: hsl(var(--color-white));
-    $tooltip-padding: 0.3125em 0.625em; // 5px 10px → em
-    $border-radius: 0.25em; // 4px → em
+@mixin text-wrap(
+  $tooltip-bg: hsla(var(--color-black), 0.6),
+  $tooltip-color: hsl(var(--color-white)),
+  $tooltip-padding: 0.125em 0.25em,
+  $border-radius: calc($radius / 2),
+  $arrow-size: 0.5em // حجم السهم الجديد
+) {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: $width;
-    position: relative;
+  overflow: hidden;
 
-    &:hover::before {
-      content: attr(data-text);
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: $tooltip-bg;
-      color: $tooltip-color;
-      padding: $tooltip-padding;
-      border-radius: $border-radius;
-      white-space: normal;
-      width: auto;
-      z-index: 10;
-    }
-  }
+  background-color: #f00;
+  width: 100px;
+
+  // &,
+  // &:hover, &:focus-within {
+  //   $top: attr(dir-top, -100%);
+  //   &::before {
+  //     // font-size: 110%;
+  //     font-size: 1.385rem;
+  //     content: attr(data-text);
+  //     position: absolute;
+  //     inset-block-start: $top;
+  //     inset-inline-start: 0;
+  //     background: $tooltip-bg;
+  //     color: $tooltip-color;
+  //     padding: $tooltip-padding;
+  //     border-radius: $border-radius;
+  //     white-space: normal;
+  //     width: auto;
+  //     z-index: 1;
+  //   }
+  // }
+
+  @content;
 }
+.text-wrap{ @include text-wrap; }
 //#endregion
 
 
@@ -159,7 +170,7 @@ $c_focus: hsl(var(--color-primary));
   margin-inline: auto;
   border-radius: $radius;
   box-shadow: $shadow-2;
-  @include trans($time: 0.3s);
+  @include trans((0.3s));
   
   &:hover { box-shadow: $shadow-22; }
   // &{ @include md { width: fit-content; } }

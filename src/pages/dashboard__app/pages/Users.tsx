@@ -100,35 +100,60 @@ function UsersPermissionsContent({ type }: { type: string }) {
 // level 3: -> CardUser
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { CgRename, MdOutlineAttachEmail, MdOutlineLocalPhone, GiJourney, BiSolidJoystick, } from "@/utils/alias-Image-Icons";
+import Ty from "@/components/ui/tippy/Tippy";
+
 export default function CardUser(user: IUser) {
   return (
-    /* w-full max-w-md mx-auto shadow-md hover:shadow-lg transition-shadow duration-300 */
     <Card className="card CardUser cursor-pointer">
       <CardHeader className="card__header">
+
         <Avatar src={user.avatar} alt={user.name} style={{ fontSize: '180%' }} />
-        <h2>
-          <CgRename className="size-[1.25em]" />
-          {user.name}
-        </h2>
-        <p>
-          <BiSolidJoystick className="size-[1.5em]" />
-          {user.jobTitle}
-        </p>
+{/*       
+        <p className="text-wrap">
+          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        </p> */}
+        
+        <Ty content={user.name}>
+          <h2>
+            <CgRename className="size-[1.25em]" />
+            {user.name}
+          </h2>
+        </Ty>
+        
+        <Ty content={user.jobTitle}>
+          <p>
+            <BiSolidJoystick className="size-[1.5em]" />
+            {user.jobTitle}
+          </p>
+        </Ty>
+        
       </CardHeader>
+      
       <hr />
+      
       <CardContent className="p-2">
-        <p>
-          <GiJourney className="size-[1.5em]" />
-          {user.address.street} {user.address.city} {user.address.country}
-        </p>
-        <p>
-          <MdOutlineLocalPhone className="size-[1.5em]" />
-          {user.phone}
-        </p>
-        <p>
-          <MdOutlineAttachEmail className="size-[1.5em]" />
-          {user.email}
-        </p>
+        
+        <Ty content={`${user.address.street} ${user.address.city} ${user.address.country}`}>
+          <p>
+            <GiJourney className="size-[1.5em]" />
+            {user.address.street} {user.address.city} {user.address.country}
+          </p>
+        </Ty>
+        
+        <Ty content={user.phone}>
+          <p>
+            <MdOutlineLocalPhone className="size-[1.5em]" />
+            {user.phone}
+          </p>
+        </Ty>
+        
+        <Ty content={user.email}>
+          <p>
+            <MdOutlineAttachEmail className="size-[1.5em]" />
+            {user.email}
+          </p>
+        </Ty>
+        
       </CardContent>
     </Card>
   )

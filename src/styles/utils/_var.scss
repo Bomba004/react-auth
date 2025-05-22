@@ -11,59 +11,106 @@ $static_dir: -1 !default; /* اتجاه الصفحة (1 = ltr, -1 = rtl) */
 
 // #endregion
 
+// #region : hsl-colors
+:root {
+  --color-primary: 260, 80%, 60%; // hsl(260, 80%, 60%)
+  --color-secondary: 000, 80%, 70%; // hsl(0, 80%, 70%)
+  --color-muted: 260, 5%, 50%; // hsl(260, 5%, 50%)
+
+  --color-white: 260, 95%, 95%; // hsl(260, 95%, 95%)
+  --color-gray: 260, 10%, 70%; // hsl(260, 10%, 70%)
+  --color-black: 260, 5%, 10%; // hsl(260, 4%, 10%)
+
+  --color-text: 260, 5%, 10%; // hsl(260, 5%, 10%)
+  --color-background: 260, 95%, 95%; // hsl(260, 95%, 95%)
+
+  // تعريف متغيرات الألوان
+  --color-success: 150, 80%, 40%; // hsl(150, 80%, 40%)
+  --color-warning: 40, 90%, 50%; // hsl(40, 90%, 50%)
+  --color-danger: 0, 90%, 50%; // hsl(0, 90%, 50%)
+  --color-info: 200, 70%, 60%; // hsl(200, 70%, 60%)
+  --color-light: 260, 95%, 95%; // hsl(260, 95%, 95%)
+  --color-dark: 260, 5%, 10%; // hsl(260, 5%, 10%)
+}
+
+// هذه المتغيرات تعمل بشكل تلقائي مع مود $mode: 'development' ويجب ضبطهم بشكل يدوي
+  $hsl-primary: var(--color-primary);
+  $hsl-secondary: var(--color-secondary);
+  $hsl-muted: var(--color-muted);
+
+  $hsl-white: var(--color-white);
+  $hsl-gray: var(--color-gray);
+  $hsl-black: var(--color-black);
+
+  $hsl-text: var(--color-text);
+  $hsl-background: var(--color-background);
+
+  // تعريف متغيرات الألوان
+  $hsl-success: var(--color-success);
+  $hsl-warning: var(--color-warning);
+  $hsl-danger: var(--color-danger);
+  $hsl-info: var(--color-info);
+  $hsl-light: var(--color-light);
+  $hsl-dark: var(--color-dark);
+
+// #endregion
+
 // #region : colors Bootstrap5
 
-$blue:    hsl(216, 80%, 40%);
-$indigo:  hsl(276, 80%, 40%);
-$purple:  hsl(276, 80%, 40%);
-$pink:    hsl(336, 80%, 40%);
-$red:     hsl(0, 80%, 40%);
-$orange:  hsl(39, 80%, 40%);
-$yellow:  hsl(39, 80%, 40%);
-$green:   hsl(141, 80%, 40%);
-$teal:    hsl(141, 80%, 40%);
-$cyan:    hsl(181, 80%, 40%);
+  // $blue:    hsl(216, 80%, 40%);
+  // $indigo:  hsl(276, 80%, 40%);
+  // $purple:  hsl(276, 80%, 40%);
+  // $pink:    hsl(336, 80%, 40%);
+  // $red:     hsl(0, 80%, 40%);
+  // $orange:  hsl(39, 80%, 40%);
+  // $yellow:  hsl(39, 80%, 40%);
+  // $green:   hsl(141, 80%, 40%);
+  // $teal:    hsl(141, 80%, 40%);
+  // $cyan:    hsl(181, 80%, 40%);
 
-// $white:    #fff;
-$white:    hsl(var(--light)); //#000;
-$gray:     hsl(var(--color-gray)); //hsl(260, 10%, 70%);
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757d;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
-$black:    hsl(var(--dark)); //#000;
+  // $white:    #fff;
+  $white:    hsl(#{$hsl-light}); //#fff;
+  $gray:     hsl(#{$hsl-gray}); //hsl(260, 10%, 70%);
+  // $gray-100: #f8f9fa;
+  // $gray-200: #e9ecef;
+  // $gray-300: #dee2e6;
+  // $gray-400: #ced4da;
+  // $gray-500: #adb5bd;
+  // $gray-600: #6c757d;
+  // $gray-700: #495057;
+  // $gray-800: #343a40;
+  // $gray-900: #212529;
+  $black:    hsl(#{$hsl-black}); //#000;
 
-
-$primary:       hsl(var(--color-primary));
-$secondary:     $gray-600;
-$success:       hsl(var(--success));
-$info:          hsl(var(--info));
-$warning:       hsl(var(--warning));
-$danger:        hsl(var(--danger));
-$light:         hsl(var(--light));
-$dark:          hsl(var(--dark));
+  $primary:       hsl(#{$hsl-primary});
+  $secondary:     hsl(#{$hsl-secondary});
+  $success:       hsl(#{$hsl-success});
+  $info:          hsl(#{$hsl-info});
+  $warning:       hsl(#{$hsl-warning});
+  $danger:        hsl(#{$hsl-danger});
+  $light:         hsl(#{$hsl-light});
+  $dark:          hsl(#{$hsl-dark});
 
 // #endregion
 
 
 //#region : Variables Custom
 
+// Font
+  // --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  $font-family: "Cairo", sans-serif, 'Inter', system-ui, -apple-system, sans-serif;
+
 // Radius
-$radius: 0.5em;
-$radius-full: 50%;
+  $radius: 0.5em;
+  $radius-full: 50%;
 
 // Shadow
-$shadow-0: 0 0.5rem 2rem 0 hsla(var(--color-black), 0.3);
-$shadow-1: 0 0.25rem 0.75rem 0 hsla(var(--color-black), 0.3);
-$shadow-2: 0 0.0625rem 0rem 0.03rem hsla(var(--color-black), 0.3);
-$shadow-22: 0 0.625rem 0.5rem 0.1rem  hsla(var(--color-black), 0.3); // hover box-shadow to shadow-2
-// $shadow-22: 0 10px 15px -3px  hsla(var(--color-black), 0.3), 0 4px 6px -2px  hsla(var(--color-black), 0.3);
-
-
+  $shadow-0: 0 0.5rem 2rem 0 hsla(var(--color-black), 0.3);
+  $shadow-1: 0 0.25rem 0.75rem 0 hsla(var(--color-black), 0.3);
+  $shadow-2: 0 0.0625rem 0rem 0.03rem hsla(var(--color-black), 0.3);
+  $shadow-22: 0 0.625rem 0.5rem 0.1rem  hsla(var(--color-black), 0.3); // hover box-shadow to shadow-2
+  // $shadow-22: 0 10px 15px -3px  hsla(var(--color-black), 0.3), 0 4px 6px -2px  hsla(var(--color-black), 0.3);
+  // $shadow-3: 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
+  $shadow-primary-1: 0 0.125em 0.5em hsla(var(--color-primary), 0.3);
 
 //#endregion

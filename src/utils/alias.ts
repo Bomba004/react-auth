@@ -1,5 +1,6 @@
 // React|Core|Basic
 import React, {
+    ReactNode,
     useRef, useState, useEffect,
 } from "react";
 import { Link, NavLink , Outlet } from "react-router-dom";
@@ -80,7 +81,7 @@ import {type RootState } from '@/store';
 
 export {// Global
     // React|Core|Basic
-    React, Link, NavLink, Outlet, useRef, useState, useEffect, useForm,
+    type React, Link, NavLink, Outlet, type ReactNode, useRef, useState, useEffect, useForm,
     clsx,
     
     // Routes

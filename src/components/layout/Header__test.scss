@@ -38,7 +38,7 @@ header {
         border: 0.0625em solid transparent;
         border-radius: 0.25em;
         cursor: pointer;
-        @include trans($time: 0.1s);
+        @include trans((0.1s));
         
         a{ 
           display: block; width: 100%;
@@ -51,7 +51,7 @@ header {
               inset-inline-start: 0;
               inset-block-end: 0;
               width: 0; height: 0.0625em; background-color: $color;
-              @include trans($time: 0.5s);
+              @include trans((0.5s));
             }
           }
         }
@@ -115,7 +115,7 @@ header {
                   inset-inline-start: 0;
                   inset-block-end: 0;
                   width: 0; height: 0.0625em; background-color: $color;
-                  @include trans($time: 0.5s);
+                  @include trans((0.5s));
                 }
               }
             }

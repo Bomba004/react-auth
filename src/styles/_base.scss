@@ -1,0 +1,384 @@
+@use './utils' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  /* Colors - Light Theme (Default) */
+  --color-primary: 260, 80%, 60%;
+  /* hsl(260, 80%, 60%) */
+  --color-secondary: 000, 80%, 70%;
+  /* hsl(0, 80%, 70%) */
+  --color-gray: 260, 10%, 70%;
+  /* hsl(260, 10%, 70%) */
+
+  --color-white: 260, 95%, 95%;
+  /* hsl(260, 95%, 95%) */
+  --color-black: 260, 5%, 10%;
+  /* hsl(260, 4%, 10%) */
+
+  --color-background: 260, 95%, 95%;
+  /* hsl(260, 95%, 95%) */
+  --color-muted: 260, 5%, 50%;
+  /* hsl(260, 5%, 50%) */
+
+
+
+
+  /* تعريف متغيرات الألوان */
+  --success: 150, 80%, 40%;
+  --warning: 40, 90%, 50%;
+  --danger: 0, 90%, 50%;
+  --warning: 40, 90%, 50%;
+  --info: 200, 70%, 60%;
+  --light: 260, 95%, 95%;
+  --dark: 260, 5%, 10%;
+
+  --success-bg: hsla(var(--success), 0.6);
+  --success-bar: hsla(var(--success), 0.8);
+  --success-shd: hsla(var(--success), 0.9);
+  --error-bg: hsla(var(--danger), 0.4);
+  --error-bar: hsla(var(--danger), 0.8);
+  --error-shd: hsla(var(--danger), 0.9);
+  --info-bg: hsla(var(--info), 0.4);
+  --info-bar: hsla(var(--info), 0.8);
+  --info-shd: hsla(var(--info), 0.9);
+  --warning-bg: hsla(var(--warning), 0.4);
+  --warning-bar: hsla(var(--warning), 0.8);
+  --warning-shd: hsla(var(--warning), 0.9);
+
+  --light-bg: hsla(var(--light), 0.6);
+  --light-bar: hsla(var(--light), 0.8);
+  --light-shd: hsla(var(--light), 0.9);
+
+  --dark-bg: hsla(var(--dark), 0.6);
+  --dark-bar: hsla(var(--dark), 0.8);
+  --dark-shd: hsla(var(--dark), 0.9);
+
+
+
+
+  --text-color: hsl(var(--color-black));
+  
+  /* Font */
+  // --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family: "Cairo", sans-serif, 'Inter', system-ui, -apple-system, sans-serif;
+
+}
+
+/* Light Theme */
+:root[class='light'] {
+  --color-background: 260, 95%, 95%;
+  /* RGB(255, 255, 255) -> HSL(0, 0%, 100%) */
+  --color-muted: 260, 5%, 50%;
+  /* RGB(113, 113, 122) -> HSL(260, 5%, 50%) */
+}
+
+/* Dark Theme */
+:root[class='dark'] {
+  --color-gray: 260, 10%, 30%;
+  --color-white: 260, 5%, 5%;
+  --color-black: 260, 96%, 90%;
+
+
+
+  --color-background: 260, 5%, 5%;
+  /* RGB(24, 24, 27) -> HSL(260, 4%, 10%) */
+  --color-muted: 260, 95%, 45%;
+  /* RGB(161, 161, 170) -> HSL(260, 5%, 65%) */
+
+  --success: 150, 20%, 60%;
+  --warning: 40, 10%, 50%;
+  --danger: 0, 10%, 50%;
+  --light: 260, 20%, 8%;
+  --dark: 260, 20%, 90%;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: 240, 4%, 10%;
+    --color-black: 240, 96%, 90%;
+    --color-muted: 240, 5%, 65%;
+  }
+}
+*/
+
+/*#region -------------------- { BASE } ----------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+* {
+  border-color: hsla(var(--color-black), 0
+      /* 0.1 */
+    );
+  // outline: none;
+  outline-color: inherit;
+}
+
+*:not(input[text], input[number], input[email], input[password]) {
+  user-select: none;
+}
+
+*::selection {
+  background: hsl(var(--color-primary));
+  text-shadow: none;
+}
+
+* input {
+  -webkit-text-fill-color: hsl(var(--color-black))
+    /* !important */
+  ;
+}
+
+/* تغيير لون النص إلى أحمر */
+/* *::-moz-selection { color: var(--info-color); background: var(--warning-color); text-shadow: none; } */
+
+
+@layer base {
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    font-family: var(--font-family);
+
+    color: hsl(var(--color-black));
+    fill: hsl(var(--color-black));
+    // background: linear-gradient(
+    //   to bottom right,
+    //   hsla(var(--color-primary), 0.1),
+    //   hsla(var(--color-secondary), 0.1)
+    // );
+    margin-top: env(safe-area-inset-top);
+    background: hsla(var(--color-background));
+
+    @include scrollbar(
+      $width: 0.5em,
+      $thumb-color: hsl(var(--color-primary)),
+      $thumb-hover-color: hsla(var(--color-primary), 0.8),
+      $radius: 0.5em
+    );
+      
+    font-size: 1rem;
+    // font-size: 10px;
+    // @include md { &{ font-size: 12px; } }
+    // @include lg { &{ font-size: 14px; } }
+    // @include xl { &{ font-size: 16px; } }
+  }
+
+  #root {
+    /* @apply w-full h-full; */
+    width: 100dvw;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+    overflow-y: auto;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    background-color: hsl(var(--color-primary));
+    color: hsl(var(--color-black));
+    @include trans(0.2s);
+
+  }
+
+  .btn-primary:hover {
+    background-color: hsl(var(--color-primary-dark));
+  }
+
+  .btn-secondary {
+    background-color: hsl(var(--color-secondary));
+    color: hsl(var(--color-black));
+    @include trans(0.2s);
+  }
+
+  .btn-secondary:hover {
+    background-color: hsl(var(--color-secondary-dark));
+  }
+
+  .input {
+    @apply w-full px-4 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200;
+  }
+
+}
+
+/*#endregion*/
+
+
+
+
+/* 
+.text-primary {
+  color: hsl(var(--color-primary));
+}
+
+.text-primary-light {
+  color: hsl(var(--color-primary-light));
+} */
+/* 
+.text-muted { color: hsl(var(--color-black)); }
+.text-muted-05 { color: hsla(var(--color-black), 0.5); }
+.text-muted-06 { color: hsla(var(--color-black), 0.6); } */
+
+
+/* RTL Support */
+[dir="rtl"] .space-x-2> :not([hidden])~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+[dir="rtl"] .space-x-4> :not([hidden])~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Error styles */
+.error {
+  color: hsl(var(--danger-color)) !important;
+  border-color: hsl(var(--danger-color)) !important;
+}
+
+.error input::placeholder {
+  color: hsl(var(--danger-color)) !important;
+}
+
+.error .icon {
+  border-color: hsl(var(--danger-color)) !important;
+}
+
+/* SweetAlert2 */
+div:where(.swal2-container) div:where(.swal2-timer-progress-bar) {
+  background-color: hsl(var(--color-black)) !important;
+}
+
+/* Toastify */
+/* .Toastify {
+  --toastify-color-primary: hsl(var(--color-primary));
+  --toastify-color-primary-dark: hsl(var(--color-primary-dark));
+  --toastify-color-primary-light: hsl(var(--color-primary-light));
+  --toastify-color-secondary: hsl(var(--color-secondary));
+  --toastify-color-secondary-dark: hsl(var(--color-secondary-dark));
+  --toastify-color-secondary-light: hsl(var(--color-secondary-light));
+  --toastify-color-black: hsl(var(--color-black));
+  --toastify-color-background: hsl(var(--color-background));
+  --toastify-color-muted: hsl(var(--color-muted));
+  --toastify-color-success: hsl(var(--success-color));
+  --toastify-color-warning: hsl(var(--warning-color));
+  --toastify-color-danger: hsl(var(--danger-color));
+
+  --toastify-color-light: hsla(var(--color-black), 0.05);
+  --toastify-text-color-light: hsl(var(--color-black));
+}
+
+[dir="rtl"] .Toastify {
+  --toastify-toast-right: max(var(--toastify-toast-offset), env(safe-area-inset-left));
+  --toastify-toast-left: max(var(--toastify-toast-offset), env(safe-area-inset-right));
+}
+.Toastify__toast-container{
+  color: hsl(var(--color-black));
+} */
+
+/* .Toastify__toast-theme--light {
+  background: var(--toastify-color-light);
+  color: var(--toastify-text-color-light);
+} */
+
+
+
+/* منع المتصفح من تغيير خلفية الحقل عند الإكمال التلقائي */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: inherit !important;
+  /* تغيير لون النص إلى أحمر */
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  /* إزالة الخلفية */
+  // transition: background-color 5000s ease-in-out 0s !important; /* منع التغيير التلقائي للخلفية */
+  @include trans((background-color, 5000s, ease-in-out, 0s));
+}
+
+
+// #root{
+//   background-color: transparent;
+//   background-image: url(https://picsum.photos/200/300);
+//   background-size: cover;
+//   background-position: center;
+//   background-repeat: no-repeat;
+// }
+//#region ( Global )
+
+
+///* Global Styles | Classes */
+.bg-glass {
+  @include bg-glass($bg: hsla(var(--color-black), 0.01),
+    $border: 0.0625em solid hsla(var(--color-black), 0.1),
+    $shadow: none,
+    $radius: 0.5em,
+    $blur: 0.5em);
+}
+
+.bg-glass-full {
+  @include bg-glass($bg: hsla(var(--color-black), 0.05),
+    $border: 0.0625em solid hsla(var(--color-black), 0.1),
+    $shadow: 0 0 0 0 transparent,
+    $radius: 50%,
+    $blur: 0.5em);
+}
+
+hr {
+  width: 100%;
+  height: 0.1em;
+  padding: 0 1em;
+  border-radius: 0.5em;
+  @extend .bg-glass;
+
+}
+
+hr.horizontal {
+  /* أفقي */
+  width: 0.065em;
+  height: 100%;
+  padding: 1em 0;
+}
+
+// button {
+//   &{
+//     text-transform: capitalize;
+//     @include trans((0.3s));
+//   }
+//   &.btn-3{ @include btn(hsla(var(--color-black)), hsla(var(--color-black), 0.5) ); }
+//   &:disabled {
+//     color: hsla(var(--color-black), 0.3);                     // نص باهت
+//     cursor: no-drop;                   // المؤشر المناسب
+//     box-shadow: none;                  // بدون ظل
+//     opacity: 0.7;                      // شفافية خفيفة
+//     transform: none !important;        // إزالة أي تحريك
+//   }
+// }
+
+
+// .active{ background-color:#ff0 !important; color:#f00 !important; }
+.bg{
+  &1{ background: #f006; }
+  &2{ background: #00f6; }
+  &3{ background: #ff06; }
+  &4{ background: #0f06; }
+}
+.br{
+  &1, &2, &3, &4{ border: 0.125em solid; }
+  &1{ border-color: #f006; }
+  &2{ border-color: #00f6; }
+  &3{ border-color: #ff06; }
+  &4{ border-color: #0f06; }
+}

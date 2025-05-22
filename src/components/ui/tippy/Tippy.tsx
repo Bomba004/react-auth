@@ -1,51 +1,58 @@
 // https://popper.js.org/docs/v2/tutorial/
-import React, { ReactNode, useRef } from "react";
+import React from "react";
+import { ReactNode, useRef } from "@/utils/alias";
 import Tippy from "@tippyjs/react";
-import "./tippy.css";
+import "./tippy.scss";
 
+// نوع الخصائص التي يمكن تمريرها للمكون
 export type TTooltip = {
-  content?: string;
-  children?: ReactNode;
-  className?: string;
-  placement?: "top" | "bottom" | "left" | "right";
-  on?: "mouseenter" | "focus" | "click" | "manual";
-  maxWidth?: string;
-  arrow?: boolean;
-  animation?: "fade" | "scale";
-  targetSelector?: string; // تحديد عنصر معين داخل الأب لعرض التلميح عليه
-  type?: "success" | "error" | "warning" | "info"; // إضافة تأثيرات الحالة
-  show?: boolean;
+  content?: string; // نص التلميح
+  children?: ReactNode; // العنصر الذي سيتم إرفاق التلميح به
+  className?: string; // كلاس مخصص للتلميح
+  placement?: "top" | "bottom" | "left" | "right"; // موضع التلميح
+  on?: "mouseenter" | "focus" | "click" | "manual"; // طريقة تشغيل التلميح
+  maxWidth?: string; // الحد الأقصى لعرض التلميح
+  arrow?: boolean; // هل يظهر السهم
+  animation?: "fade" | "scale"; // نوع الأنميشن
+  targetSelector?: string; // لاختيار عنصر معين داخل children لربط التلميح به
+  type?: "success" | "error" | "warning" | "info"; // نوع التلميح (لون/نمط)
+  show?: boolean; // هل يتم عرض التلميح
 };
 
+// المكون الرئيسي
 export const Ty: React.FC<TTooltip> = ({
   content,
   children,
   className,
   placement = "top",
   on = "mouseenter",
-  maxWidth = "250px",
+  maxWidth = "16rem",
   arrow = true,
   animation = "fade",
   targetSelector,
   type,
-  show = false
+  show = true
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
 
+  // للحصول على العنصر الهدف الذي سيتم إظهار التلميح عليه
   const getTargetElement = () => {
     if (wrapperRef.current && targetSelector) {
-      return wrapperRef.current.querySelector(targetSelector) as HTMLElement;
+      const el = wrapperRef.current.querySelector(targetSelector);
+      if (el instanceof HTMLElement) return el;
     }
     return wrapperRef.current;
   };
 
-  // تحديد كلاس بناءً على الحالة
+  // كلاس نوع التلميح (نجاح، خطأ... إلخ)
   const typeClass = type ? `tooltip-${type}` : "";
 
-  // التأكد من أن children هو عنصر React صالح
+  // التأكد أن children عبارة عن عنصر React صالح
   const validChildren = React.isValidElement(children) ? children : <span>{children}</span>;
 
-  if (!show) return validChildren;
+  // في حالة show = false لا يتم إظهار التلميح، فقط عرض العنصر كما هو
+  if (!show) return <div ref={wrapperRef}>{validChildren}</div>;
+
   return (
     <div ref={wrapperRef}>
       <Tippy
@@ -55,15 +62,19 @@ export const Ty: React.FC<TTooltip> = ({
         arrow={arrow}
         maxWidth={maxWidth}
         trigger={on}
-        getReferenceClientRect={() => getTargetElement()?.getBoundingClientRect() || new DOMRect()}
+        getReferenceClientRect={() =>
+          getTargetElement()?.getBoundingClientRect() || new DOMRect()
+        }
         popperOptions={{
           modifiers: [
             { name: "preventOverflow", options: { boundary: "window" } },
-            { name: "flip", options: { fallbackPlacements: ["top", "bottom", "left", "right"] } },
+            {
+              name: "flip",
+              options: { fallbackPlacements: ["top", "bottom", "left", "right"] },
+            },
           ],
         }}
-        className={typeClass + (className ? ` ${className}` : '')}
-        // {...(className ? { className } : {})} // إصلاح تمرير className
+        className={`${typeClass}${className ? ` ${className}` : ""}`}
       >
         {validChildren}
       </Tippy>

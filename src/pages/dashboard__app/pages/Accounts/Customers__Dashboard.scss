@@ -106,7 +106,7 @@ $border: var(--color-gray);
         // border: 0.0625em solid hsl($border);
 
         font-size: 90%;
-        @include trans($time: 0.3s);
+        @include trans((0.3s));
 
         &:focus {
           outline: none;
@@ -181,7 +181,7 @@ $border: var(--color-gray);
       border-radius: 0.8em;
       cursor: pointer;
       font-size: 85%;
-      @include trans($time: 0.2s);
+      @include trans((0.2s));
       display: inline-flex;
       align-items: center;
       gap: 0.6em;

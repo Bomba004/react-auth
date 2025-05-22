@@ -67,7 +67,7 @@ $color-white-70: hsla(var(--color-primary), 0.7);
     border-radius: 0.5em;
     background-color: $color-white-10;
     color: $color-black;
-    @include trans($time: 0.3s, $easing: ease);
+    @include trans((0.3s, ease));
 
     &:hover {
       background-color: $color-white-20;

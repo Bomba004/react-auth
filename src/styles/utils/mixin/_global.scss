@@ -1,20 +1,48 @@
 // 📁 _global.scss
+@use "sass:list";
+@use "sass:meta";
 
-/// Transition:-
-@mixin trans(
-  $property: all,
-  $time: 0.3s,
-  $easing: ease,
-  $delay: 0s
-) {
-  transition: $property $time $easing $delay;
+//#region  Transition:-
+/// مكسن trans متقدم
+/// يدعم:
+/// - خاصية واحدة كسلسلة نصية
+/// - خاصية واحدة كمصفوفة (مع مدة وزمن تأخير... إلخ)
+/// - قائمة خصائص، كل واحدة تحتوي على (الخاصية، المدة، الانحناء، التأخير)
+///
+/// ✅ أمثلة استخدام:
+/// @include trans(opacity);
+/// @include trans((opacity, 0.4s, ease-in));
+/// @include trans((opacity, 0.4s), (transform, 0.3s, ease-in-out));
+@mixin trans($transitions...) {
+  $result: ();
+  
+  @each $item in $transitions {
+    @if meta.type-of($item) == 'list' {
+      $len: list.length($item);
+
+      // استخرج القيم باستخدام دوال list الحديثة
+      $property: list.nth($item, 1);
+      $duration: if($len >= 2, list.nth($item, 2), 0.3s);
+      $easing: if($len >= 3, list.nth($item, 3), ease);
+      $delay: if($len >= 4, list.nth($item, 4), 0s);
+
+      $transition: #{$property} #{$duration} #{$easing} #{$delay};
+      $result: list.append($result, $transition, comma);
+    } @else {
+      // إذا كانت خاصية واحدة كنص
+      $result: list.append($result, #{$item} 0.3s ease 0s, comma);
+    }
+  }
+  
+  transition: $result;
 }
 
-/// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+//#endregion
 
+//#region  Scrollbar:-
 @mixin scrollbar(
   /* العرض */
-  $width: 0.5em,
+  $width: 0.0001em,
   /* الخلفية */
   $track-color: transparent,
   /* المقبض (thumb) */
@@ -27,9 +55,9 @@
 
   // للمتصفحات التي تدعم Webkit (Chrome, Safari, Edge)
   &::-webkit-scrollbar {
-    width: $width;
-    height: $width;
-    @include trans($time: 0.3s);
+    width: $width !important;
+    height: $width !important;
+    @include trans((0.3s));
   }
 
   &::-webkit-scrollbar-track {
@@ -51,7 +79,9 @@
   scrollbar-width: thin; // "auto" أو "thin" أو "none"
   scrollbar-color: $thumb-color $track-color; // المقبض ثم الخلفية
 }
-/// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+//#endregion
+
+//#region  Button:-
 @mixin btn($color: #333, $color-hover: #999 , $bg: transparent, $bg-hover: transparent) {
   color: $color;
   fill: $color;
@@ -59,7 +89,7 @@
   text-transform: capitalize;
   font-weight: 500;
 
-  @include trans($time: 0.3s);
+  @include trans((0.3s));
 
   &:hover:not(:disabled) {
     color: $color-hover;
@@ -69,7 +99,9 @@
 
   @content;
 }
+//#endregion
 
+//#region  Glass:-
 @mixin bg-glass($bg: hsla(var(--color-black), 0.05),
   $border: 0.0625em solid hsla(var(--color-black), 0.1),
   $shadow: 0 0.5em 2em 0 hsla(var(--color-black), 0.3),
@@ -102,4 +134,4 @@
     $radius: 0,
     $blur: 0);
 }
-/// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+//#endregion

@@ -21,7 +21,7 @@
     box-shadow: $shadow-2;
     overflow: hidden;
     margin: 0.5em 0.25em; // 16px → rem
-    @include trans($time: 0.3s);
+    @include trans((0.3s));
     max-width: 100%;
     
     &:hover {
@@ -123,7 +123,7 @@
     align-items: center;
     padding: 0.625rem 0.9375rem;
     border-radius: 0.3125rem; // 5px → rem
-    @include trans(background-color, 0.2s);
+    @include trans((background-color, 0.2s));
 
     &.income {
       border-right: 0.1875rem solid $success;
