@@ -366,18 +366,16 @@ hr.horizontal {
 
 
 // .active{ background-color:#ff0 !important; color:#f00 !important; }
-.bg1 {
-  background: #f00;
+.bg{
+  &1{ background: #f006; }
+  &2{ background: #00f6; }
+  &3{ background: #ff06; }
+  &4{ background: #0f06; }
 }
-
-.bg2 {
-  background: #00f;
-}
-
-.bg3 {
-  background: #ff0;
-}
-
-.bg4 {
-  background: #0f0;
+.br{
+  &1, &2, &3, &4{ border: 0.125em solid; }
+  &1{ border-color: #f006; }
+  &2{ border-color: #00f6; }
+  &3{ border-color: #ff06; }
+  &4{ border-color: #0f06; }
 }

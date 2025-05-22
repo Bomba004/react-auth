@@ -15,22 +15,22 @@
 // #region : rtl : التحكم بالاتجاه
   
 @function to_hsla($color) {
-  $h: color.hue($color);
-  $s: color.saturation($color);
-  $l: color.lightness($color);
+  $h: color.channel($color, "hue", $space: hsl);
+  $s: color.channel($color, "saturation", $space: hsl);
+  $l: color.channel($color, "lightness", $space: hsl);
   $a: color.alpha($color); // الشفافية (1 إذا لم يكن شفافًا)
 
   @return hsla($h, $s, $l, $a);
 }
 
-  // دالة لتحويل اللون إلى HSLA
-  @function get_hsl($color) {
-    $h: color.hue($color);
-    $s: color.saturation($color);
-    $l: color.lightness($color);
-    // $a: alpha($color);
-    @return "#{$h}, #{$s}, #{$l}";
-  }
+// دالة لتحويل اللون إلى HSLA
+@function get_hsl($color) {
+  $h: color.channel($color, "hue", $space: hsl);
+  $s: color.channel($color, "saturation", $space: hsl);
+  $l: color.channel($color, "lightness", $space: hsl);
+  // $a: alpha($color);
+  @return "#{$h}, #{$s}, #{$l}";
+}
   // دالة لتغميق اللون
   @function darken-color($color, $amount) { @return mix($black, $color, $amount); } // darken-color
   // دالة لتفتيح اللون

@@ -5,14 +5,14 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   css: {
-    preprocessorOptions: {
-      scss: {
-        quietDeps: true, // يتجاهل تحذيرات dependencies
-        logger: {
-          warn: () => {} // يعطل جميع تحذيرات SCSS
-        }
-      }
-    }
+    // preprocessorOptions: {
+    //   scss: {
+    //     quietDeps: true, // يتجاهل تحذيرات dependencies
+    //     logger: {
+    //       warn: () => {} // يعطل جميع تحذيرات SCSS
+    //     }
+    //   }
+    // }
   },
   // base: "/react-auth/", // تأكد أن هذا يطابق اسم المستودع على GitHub
   server: {
