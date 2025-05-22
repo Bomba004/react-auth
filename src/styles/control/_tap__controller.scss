@@ -20,20 +20,38 @@ $primary: hsla(var(--color-primary));
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      overflow: hidden;
-      &:hover{ overflow: auto; }
+      overflow: scroll;
+      scrollbar-gutter: stable both-edges;// يحجز مساحة لشريط التمرير حتى لو لم يكن موجودًا (يمنع الانزياح عند ظهور/اختفاء الشريط) | مفيد بشكل خاص لمواقع الويب التي قد يظهر/يختفي فيها شريط التمرير حسب المحتوى
+      // &:hover, &:focus-within { overflow: auto; }
+
+      @include scrollbar($width: 0.01em,
+      $thumb-color: transparent,
+      $thumb-hover-color: transparent,
+      $radius: 0.5em);
     }
     button{
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       padding: 0.5em 1em;
       border-bottom: 0.125em solid transparent;
-      gap: 0.25em;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.125em;
+      // font-size: 100%;
 
-      .icon{ font-size: 60%; }
-      &.active{ color: $primary; fill: $primary; border-color: $primary; font-weight: 700; }
+      .icon{ font-size: 120%; }
+      .label{ font-size: 80%; font-weight: 600; }
+      &.active{ color: $primary; fill: $primary; border-color: $primary; font-weight: 800; scale: 110%; transform: translateY(-0.125em); }
+      
+      &{// Media Queries:
+        @include md {
+          flex-direction: row;
+          gap: 0.25em;
+          .icon{ font-size: 80%; }
+          .label{ font-size: 100%; }
+        }
+      }
     }
   }
 

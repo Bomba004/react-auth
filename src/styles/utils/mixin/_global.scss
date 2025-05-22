@@ -12,9 +12,9 @@
 
 /// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
-@mixin custom-scrollbar(
+@mixin scrollbar(
   /* العرض */
-  $width: 8px,
+  $width: 0.5em,
   /* الخلفية */
   $track-color: transparent,
   /* المقبض (thumb) */
@@ -22,7 +22,7 @@
   /* التفاعل عند التحويم (hover) */
   $thumb-hover-color: #555,
   /* الحواف */
-  $radius: 10px
+  $radius: 0.5em
 ) {
 
   // للمتصفحات التي تدعم Webkit (Chrome, Safari, Edge)
@@ -40,7 +40,7 @@
   &::-webkit-scrollbar-thumb {
     background-color: $thumb-color;
     border-radius: $radius;
-    border: 2px solid $track-color; // لإعطاء فراغ وهمي حول المقبض
+    border: 0.125em solid $track-color; // لإعطاء فراغ وهمي حول المقبض
   }
 
   &::-webkit-scrollbar-thumb:hover {

@@ -159,11 +159,10 @@
     margin-top: env(safe-area-inset-top);
     background: hsla(var(--color-background));
 
-    @include custom-scrollbar($width: 0.5em,
+    @include scrollbar($width: 0.5em,
       $thumb-color: hsl(var(--color-primary)),
       $thumb-hover-color: hsla(var(--color-primary), 0.8),
-      $radius: 8px);
-
+      $radius: 0.5em);
   }
 
   #root {
